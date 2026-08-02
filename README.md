@@ -1,8 +1,8 @@
-# Portfolio
+# Deogenes Gregorio S. Maranan's Portfolio
 
-Personal portfolio website showcasing my experience, projects, technical skills, certifications, and achievements in software development, cybersecurity, and artificial intelligence.
+A personal developer portfolio built with React, TypeScript, and Vite. It showcases my projects, technical skills, experience, certifications, and achievements.
 
-Built with modern frontend technologies and deployed using Cloudflare Pages.
+[![Cloudflare Pages](https://img.shields.io/badge/deployed-cloudflare-orange)](https://deogenesmaranan.dev)
 
 ## Tech Stack
 
