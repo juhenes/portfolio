@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react';
 
 interface ScreenContainerProps {
   children: ReactNode;
@@ -15,12 +15,12 @@ interface ScreenContainerProps {
 export default function ScreenContainer({
   children,
   fadeOut,
-  className = "",
+  className = '',
 }: ScreenContainerProps) {
   return (
     <div
       className={`bg-black font-mono text-dx0-orange transition-opacity duration-500 ${
-        fadeOut ? "opacity-0" : "opacity-100"
+        fadeOut ? 'opacity-0' : 'opacity-100'
       } ${className}`}
     >
       {children}

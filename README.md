@@ -8,34 +8,34 @@ A personal developer portfolio built with React, TypeScript, and Vite. It showca
 
 ### Frontend
 
-* React
-* TypeScript
-* Vite
-* Tailwind CSS
-* Framer Motion
-* React Icons
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Framer Motion
+- React Icons
 
 ### Development Tools
 
-* ESLint
-* Prettier
-* Git
+- ESLint
+- Prettier
+- Git
 
 ### Deployment
 
-* Cloudflare Pages
+- Cloudflare Pages
 
 ## Features
 
-* Responsive design for desktop, tablet, and mobile
-* Dark-themed developer-focused interface
-* Animated sections and transitions
-* Project showcase
-* Experience timeline
-* Skills and technology overview
-* Certifications and achievements section
-* Resume download
-* Contact section
+- Responsive design for desktop, tablet, and mobile
+- Dark-themed developer-focused interface
+- Animated sections and transitions
+- Project showcase
+- Experience timeline
+- Skills and technology overview
+- Certifications and achievements section
+- Resume download
+- Contact section
 
 ## Project Structure
 

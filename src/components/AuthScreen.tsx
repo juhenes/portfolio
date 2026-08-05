@@ -2,9 +2,9 @@ import {
   useTypewriter,
   useSequentialReveal,
   useFadeAndComplete,
-} from "../hooks";
-import ScreenContainer from "./ScreenContainer";
-import { AUTH_INJECTION_COMMAND, AUTH_LOGS, TIMING } from "../config";
+} from '../hooks';
+import ScreenContainer from './ScreenContainer';
+import { AUTH_INJECTION_COMMAND, AUTH_LOGS, TIMING } from '../config';
 
 interface AuthScreenProps {
   onComplete: () => void;
@@ -71,7 +71,7 @@ export default function AuthScreen({ onComplete }: AuthScreenProps) {
           {/* Terminal Output */}
           <div className="min-h-[170px] rounded border border-dx0-orange/20 bg-black p-4">
             {logs.map((line, index) => (
-              <p key={index} className={line === "" ? "h-4" : "mb-1"}>
+              <p key={index} className={line === '' ? 'h-4' : 'mb-1'}>
                 {line}
               </p>
             ))}

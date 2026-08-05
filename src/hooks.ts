@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { TIMING } from "./config";
+import { useEffect, useState } from 'react';
+import { TIMING } from './config';
 
 /**
  * Reveals `text` one character at a time, every `delayMs`.
@@ -13,12 +13,12 @@ import { TIMING } from "./config";
  * counter that can drift out of sync with what's actually on screen.
  */
 export function useTypewriter(text: string, delayMs: number) {
-  const [typed, setTyped] = useState("");
+  const [typed, setTyped] = useState('');
   const [done, setDone] = useState(false);
 
   // Reset whenever the target text changes.
   useEffect(() => {
-    setTyped("");
+    setTyped('');
     setDone(false);
   }, [text]);
 

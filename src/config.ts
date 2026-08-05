@@ -24,22 +24,22 @@ export const TIMING = {
 } as const;
 
 export const BOOT_LOGS = [
-  "[ OK ] Initializing hardware...",
-  "[ OK ] Mounting filesystem...",
-  "[ OK ] Starting system services...",
-  "[ OK ] Loading network interfaces...",
-  "[ OK ] Establishing secure connection...",
-  "[ OK ] Loading AI modules...",
-  "[ OK ] Starting portfolio daemon...",
-  "[ OK ] Launching portfolio console...",
+  '[ OK ] Initializing hardware...',
+  '[ OK ] Mounting filesystem...',
+  '[ OK ] Starting system services...',
+  '[ OK ] Loading network interfaces...',
+  '[ OK ] Establishing secure connection...',
+  '[ OK ] Loading AI modules...',
+  '[ OK ] Starting portfolio daemon...',
+  '[ OK ] Launching portfolio console...',
 ];
 
 export const AUTH_INJECTION_COMMAND = "' OR '1'='1";
 
 export const AUTH_LOGS = [
-  "> Injection detected.",
-  "> Curiosity confirmed.",
-  "> Granting Explorer access...",
-  "",
-  "> Launching shell...",
+  '> Injection detected.',
+  '> Curiosity confirmed.',
+  '> Granting Explorer access...',
+  '',
+  '> Launching shell...',
 ];

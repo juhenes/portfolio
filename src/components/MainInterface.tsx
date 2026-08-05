@@ -1,19 +1,20 @@
-import { useState } from "react";
-import ScreenContainer from "./ScreenContainer";
-import Console from "./Console";
-import { SHORTCUTS } from "../data/shortcuts";
-import { COMMANDS } from "../data/commands";
+import { useState } from 'react';
+import ScreenContainer from './ScreenContainer';
+import Console from './Console';
+import { SHORTCUTS } from '../data/shortcuts';
+import { COMMANDS } from '../data/commands';
 
 export default function MainInterface() {
   const [commands, setCommands] = useState<string[]>([]);
-  const [currentModule, setCurrentModule] = useState<string>("Welcome");
+  const [currentModule, setCurrentModule] = useState<string>('Welcome');
   const [consoleFullscreen, setConsoleFullscreen] = useState<boolean>(false);
-  const [mobileShortcutsOpen, setMobileShortcutsOpen] = useState<boolean>(false);
+  const [mobileShortcutsOpen, setMobileShortcutsOpen] =
+    useState<boolean>(false);
 
   function executeCommand(cmd: string) {
     const def = COMMANDS.find((c) => c.cmd === cmd);
 
-    if (def && def.cmd === "clear") {
+    if (def && def.cmd === 'clear') {
       setCommands([]);
       return;
     }
@@ -22,14 +23,14 @@ export default function MainInterface() {
 
     if (def && def.terminalOnly) {
       setConsoleFullscreen(true);
-      setCurrentModule("Console");
+      setCurrentModule('Console');
       return;
     }
 
     setConsoleFullscreen(false);
 
-    if (cmd.startsWith("open ")) {
-      setCurrentModule(cmd.replace("open ", ""));
+    if (cmd.startsWith('open ')) {
+      setCurrentModule(cmd.replace('open ', ''));
     }
   }
 
@@ -49,7 +50,9 @@ export default function MainInterface() {
       {/* Mobile drawer overlay */}
       <div
         className={`fixed inset-0 z-40 transition-opacity ${
-          mobileShortcutsOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          mobileShortcutsOpen
+            ? 'opacity-100 pointer-events-auto'
+            : 'opacity-0 pointer-events-none'
         }`}
         onClick={() => setMobileShortcutsOpen(false)}
       >
@@ -57,13 +60,18 @@ export default function MainInterface() {
 
         <aside
           className={`absolute top-0 left-0 h-full w-64 bg-neutral-900 p-4 transform transition-transform ${
-            mobileShortcutsOpen ? "translate-x-0" : "-translate-x-full"
+            mobileShortcutsOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex justify-between items-center mb-4">
             <div className="text-white font-semibold">Shortcuts</div>
-            <button onClick={() => setMobileShortcutsOpen(false)} className="text-white">×</button>
+            <button
+              onClick={() => setMobileShortcutsOpen(false)}
+              className="text-white"
+            >
+              ×
+            </button>
           </div>
 
           <div className="flex flex-col items-start gap-3">
@@ -76,7 +84,8 @@ export default function MainInterface() {
                 }}
                 className="flex items-center gap-3 rounded px-2 py-2 w-full text-white hover:bg-neutral-800"
               >
-                {s.icon && (s.icon.endsWith(".svg") || s.icon.startsWith("/")) ? (
+                {s.icon &&
+                (s.icon.endsWith('.svg') || s.icon.startsWith('/')) ? (
                   <img src={s.icon} alt={s.label} className="h-5 w-5" />
                 ) : (
                   <div className="text-lg">{s.icon ?? s.label[0]}</div>
@@ -100,7 +109,8 @@ export default function MainInterface() {
               aria-label={s.label}
             >
               <div className="flex items-center justify-center">
-                {s.icon && (s.icon.endsWith(".svg") || s.icon.startsWith("/")) ? (
+                {s.icon &&
+                (s.icon.endsWith('.svg') || s.icon.startsWith('/')) ? (
                   <img src={s.icon} alt={s.label} className="h-6 w-6" />
                 ) : (
                   <div className="text-xl">{s.icon ?? s.label[0]}</div>
@@ -119,10 +129,16 @@ export default function MainInterface() {
           {/* Module content or expanded console for terminal-only commands */}
           <div className="flex-1 border rounded bg-neutral-950 p-4">
             {consoleFullscreen ? (
-              <Console commands={commands} onExecute={executeCommand} expanded={true} />
+              <Console
+                commands={commands}
+                onExecute={executeCommand}
+                expanded={true}
+              />
             ) : (
               <div className="h-full">
-                <p className="text-sm text-dx0-orange/60">Module content for {currentModule}</p>
+                <p className="text-sm text-dx0-orange/60">
+                  Module content for {currentModule}
+                </p>
               </div>
             )}
           </div>

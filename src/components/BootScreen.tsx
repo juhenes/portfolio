@@ -1,6 +1,6 @@
-import { useSequentialReveal, useFadeAndComplete } from "../hooks";
-import ScreenContainer from "./ScreenContainer";
-import { BOOT_LOGS, TIMING } from "../config";
+import { useSequentialReveal, useFadeAndComplete } from '../hooks';
+import ScreenContainer from './ScreenContainer';
+import { BOOT_LOGS, TIMING } from '../config';
 
 interface BootScreenProps {
   onComplete: () => void;
@@ -12,11 +12,7 @@ export default function BootScreen({ onComplete }: BootScreenProps) {
     TIMING.boot.lineDelay
   );
 
-  const fadeOut = useFadeAndComplete(
-    done,
-    TIMING.boot.settleDelay,
-    onComplete
-  );
+  const fadeOut = useFadeAndComplete(done, TIMING.boot.settleDelay, onComplete);
 
   return (
     <ScreenContainer fadeOut={fadeOut} className="flex h-screen w-screen p-8">
