@@ -1,7 +1,12 @@
+import ScreenContainer from "./ScreenContainer";
+
 export default function Terminal() {
   return (
-    <div className="flex h-screen items-center justify-center bg-black text-dx0-orange font-mono text-4xl">
+    <ScreenContainer
+      fadeOut={false}
+      className="flex h-screen items-center justify-center text-4xl"
+    >
       Hello World
-    </div>
+    </ScreenContainer>
   );
 }

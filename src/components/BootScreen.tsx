@@ -1,75 +1,33 @@
-import { useEffect, useState } from "react";
+import { useSequentialReveal, useFadeAndComplete } from "../hooks";
+import ScreenContainer from "./ScreenContainer";
+import { BOOT_LOGS, TIMING } from "../config";
 
 interface BootScreenProps {
   onComplete: () => void;
 }
 
-const bootLogs = [
-  "[ OK ] Initializing hardware...",
-  "[ OK ] Mounting filesystem...",
-  "[ OK ] Starting system services...",
-  "[ OK ] Loading network interfaces...",
-  "[ OK ] Establishing secure connection...",
-  "[ OK ] Loading AI modules...",
-  "[ OK ] Starting portfolio daemon...",
-  "[ OK ] Launching portfolio console...",
-];
+export default function BootScreen({ onComplete }: BootScreenProps) {
+  const { visible: visibleLogs, done } = useSequentialReveal(
+    BOOT_LOGS,
+    TIMING.boot.lineDelay
+  );
 
-const LINE_DELAY = 100;
-
-const LONGEST_LINE = Math.max(
-  ...bootLogs.map((line) => line.length)
-);
-
-const FINISH_DELAY = LONGEST_LINE * 12;
-
-export default function BootScreen({
-  onComplete,
-}: BootScreenProps) {
-  const [visibleLogs, setVisibleLogs] = useState<string[]>([]);
-  const [fadeOut, setFadeOut] = useState(false);
-
-  useEffect(() => {
-    let index = 0;
-
-    const interval = setInterval(() => {
-      if (index < bootLogs.length) {
-        setVisibleLogs((prev) => [...prev, bootLogs[index]]);
-        index++;
-      } else {
-        clearInterval(interval);
-
-        // Start fade
-        setTimeout(() => {
-          setFadeOut(true);
-        }, FINISH_DELAY - 550);
-
-        // Complete after fade
-        setTimeout(() => {
-          onComplete();
-        }, FINISH_DELAY);
-      }
-    }, LINE_DELAY);
-
-    return () => clearInterval(interval);
-  }, [onComplete]);
+  const fadeOut = useFadeAndComplete(
+    done,
+    TIMING.boot.settleDelay,
+    onComplete
+  );
 
   return (
-    <div
-      className={`flex h-screen w-screen bg-black p-8 font-mono text-dx0-orange transition-opacity duration-500 ${
-        fadeOut ? "opacity-0" : "opacity-100"
-      }`}
-    >
+    <ScreenContainer fadeOut={fadeOut} className="flex h-screen w-screen p-8">
       <div className="w-full">
-        <p className="mb-4 text-lg">
-          Raspberry Pi OS Bootloader v1.2026
-        </p>
+        <p className="mb-4 text-lg">dx0 Pi OS Bootloader v1.2026</p>
 
         {visibleLogs.map((log, i) => (
           <p key={i}>{log}</p>
         ))}
 
-        {visibleLogs.length === bootLogs.length && (
+        {done && (
           <>
             <br />
             <p>Portfolio OS v1.0</p>
@@ -79,6 +37,6 @@ export default function BootScreen({
           </>
         )}
       </div>
-    </div>
+    </ScreenContainer>
   );
 }
