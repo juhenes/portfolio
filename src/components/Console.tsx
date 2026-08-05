@@ -30,7 +30,10 @@ export default function Console({
         className={`p-4 overflow-auto font-mono text-sm ${expanded ? 'flex-1' : 'h-40'}`}
       >
         {commands.length === 0 ? (
-          <div className="text-dx0-orange/60">No commands executed yet.</div>
+          <div className="text-dx0-orange/60">
+            Type a command or click a shortcut. Type <b>help</b> and all command help
+            will show up.
+          </div>
         ) : (
           commands.map((c, i) => (
             <div key={i} className="mb-1">
