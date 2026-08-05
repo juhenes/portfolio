@@ -15,7 +15,7 @@ const bootLogs = [
   "[ OK ] Launching portfolio console...",
 ];
 
-const LINE_DELAY = 75;
+const LINE_DELAY = 100;
 
 const LONGEST_LINE = Math.max(
   ...bootLogs.map((line) => line.length)
@@ -27,6 +27,7 @@ export default function BootScreen({
   onComplete,
 }: BootScreenProps) {
   const [visibleLogs, setVisibleLogs] = useState<string[]>([]);
+  const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
     let index = 0;
@@ -38,7 +39,15 @@ export default function BootScreen({
       } else {
         clearInterval(interval);
 
-        setTimeout(onComplete, FINISH_DELAY);
+        // Start fade
+        setTimeout(() => {
+          setFadeOut(true);
+        }, FINISH_DELAY - 550);
+
+        // Complete after fade
+        setTimeout(() => {
+          onComplete();
+        }, FINISH_DELAY);
       }
     }, LINE_DELAY);
 
@@ -46,7 +55,11 @@ export default function BootScreen({
   }, [onComplete]);
 
   return (
-    <div className="flex h-screen w-screen bg-black p-8 font-mono text-dx0-orange">
+    <div
+      className={`flex h-screen w-screen bg-black p-8 font-mono text-dx0-orange transition-opacity duration-500 ${
+        fadeOut ? "opacity-0" : "opacity-100"
+      }`}
+    >
       <div className="w-full">
         <p className="mb-4 text-lg">
           Raspberry Pi OS Bootloader v1.2026
