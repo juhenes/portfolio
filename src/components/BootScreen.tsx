@@ -46,7 +46,7 @@ export default function BootScreen({
   }, [onComplete]);
 
   return (
-    <div className="flex h-screen w-screen bg-black p-8 font-mono text-green-400">
+    <div className="flex h-screen w-screen bg-black p-8 font-mono text-dx0-orange">
       <div className="w-full">
         <p className="mb-4 text-lg">
           Raspberry Pi OS Bootloader v1.2026
