@@ -3,9 +3,10 @@ import { useRef } from "react";
 interface ConsoleProps {
   commands: string[];
   onExecute: (cmd: string) => void;
+  expanded?: boolean;
 }
 
-export default function Console({ commands, onExecute }: ConsoleProps) {
+export default function Console({ commands, onExecute, expanded = false }: ConsoleProps) {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   function submit() {
@@ -16,8 +17,10 @@ export default function Console({ commands, onExecute }: ConsoleProps) {
   }
 
   return (
-    <div className="w-full rounded border border-dx0-orange/20 bg-black text-dx0-orange">
-      <div className="p-4 h-40 overflow-auto font-mono text-sm">
+    <div className={`w-full rounded border border-dx0-orange/20 bg-black text-dx0-orange ${
+      expanded ? "flex flex-col h-full" : ""
+    }`}>
+      <div className={`p-4 overflow-auto font-mono text-sm ${expanded ? "flex-1" : "h-40"}`}>
         {commands.length === 0 ? (
           <div className="text-dx0-orange/60">No commands executed yet.</div>
         ) : (
