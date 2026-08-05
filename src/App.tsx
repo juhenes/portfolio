@@ -16,7 +16,7 @@ export default function App() {
         Skip to main content
       </a>
 
-      <MainInterface introActive={!authenticated} />
+      {authenticated && <MainInterface />}
 
       {!booted && (
         <div className="fixed inset-0 z-50">
