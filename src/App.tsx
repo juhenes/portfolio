@@ -1,7 +1,7 @@
 import { useState } from "react";
 import BootScreen from "./components/BootScreen";
 import AuthScreen from "./components/AuthScreen";
-import Terminal from "./components/Terminal";
+import MainInterface from "./components/MainInterface";
 
 export default function App() {
   const [booted, setBooted] = useState(false);
@@ -19,5 +19,5 @@ export default function App() {
     );
   }
 
-  return <Terminal />;
+  return <MainInterface />;
 }
