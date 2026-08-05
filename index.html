@@ -2,74 +2,145 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deogenes Maranan Portfolio | Frontend, Software, CTF</title>
+
+    <link rel="canonical" href="https://deogenesmaranan.dev/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#000000" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+
     <meta
       name="description"
-      content="Portfolio of Deogenes Gregorio Maranan, a software engineer, cybersecurity enthusiast, AI developer, and CTF player from the Philippines."
+      content="Portfolio of Deogenes Gregorio Maranan from the Philippines, a Computer Science Graduate, Software Engineer, Frontend Developer, Cybersecurity Enthusiast, AI Enthusiast, and CTF Player."
     />
     <meta name="author" content="Deogenes Gregorio Maranan" />
     <meta
       name="keywords"
-      content="Deogenes Gregorio Maranan, Software Engineer, Cybersecurity, React, Laravel, AI, CTF"
+      content="Deogenes Gregorio Maranan, Frontend Developer, Software Engineer, Cybersecurity Enthusiast, AI Enthusiast, CTF Player, React, TypeScript, Vite, Tailwind CSS"
     />
-    <title>Maranan - Portfolio</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+
+    <meta property="og:type" content="profile" />
+    <meta
+      property="og:title"
+      content="Deogenes Maranan Portfolio | Frontend, Software, CTF"
+    />
+    <meta
+      property="og:description"
+      content="Terminal-inspired portfolio of Deogenes Gregorio Maranan, based in the Philippines, focused on software, frontend development, cybersecurity, AI, and CTF learning."
+    />
+    <meta property="og:url" content="https://deogenesmaranan.dev/" />
+    <meta property="og:site_name" content="Deogenes Maranan Portfolio" />
+    <meta property="og:locale" content="en_PH" />
+    <meta property="og:image" content="https://deogenesmaranan.dev/favicon.svg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Deogenes Maranan Portfolio | Frontend, Software, CTF"
+    />
+    <meta
+      name="twitter:description"
+      content="Portfolio of Deogenes Gregorio Maranan, Computer Science Graduate from the Philippines and enthusiast in software, frontend, cybersecurity, AI, and CTF."
+    />
+    <meta
+      name="twitter:image"
+      content="https://deogenesmaranan.dev/favicon.svg"
+    />
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "@id": "https://deogenesmaranan.dev/#person",
-        "name": "Deogenes Gregorio Maranan",
-        "url": "https://deogenesmaranan.dev",
-        "image": "https://deogenesmaranan.dev/favicon.svg",
-        "description": "Computer Science graduate specializing in software engineering, cybersecurity, artificial intelligence, and full-stack web development. Experienced in React, Laravel, FastAPI, and cybersecurity through CTF competitions and student leadership.",
-        "alumniOf": {
-          "@type": "CollegeOrUniversity",
-          "name": "Batangas State University – The National Engineering University"
-        },
-        "email": "mailto:your@email.com",
-        "sameAs": [
-          "https://github.com/juhenes",
-          "https://linkedin.com/in/deogenesmaranan/",
-          "https://ctftime.org/user/194539",
-          "https://leetcode.com/u/juhenes/"
-        ],
-        "knowsAbout": [
-          "Software Engineering",
-          "Full-Stack Web Development",
-          "Cybersecurity",
-          "Digital Forensics",
-          "Artificial Intelligence",
-          "Machine Learning",
-          "Capture The Flag (CTF)",
-          "React",
-          "TypeScript",
-          "Laravel",
-          "FastAPI",
-          "Python",
-          "PHP",
-          "JavaScript",
-          "Java",
-          "C#",
-          "Docker",
-          "MySQL",
-          "PostgreSQL",
-          "SQLite",
-          "Git",
-          "Tailwind CSS",
-          "Linux"
-        ],
-        "award": [
-          "Cum Laude",
-          "DOST JLSS Scholar",
-          "Civil Service Professional Eligible",
-          "Multiple International CTF Competition Awards"
-        ],
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://deogenesmaranan.dev/#person",
+            "name": "Deogenes Gregorio Maranan",
+            "url": "https://deogenesmaranan.dev/",
+            "image": "https://deogenesmaranan.dev/favicon.svg",
+            "description": "Computer Science Graduate, Software Engineer, Frontend Developer, Cybersecurity Enthusiast, AI Enthusiast, and CTF Player from the Philippines.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "Philippines"
+            },
+            "jobTitle": [
+              "Computer Science Graduate",
+              "Software Engineer",
+              "Frontend Developer",
+              "Cybersecurity Enthusiast",
+              "AI Enthusiast",
+              "CTF Player"
+            ],
+            "knowsAbout": [
+              "Software Engineering",
+              "Frontend Development",
+              "Cybersecurity",
+              "Artificial Intelligence",
+              "Capture The Flag"
+            ],
+            "sameAs": [
+              "https://github.com/juhenes",
+              "https://linkedin.com/in/deogenesmaranan/",
+              "https://ctftime.org/user/194539",
+              "https://leetcode.com/u/juhenes/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://deogenesmaranan.dev/#website",
+            "url": "https://deogenesmaranan.dev/",
+            "name": "Deogenes Maranan Portfolio",
+            "description": "Personal portfolio of Deogenes Gregorio Maranan.",
+            "publisher": {
+              "@id": "https://deogenesmaranan.dev/#person"
+            },
+            "inLanguage": "en"
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": "https://deogenesmaranan.dev/#profilepage",
+            "url": "https://deogenesmaranan.dev/",
+            "name": "Deogenes Maranan Portfolio",
+            "isPartOf": {
+              "@id": "https://deogenesmaranan.dev/#website"
+            },
+            "about": {
+              "@id": "https://deogenesmaranan.dev/#person"
+            },
+            "inLanguage": "en"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://deogenesmaranan.dev/"
+              }
+            ]
+          }
+        ]
       }
     </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <main>
+        <h1>Deogenes Gregorio Maranan</h1>
+        <p>
+          Portfolio website of Deogenes Gregorio Maranan from the Philippines.
+          Roles: Computer Science Graduate, Software Engineer, Frontend
+          Developer, Cybersecurity Enthusiast, AI Enthusiast, and CTF Player.
+          Current employment status: Unemployed.
+        </p>
+      </main>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

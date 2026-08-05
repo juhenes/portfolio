@@ -37,11 +37,18 @@ export default function AuthScreen({ onComplete }: AuthScreenProps) {
         {/* Header */}
         <div className="flex items-center gap-4 border-b border-dx0-orange/20 px-6 py-5">
           <div className="flex h-16 w-16 items-center justify-center">
-            <img src="/favicon.svg" alt="Profile" className="h-10 w-10" />
+            <img
+              src="/favicon.svg"
+              alt="Deogenes Maranan personal logo"
+              width={40}
+              height={40}
+              className="h-10 w-10"
+              decoding="async"
+            />
           </div>
 
           <div>
-            <p className="text-lg font-semibold">dx0@portfolio</p>
+            <h2 className="text-lg font-semibold">dx0@portfolio</h2>
             <p className="text-sm text-dx0-orange/60">
               Authentication Required
             </p>

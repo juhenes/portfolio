@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180" role="img" aria-labelledby="title desc">
+  <title id="title">Deogenes Maranan Logo</title>
+  <desc id="desc">Monogram style icon for Deogenes Maranan portfolio.</desc>
+  <rect width="180" height="180" rx="24" fill="#000000"/>
+  <rect x="28" y="28" width="124" height="124" rx="18" fill="#111111" stroke="#f47522" stroke-width="4"/>
+  <path d="M55 55h30c18 0 30 12 30 30s-12 30-30 30H55V55Zm28 45c9 0 15-6 15-15s-6-15-15-15H72v30h11Z" fill="#f47522"/>
+  <path d="M118 55h8v60h-8z" fill="#f47522"/>
+</svg>

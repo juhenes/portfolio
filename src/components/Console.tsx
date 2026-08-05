@@ -49,11 +49,14 @@ export default function Console({
             ref={inputRef}
             onKeyDown={(e) => e.key === 'Enter' && submit()}
             placeholder="Type a command or click a shortcut..."
+            aria-label="Terminal command input"
             className="flex-1 rounded bg-neutral-900 px-3 py-2 text-sm font-mono text-white"
           />
 
           <button
+            type="button"
             onClick={submit}
+            aria-label="Run command"
             className="rounded bg-dx0-orange px-3 py-2 text-sm font-semibold"
           >
             Run
