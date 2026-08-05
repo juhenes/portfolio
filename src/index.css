@@ -3,3 +3,11 @@
 @theme {
   --color-dx0-orange: #f47522;
 }
+
+@layer base {
+  html,
+  body,
+  #root {
+    @apply bg-black;
+  }
+}
