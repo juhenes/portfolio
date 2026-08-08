@@ -10,7 +10,7 @@ export const SHORTCUTS: Shortcut[] = [
   {
     id: 'about',
     label: 'About',
-    icon: '/favicon.svg',
+    icon: '👤',
     cmd: 'open About',
     href: '#about',
   },
@@ -20,6 +20,20 @@ export const SHORTCUTS: Shortcut[] = [
     icon: '🗂️',
     cmd: 'open Projects',
     href: '#projects',
+  },
+  {
+    id: 'awards',
+    label: 'Awards',
+    icon: '🏆',
+    cmd: 'open Awards',
+    href: '#awards',
+  },
+  {
+    id: 'certifications',
+    label: 'Certs',
+    icon: '📜',
+    cmd: 'open Certifications',
+    href: '#certifications',
   },
   {
     id: 'contact',

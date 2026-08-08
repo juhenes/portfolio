@@ -31,8 +31,8 @@ export default function Console({
       >
         {commands.length === 0 ? (
           <div className="text-dx0-orange/60">
-            Type a command or click a shortcut. Type <b>help</b> and all command help
-            will show up.
+            Type a command or click a shortcut. Type <b>help</b> and all command
+            help will show up.
           </div>
         ) : (
           commands.map((c, i) => (

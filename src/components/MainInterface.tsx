@@ -1,12 +1,17 @@
 import { useState } from 'react';
 import ScreenContainer from './ScreenContainer';
 import Console from './Console';
+import AboutModule from './modules/AboutModule';
+import ProjectsModule from './modules/ProjectsModule';
+import AwardsModule from './modules/AwardsModule';
+import CertificationsModule from './modules/CertificationsModule';
+import ContactModule from './modules/ContactModule';
 import { SHORTCUTS } from '../data/shortcuts';
 import { COMMANDS } from '../data/commands';
 
 export default function MainInterface() {
   const [commands, setCommands] = useState<string[]>([]);
-  const [currentModule, setCurrentModule] = useState<string>('Welcome');
+  const [currentModule, setCurrentModule] = useState<string>('About');
   const [consoleFullscreen, setConsoleFullscreen] = useState<boolean>(false);
   const [mobileShortcutsOpen, setMobileShortcutsOpen] =
     useState<boolean>(false);
@@ -34,22 +39,62 @@ export default function MainInterface() {
     }
   }
 
+  function renderModuleContent() {
+    switch (currentModule) {
+      case 'About':
+      case 'Welcome':
+        return <AboutModule />;
+      case 'Projects':
+        return <ProjectsModule />;
+      case 'Awards':
+        return <AwardsModule />;
+      case 'Certifications':
+      case 'Certs':
+      case 'Certifications / Licenses':
+        return <CertificationsModule />;
+      case 'Contact':
+        return <ContactModule />;
+      default:
+        return (
+          <div className="h-full flex items-center justify-center">
+            <p className="text-sm text-dx0-orange/60 font-mono">
+              Module content for {currentModule}
+            </p>
+          </div>
+        );
+    }
+  }
+
   return (
-    <ScreenContainer fadeOut={false} className="flex h-screen w-screen">
-      {/* Mobile toggle button */}
-      {!mobileShortcutsOpen && (
-        <button
-          onClick={() => setMobileShortcutsOpen(true)}
-          aria-label="Toggle shortcuts"
-          className="md:hidden fixed top-4.5 left-4 z-50 p-2 text-white"
-        >
-          ☰
-        </button>
-      )}
+    <ScreenContainer
+      fadeOut={false}
+      className="flex flex-col h-screen w-screen overflow-hidden bg-black"
+    >
+      {/* Fixed Top Bar: Above all elements */}
+      <header className="sticky top-0 z-30 w-full bg-neutral-900/95 backdrop-blur-md border-b border-neutral-800 px-4 py-3 flex items-center justify-between shadow-md">
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => setMobileShortcutsOpen(true)}
+            aria-label="Toggle shortcuts"
+            className="md:hidden p-1 text-white hover:text-dx0-orange text-lg"
+          >
+            ☰
+          </button>
+          <h2 className="text-sm md:text-base font-semibold text-white flex items-center gap-2 font-mono">
+            <span className="text-dx0-orange">&gt;</span> Module:{' '}
+            <span className="text-dx0-orange font-bold">{currentModule}</span>
+          </h2>
+        </div>
+
+        <div className="hidden sm:flex items-center gap-2 text-[11px] font-mono text-neutral-400">
+          <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>PORTFOLIO OS v1.0 // ONLINE</span>
+        </div>
+      </header>
 
       {/* Mobile drawer overlay */}
       <div
-        className={`fixed inset-0 z-40 transition-opacity ${
+        className={`fixed inset-0 z-50 transition-opacity ${
           mobileShortcutsOpen
             ? 'opacity-100 pointer-events-auto'
             : 'opacity-0 pointer-events-none'
@@ -68,7 +113,7 @@ export default function MainInterface() {
             <div className="text-white font-semibold">Shortcuts</div>
             <button
               onClick={() => setMobileShortcutsOpen(false)}
-              className="text-white"
+              className="text-white text-xl"
             >
               ×
             </button>
@@ -82,52 +127,51 @@ export default function MainInterface() {
                   executeCommand(s.cmd);
                   setMobileShortcutsOpen(false);
                 }}
-                className="flex items-center gap-3 rounded px-2 py-2 w-full text-white hover:bg-neutral-800"
+                className={`flex items-center gap-3 rounded px-2.5 py-2 w-full text-sm font-semibold transition-colors ${
+                  currentModule === s.label
+                    ? 'bg-dx0-orange text-black font-bold'
+                    : 'text-white hover:bg-neutral-800'
+                }`}
               >
-                {s.icon &&
-                (s.icon.endsWith('.svg') || s.icon.startsWith('/')) ? (
-                  <img src={s.icon} alt={s.label} className="h-5 w-5" />
-                ) : (
-                  <div className="text-lg">{s.icon ?? s.label[0]}</div>
-                )}
-
-                <div className="text-sm">{s.label}</div>
+                <div className="text-lg">{s.icon ?? s.label[0]}</div>
+                <div>{s.label}</div>
               </button>
             ))}
           </div>
         </aside>
       </div>
 
-      <div className="flex w-full">
-        {/* Sidebar: hidden on small screens for mobile friendliness */}
-        <aside className="hidden md:flex w-24 bg-neutral-900 p-4 flex-col items-center gap-4">
-          {SHORTCUTS.map((s) => (
-            <button
-              key={s.id}
-              onClick={() => executeCommand(s.cmd)}
-              className="flex flex-col items-center gap-1 h-16 w-16 rounded bg-neutral-800 text-sm font-semibold text-white p-2"
-              aria-label={s.label}
-            >
-              <div className="flex items-center justify-center">
-                {s.icon &&
-                (s.icon.endsWith('.svg') || s.icon.startsWith('/')) ? (
-                  <img src={s.icon} alt={s.label} className="h-6 w-6" />
-                ) : (
-                  <div className="text-xl">{s.icon ?? s.label[0]}</div>
-                )}
-              </div>
-              <div className="text-xs text-center">{s.label}</div>
-            </button>
-          ))}
+      <div className="flex flex-1 overflow-hidden">
+        {/* Clean Sidebar: Removed 'NAV' header text */}
+        <aside className="hidden md:flex w-20 bg-neutral-900/90 p-2 flex-col items-center gap-2.5 border-r border-neutral-800 flex-shrink-0">
+          {SHORTCUTS.map((s) => {
+            const isActive =
+              currentModule === s.label ||
+              (s.id === 'about' && currentModule === 'Welcome');
+            return (
+              <button
+                key={s.id}
+                onClick={() => executeCommand(s.cmd)}
+                className={`flex flex-col items-center justify-center gap-1 h-14 w-16 rounded text-xs font-semibold p-1.5 transition-all ${
+                  isActive
+                    ? 'bg-dx0-orange text-black shadow-[0_0_10px_rgba(244,117,34,0.4)]'
+                    : 'bg-neutral-800/80 text-white hover:bg-neutral-700'
+                }`}
+                aria-label={s.label}
+              >
+                <div className="text-lg">{s.icon ?? s.label[0]}</div>
+                <div className="text-[10px] text-center leading-tight">
+                  {s.label}
+                </div>
+              </button>
+            );
+          })}
         </aside>
 
-        <main className="flex-1 p-6 flex flex-col">
-          <div className="mb-4 pl-8 md:pl-0">
-            <h2 className="text-lg font-semibold">{currentModule}</h2>
-          </div>
-
-          {/* Module content or expanded console for terminal-only commands */}
-          <div className="flex-1 border rounded bg-neutral-950 p-4">
+        {/* Content Area */}
+        <main className="flex-1 p-3 md:p-5 flex flex-col min-h-0 overflow-hidden">
+          {/* Module Content Container */}
+          <div className="flex-1 border border-neutral-800 rounded-lg bg-neutral-950 p-4 overflow-hidden flex flex-col min-h-0">
             {consoleFullscreen ? (
               <Console
                 commands={commands}
@@ -135,16 +179,12 @@ export default function MainInterface() {
                 expanded={true}
               />
             ) : (
-              <div className="h-full">
-                <p className="text-sm text-dx0-orange/60">
-                  Module content for {currentModule}
-                </p>
-              </div>
+              renderModuleContent()
             )}
           </div>
 
           {!consoleFullscreen && (
-            <div className="mt-4">
+            <div className="mt-3 flex-shrink-0">
               <Console commands={commands} onExecute={executeCommand} />
             </div>
           )}
