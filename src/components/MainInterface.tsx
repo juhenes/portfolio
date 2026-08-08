@@ -9,6 +9,8 @@ import ContactModule from './modules/ContactModule';
 import { SHORTCUTS } from '../data/shortcuts';
 import { COMMANDS } from '../data/commands';
 
+import TopBar from './TopBar';
+
 export default function MainInterface() {
   const [commands, setCommands] = useState<string[]>([]);
   const [currentModule, setCurrentModule] = useState<string>('About');
@@ -70,27 +72,10 @@ export default function MainInterface() {
       fadeOut={false}
       className="flex flex-col h-screen w-screen overflow-hidden bg-black"
     >
-      {/* Fixed Top Bar: Above all elements */}
-      <header className="sticky top-0 z-30 w-full bg-neutral-900/95 backdrop-blur-md border-b border-neutral-800 px-4 py-3 flex items-center justify-between shadow-md">
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => setMobileShortcutsOpen(true)}
-            aria-label="Toggle shortcuts"
-            className="md:hidden p-1 text-white hover:text-dx0-orange text-lg"
-          >
-            ☰
-          </button>
-          <h2 className="text-sm md:text-base font-semibold text-white flex items-center gap-2 font-mono">
-            <span className="text-dx0-orange">&gt;</span> Module:{' '}
-            <span className="text-dx0-orange font-bold">{currentModule}</span>
-          </h2>
-        </div>
-
-        <div className="hidden sm:flex items-center gap-2 text-[11px] font-mono text-neutral-400">
-          <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span>PORTFOLIO OS v1.0 // ONLINE</span>
-        </div>
-      </header>
+      <TopBar
+        currentModule={currentModule}
+        onOpenMobileMenu={() => setMobileShortcutsOpen(true)}
+      />
 
       {/* Mobile drawer overlay */}
       <div

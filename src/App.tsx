@@ -6,6 +6,17 @@ import MainInterface from './components/MainInterface';
 export default function App() {
   const [booted, setBooted] = useState(false);
   const [authenticated, setAuthenticated] = useState(false);
+  const [skipping, setSkipping] = useState(false);
+
+  const handleSkip = () => {
+    if (skipping || (booted && authenticated)) return;
+    setSkipping(true);
+    setTimeout(() => {
+      setBooted(true);
+      setAuthenticated(true);
+      setSkipping(false);
+    }, 500);
+  };
 
   return (
     <>
@@ -18,15 +29,22 @@ export default function App() {
 
       {authenticated && <MainInterface />}
 
-      {!booted && (
-        <div className="fixed inset-0 z-50">
-          <BootScreen onComplete={() => setBooted(true)} />
-        </div>
-      )}
+      {(!booted || !authenticated) && (
+        <div
+          className={`fixed inset-0 z-50 cursor-pointer select-none transition-opacity duration-500 ${
+            skipping ? 'opacity-0 pointer-events-none' : 'opacity-100'
+          }`}
+          onDoubleClick={handleSkip}
+        >
+          {!booted && <BootScreen onComplete={() => setBooted(true)} />}
 
-      {booted && !authenticated && (
-        <div className="fixed inset-0 z-50">
-          <AuthScreen onComplete={() => setAuthenticated(true)} />
+          {booted && !authenticated && (
+            <AuthScreen onComplete={() => setAuthenticated(true)} />
+          )}
+
+          <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[60] text-[11px] font-mono text-neutral-500/80 pointer-events-none select-none animate-pulse">
+            [ Double-click anywhere to skip intro ]
+          </div>
         </div>
       )}
     </>
