@@ -277,8 +277,16 @@ export const SKILL_CATEGORIES_DATA: SkillCategory[] = [
 
 export const LEADERSHIP_DATA: LeadershipItem[] = [
   {
+    id: 'lead-lgtm-cofounder',
+    role: 'Co-Founder',
+    organization: 'Looks Good To Me (LGTM) Community',
+    period: '2025 – Present',
+    description:
+      'Co-founded an independent tech community for BatStateU CS/IT students & alumni, organizing technical workshops, projects, and recreational events.',
+  },
+  {
     id: 'lead-tf-2025',
-    role: 'Co-Head and Challenge Designer',
+    role: 'Co-Head and Challenge Author',
     organization: 'TechnoFusion Capture the Flag Challenge',
     period: 'Apr 2025',
     description:

@@ -110,7 +110,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
   {
     id: 'proj-kainmunity',
     title: 'Kainmunity',
-    role: 'Full Stack Developer',
+    role: 'Full Stack Contributor',
     date: 'Feb 2024 – May 2024',
     technologies: ['C#', 'ASP.NET', 'WinForms', 'MySQL', 'Aiven'],
     description:

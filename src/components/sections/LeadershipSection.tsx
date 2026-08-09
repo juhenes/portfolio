@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { LEADERSHIP_DATA } from '../../data/aboutData';
-import { FiUserCheck, FiBookOpen } from 'react-icons/fi';
+import { FiUserCheck } from 'react-icons/fi';
 
 function LeadershipSection() {
   return (
@@ -41,11 +41,6 @@ function LeadershipSection() {
                   {lead.description}
                 </p>
               )}
-            </div>
-
-            <div className="pt-2 border-t border-neutral-900 flex items-center gap-1.5 text-[11px] text-neutral-400">
-              <FiBookOpen className="text-dx0-orange" />
-              <span>Mentorship & Challenge Design</span>
             </div>
           </div>
         ))}
