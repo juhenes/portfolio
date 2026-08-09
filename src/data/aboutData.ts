@@ -115,7 +115,7 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
   },
   {
     id: 'exp-caist',
-    role: 'Intern',
+    role: 'Frontend Developer / UI/UX Designer',
     company:
       'Center for AI and Smart Technologies (CAIST) – Batangas State University',
     period: '2025',
