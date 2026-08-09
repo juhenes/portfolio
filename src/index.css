@@ -68,10 +68,17 @@ html.light .bg-black {
 
 html.light .bg-neutral-950,
 html.light .bg-neutral-950\/90,
+html.light .bg-neutral-950\/80,
+html.light .bg-neutral-950\/70,
+html.light .bg-neutral-950\/60,
 html.light .bg-neutral-900,
 html.light .bg-neutral-900\/95,
 html.light .bg-neutral-900\/90,
-html.light .bg-neutral-900\/80 {
+html.light .bg-neutral-900\/80,
+html.light .bg-neutral-900\/60,
+html.light .bg-neutral-900\/50,
+html.light .bg-neutral-900\/40,
+html.light .bg-neutral-900\/30 {
   background-color: #ffffff;
 }
 

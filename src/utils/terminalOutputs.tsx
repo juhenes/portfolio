@@ -34,12 +34,12 @@ export function renderFastfetch() {
   ];
 
   const stats = [
-    { key: 'User', val: `${PERSONAL_INFO.name} (juhenes)` },
+    { key: 'User', val: `${PERSONAL_INFO.name} (juhenes/dx0)` },
     { key: 'Role', val: PERSONAL_INFO.title },
     { key: 'OS', val: 'DX0-Portfolio Linux / WebOS x86_64' },
-    { key: 'Host', val: 'Batangas State University TNEU' },
+    { key: 'School', val: 'Batangas State University TNEU' },
     {
-      key: 'Kernel',
+      key: 'Program',
       val: `BS Computer Science (Cum Laude, GWA ${PERSONAL_INFO.gwa})`,
     },
     {
@@ -49,15 +49,10 @@ export function renderFastfetch() {
         : 'Civil Service Prof',
     },
     { key: 'Scholarship', val: 'DOST JLSS Scholar' },
-    { key: 'Uptime', val: '4+ Years Active Software & Game Development' },
-    { key: 'Shell', val: 'dx0-terminal v2.5.0' },
+    { key: 'Shell', val: 'dx0-terminal v1.0' },
     {
       key: 'Primary Stack',
-      val: 'C#, Unity2D, Python, React, Laravel, FastAPI, Docker',
-    },
-    {
-      key: 'CTF Ranks',
-      val: 'LA CTF #82/955 | KnightCTF #45/890 | UofTCTF #75/1550',
+      val: 'C#, Unity2D, Python, React, Laravel, FastAPI, Godot',
     },
     { key: 'Contact', val: PERSONAL_INFO.email },
   ];
@@ -73,7 +68,7 @@ export function renderFastfetch() {
       </div>
       <div className="flex-1 space-y-1">
         <div className="text-dx0-orange font-bold text-sm">
-          juhenes@dx0-portfolio
+          dx0@deogenesmaranan.dev
         </div>
         <div className="text-neutral-500">
           -----------------------------------
@@ -95,7 +90,7 @@ export function renderWhoami() {
   return (
     <div className="font-mono text-xs my-2 space-y-1.5 p-2 rounded bg-neutral-900/60 border border-dx0-orange/20">
       <div className="text-dx0-orange font-bold text-sm">
-        {PERSONAL_INFO.name} (@juhenes)
+        {PERSONAL_INFO.name} (juhenes/dx0)
       </div>
       <div className="text-neutral-300 font-semibold">
         {PERSONAL_INFO.title}

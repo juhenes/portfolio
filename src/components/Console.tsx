@@ -138,6 +138,7 @@ export default function Console({
   return (
     <div
       style={expanded ? undefined : { height: `${height}px` }}
+      data-active-section={activeSection}
       className={`w-full rounded-lg border border-dx0-orange/30 bg-black text-dx0-orange font-mono shadow-2xl flex flex-col min-h-0 relative overflow-hidden ${
         expanded ? 'h-full flex-1' : ''
       } dx0-console`}

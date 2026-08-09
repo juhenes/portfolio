@@ -3,13 +3,13 @@ import { ThemeContext, type Theme } from './theme-context';
 
 function getInitialTheme(): Theme {
   if (typeof window === 'undefined') return 'dark';
+
   const savedTheme = localStorage.getItem('dxo_theme') as Theme | null;
   if (savedTheme === 'light' || savedTheme === 'dark') {
     return savedTheme;
   }
-  return window.matchMedia('(prefers-color-scheme: light)').matches
-    ? 'light'
-    : 'dark';
+
+  return 'dark';
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
