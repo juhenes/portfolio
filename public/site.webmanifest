@@ -1,7 +1,8 @@
 {
-  "name": "Deogenes Maranan Portfolio",
+  "id": "/",
+  "name": "Deogenes Gregorio S. Maranan Portfolio",
   "short_name": "Maranan Portfolio",
-  "description": "Terminal-inspired personal portfolio of Deogenes Gregorio Maranan.",
+  "description": "Terminal-inspired personal portfolio of Deogenes Gregorio S. Maranan.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
@@ -22,3 +23,4 @@
     }
   ]
 }
+
