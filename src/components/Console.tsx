@@ -264,7 +264,7 @@ export default function Console({
               aria-label="Maximize terminal to pure text mode"
               className="p-1 text-neutral-400 hover:text-dx0-orange transition-colors cursor-pointer"
             >
-              <FiMaximize2 className="text-xs" />
+              <FiMaximize2 className="text-xs text-dx0-orange" />
             </button>
           )}
           {onMinimize && (
@@ -272,9 +272,9 @@ export default function Console({
               onClick={onMinimize}
               title="Minimize Terminal"
               aria-label="Minimize Terminal"
-              className="p-1 text-neutral-400 hover:text-white transition-colors cursor-pointer"
+              className="p-1 text-neutral-400 hover:text-dx0-orange transition-colors cursor-pointer"
             >
-              <FiMinus className="text-xs" />
+              <FiMinus className="text-xs text-dx0-orange" />
             </button>
           )}
         </div>

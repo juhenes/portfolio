@@ -1,17 +1,17 @@
 import { useState, memo } from 'react';
 import { CONTACT_DATA } from '../../data/contactData';
 import {
-  FaEnvelope,
-  FaPhone,
-  FaMapMarkerAlt,
-  FaCheck,
-  FaCopy,
-  FaGithub,
-  FaLinkedin,
-  FaCode,
-  FaFlag,
-  FaPaperPlane,
-} from 'react-icons/fa';
+  FiMail,
+  FiPhone,
+  FiMapPin,
+  FiCheck,
+  FiCopy,
+  FiGithub,
+  FiLinkedin,
+  FiCode,
+  FiFlag,
+  FiSend,
+} from 'react-icons/fi';
 
 interface ContactSectionProps {
   copiedField: string | null;
@@ -44,7 +44,7 @@ function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
     >
       <div className="border-b border-neutral-800 pb-3">
         <h2 className="text-xs font-bold uppercase tracking-wider text-dx0-orange flex items-center gap-2">
-          <FaEnvelope /> Contact & Communication Channel
+          <FiMail className="text-dx0-orange" /> Contact & Communication Channel
         </h2>
         <p className="text-xs text-neutral-400 mt-0.5">
           Get in touch for software engineering, game development, web
@@ -62,7 +62,7 @@ function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
             <div className="space-y-2.5">
               <div className="flex items-center justify-between p-2.5 rounded bg-neutral-900 border border-neutral-800">
                 <div className="flex items-center gap-2.5">
-                  <FaEnvelope className="text-dx0-orange text-sm" />
+                  <FiMail className="text-dx0-orange text-sm" />
                   <div>
                     <p className="text-[10px] text-neutral-500 uppercase font-bold">
                       Email
@@ -78,16 +78,16 @@ function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
                   title="Copy email"
                 >
                   {copiedField === 'email-contact' ? (
-                    <FaCheck className="text-dx0-orange" />
+                    <FiCheck className="text-dx0-orange" />
                   ) : (
-                    <FaCopy />
+                    <FiCopy className="text-dx0-orange" />
                   )}
                 </button>
               </div>
 
               <div className="flex items-center justify-between p-2.5 rounded bg-neutral-900 border border-neutral-800">
                 <div className="flex items-center gap-2.5">
-                  <FaPhone className="text-dx0-orange text-sm" />
+                  <FiPhone className="text-dx0-orange text-sm" />
                   <div>
                     <p className="text-[10px] text-neutral-500 uppercase font-bold">
                       Phone
@@ -103,15 +103,15 @@ function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
                   title="Copy phone number"
                 >
                   {copiedField === 'phone-contact' ? (
-                    <FaCheck className="text-dx0-orange" />
+                    <FiCheck className="text-dx0-orange" />
                   ) : (
-                    <FaCopy />
+                    <FiCopy className="text-dx0-orange" />
                   )}
                 </button>
               </div>
 
               <div className="flex items-center gap-2.5 p-2.5 rounded bg-neutral-900 border border-neutral-800">
-                <FaMapMarkerAlt className="text-dx0-orange text-sm" />
+                <FiMapPin className="text-dx0-orange text-sm" />
                 <div>
                   <p className="text-[10px] text-neutral-500 uppercase font-bold">
                     Location
@@ -136,7 +136,7 @@ function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 p-2.5 rounded bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-xs text-white transition-colors"
               >
-                <FaGithub className="text-dx0-orange text-base flex-shrink-0" />
+                <FiGithub className="text-dx0-orange text-base flex-shrink-0" />
                 <div className="min-w-0">
                   <p className="font-bold truncate">GitHub</p>
                   <p className="text-[10px] text-neutral-500 truncate">
@@ -151,7 +151,7 @@ function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 p-2.5 rounded bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-xs text-white transition-colors"
               >
-                <FaLinkedin className="text-dx0-orange text-base flex-shrink-0" />
+                <FiLinkedin className="text-dx0-orange text-base flex-shrink-0" />
                 <div className="min-w-0">
                   <p className="font-bold truncate">LinkedIn</p>
                   <p className="text-[10px] text-neutral-500 truncate">
@@ -166,7 +166,7 @@ function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 p-2.5 rounded bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-xs text-white transition-colors"
               >
-                <FaCode className="text-dx0-orange text-base flex-shrink-0" />
+                <FiCode className="text-dx0-orange text-base flex-shrink-0" />
                 <div className="min-w-0">
                   <p className="font-bold truncate">LeetCode</p>
                   <p className="text-[10px] text-neutral-500 truncate">
@@ -181,7 +181,7 @@ function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 p-2.5 rounded bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-xs text-white transition-colors"
               >
-                <FaFlag className="text-dx0-orange text-base flex-shrink-0" />
+                <FiFlag className="text-dx0-orange text-base flex-shrink-0" />
                 <div className="min-w-0">
                   <p className="font-bold truncate">CTFtime</p>
                   <p className="text-[10px] text-neutral-500 truncate">
@@ -276,7 +276,7 @@ function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
                   type="submit"
                   className="w-full py-2 rounded bg-dx0-orange text-black font-bold text-xs flex items-center justify-center gap-2 hover:bg-dx0-orange/90 transition-colors cursor-pointer shadow-[0_0_10px_rgba(244,117,34,0.3)]"
                 >
-                  <FaPaperPlane /> Send Message
+                  <FiSend className="text-black" /> Send Message
                 </button>
               </>
             )}

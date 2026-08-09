@@ -1,11 +1,10 @@
 import { memo } from 'react';
 import { CERTIFICATIONS_DATA } from '../../data/certificationsData';
 import {
-  FaCertificate,
-  FaAward,
-  FaShieldAlt,
-  FaCheckCircle,
-} from 'react-icons/fa';
+  FiAward,
+  FiShield,
+  FiCheckCircle,
+} from 'react-icons/fi';
 
 function CertificationsSection() {
   return (
@@ -15,7 +14,7 @@ function CertificationsSection() {
     >
       <div className="border-b border-neutral-800 pb-3">
         <h2 className="text-xs font-bold uppercase tracking-wider text-dx0-orange flex items-center gap-2">
-          <FaCertificate /> Licenses & Official Certifications
+          <FiAward className="text-dx0-orange" /> Licenses & Official Certifications
         </h2>
         <p className="text-xs text-neutral-400 mt-0.5">
           Government eligibility credentials and official Cisco Networking
@@ -27,7 +26,7 @@ function CertificationsSection() {
         <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
           <div className="flex items-center gap-3">
             <div className="p-2.5 rounded bg-dx0-orange/10 text-dx0-orange border border-dx0-orange/30">
-              <FaAward className="w-6 h-6" />
+              <FiAward className="w-6 h-6 text-dx0-orange" />
             </div>
             <div>
               <h3 className="text-sm font-bold text-white uppercase tracking-wider">
@@ -52,7 +51,7 @@ function CertificationsSection() {
 
       <div>
         <h3 className="text-xs font-bold uppercase tracking-wider text-neutral-400 mb-2 flex items-center gap-2">
-          <FaShieldAlt className="text-dx0-orange" /> Cisco Networking Academy
+          <FiShield className="text-dx0-orange" /> Cisco Networking Academy
           Certifications
         </h3>
 
@@ -65,7 +64,7 @@ function CertificationsSection() {
               >
                 <div className="space-y-0.5">
                   <div className="flex items-center gap-2">
-                    <FaCheckCircle className="text-dx0-orange text-xs flex-shrink-0" />
+                    <FiCheckCircle className="text-dx0-orange text-xs flex-shrink-0" />
                     <h4 className="text-xs font-bold text-white">
                       {cert.name}
                     </h4>

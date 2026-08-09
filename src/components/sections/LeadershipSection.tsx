@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { LEADERSHIP_DATA } from '../../data/aboutData';
-import { FaUserShield, FaChalkboardTeacher } from 'react-icons/fa';
+import { FiUserCheck, FiBookOpen } from 'react-icons/fi';
 
 function LeadershipSection() {
   return (
@@ -10,7 +10,7 @@ function LeadershipSection() {
     >
       <div className="border-b border-neutral-800 pb-3">
         <h2 className="text-xs font-bold uppercase tracking-wider text-dx0-orange flex items-center gap-2">
-          <FaUserShield /> Leadership & Community Experience
+          <FiUserCheck className="text-dx0-orange" /> Leadership & Community Experience
         </h2>
         <p className="text-xs text-neutral-400 mt-0.5">
           CTF Competition Orchestration, Cyber Security Mentorship & Technical
@@ -44,7 +44,7 @@ function LeadershipSection() {
             </div>
 
             <div className="pt-2 border-t border-neutral-900 flex items-center gap-1.5 text-[11px] text-neutral-400">
-              <FaChalkboardTeacher className="text-dx0-orange" />
+              <FiBookOpen className="text-dx0-orange" />
               <span>Mentorship & Challenge Design</span>
             </div>
           </div>

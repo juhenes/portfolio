@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import {
+  FiGithub,
+  FiLinkedin,
+  FiMail,
   FiSun,
   FiMoon,
   FiTerminal,
@@ -155,7 +157,7 @@ export default function TopBar({
           aria-label="Toggle navigation menu"
           className="md:hidden flex items-center justify-center p-1 text-neutral-400 hover:text-dx0-orange transition-colors"
         >
-          <FiMenu className="text-base" />
+          <FiMenu className="text-base text-dx0-orange" />
         </button>
 
         <div className="flex items-center gap-1.5 text-neutral-200">
@@ -179,7 +181,7 @@ export default function TopBar({
               className="hover:text-dx0-orange transition-colors"
               aria-label="Email"
             >
-              <FaEnvelope className="text-sm" />
+              <FiMail className="text-sm text-dx0-orange" />
             </a>
           )}
           {githubUrl && (
@@ -188,10 +190,10 @@ export default function TopBar({
               target="_blank"
               rel="noopener noreferrer"
               title={`GitHub: ${CONTACT_DATA.github}`}
-              className="hover:text-white transition-colors"
+              className="hover:text-dx0-orange transition-colors"
               aria-label="GitHub"
             >
-              <FaGithub className="text-sm" />
+              <FiGithub className="text-sm text-dx0-orange" />
             </a>
           )}
           {linkedinUrl && (
@@ -203,7 +205,7 @@ export default function TopBar({
               className="hover:text-dx0-orange transition-colors"
               aria-label="LinkedIn"
             >
-              <FaLinkedin className="text-sm" />
+              <FiLinkedin className="text-sm text-dx0-orange" />
             </a>
           )}
         </div>
@@ -238,9 +240,9 @@ export default function TopBar({
             }`}
           >
             {isDarkMode ? (
-              <FiMoon className="text-[9px]" />
+              <FiMoon className="text-[9px] text-dx0-orange" />
             ) : (
-              <FiSun className="text-[9px]" />
+              <FiSun className="text-[9px] text-dx0-orange" />
             )}
           </span>
         </button>
@@ -254,7 +256,7 @@ export default function TopBar({
                 title="Previous month"
                 className="p-1 rounded text-neutral-400 hover:text-white hover:bg-neutral-800 transition-colors"
               >
-                <FiChevronLeft className="text-sm" />
+                <FiChevronLeft className="text-sm text-dx0-orange" />
               </button>
               <button
                 onClick={() => setViewDate(new Date())}
@@ -269,7 +271,7 @@ export default function TopBar({
                 title="Next month"
                 className="p-1 rounded text-neutral-400 hover:text-white hover:bg-neutral-800 transition-colors"
               >
-                <FiChevronRight className="text-sm" />
+                <FiChevronRight className="text-sm text-dx0-orange" />
               </button>
             </div>
 

@@ -1,20 +1,20 @@
 import { memo } from 'react';
 import { PERSONAL_INFO, EDUCATION_DATA } from '../../data/aboutData';
 import {
-  FaTerminal,
-  FaMapMarkerAlt,
-  FaGraduationCap,
-  FaEnvelope,
-  FaPhone,
-  FaGithub,
-  FaLinkedin,
-  FaCode,
-  FaFlag,
-  FaCopy,
-  FaCheck,
-  FaExternalLinkAlt,
-  FaAward,
-} from 'react-icons/fa';
+  FiTerminal,
+  FiMapPin,
+  FiAward,
+  FiMail,
+  FiPhone,
+  FiGithub,
+  FiLinkedin,
+  FiCode,
+  FiFlag,
+  FiCopy,
+  FiCheck,
+  FiExternalLink,
+  FiShield,
+} from 'react-icons/fi';
 
 interface ProfileSectionProps {
   copiedField: string | null;
@@ -30,7 +30,7 @@ function ProfileSection({ copiedField, onCopy }: ProfileSectionProps) {
       <div className="flex flex-col md:flex-row gap-6 items-start md:items-center">
         <div className="relative flex-shrink-0">
           <div className="w-20 h-20 md:w-24 md:h-24 rounded-lg bg-neutral-950 border-2 border-dx0-orange flex items-center justify-center text-dx0-orange shadow-[0_0_15px_rgba(244,117,34,0.3)]">
-            <FaTerminal className="w-10 h-10 md:w-12 md:h-12" />
+            <FiTerminal className="w-10 h-10 md:w-12 md:h-12 text-dx0-orange" />
           </div>
           <div className="absolute -bottom-2 -right-2 bg-dx0-orange text-black font-bold text-[10px] px-1.5 py-0.5 rounded uppercase">
             DEV // SEC
@@ -49,21 +49,21 @@ function ProfileSection({ copiedField, onCopy }: ProfileSectionProps) {
 
           <div className="flex flex-wrap gap-y-1.5 gap-x-4 text-xs text-neutral-400">
             <span className="flex items-center gap-1.5">
-              <FaMapMarkerAlt className="text-dx0-orange/80" />
+              <FiMapPin className="text-dx0-orange" />
               {PERSONAL_INFO.location}
             </span>
             <span className="flex items-center gap-1.5">
-              <FaGraduationCap className="text-dx0-orange/80" />
+              <FiAward className="text-dx0-orange" />
               BatStateU BS Computer Science
             </span>
             <span className="flex items-center gap-1.5">
-              ★ Cum Laude (GWA: {PERSONAL_INFO.gwa})
+              <FiAward className="text-dx0-orange text-xs" /> Cum Laude (GWA: {PERSONAL_INFO.gwa})
             </span>
             <span className="flex items-center gap-1.5">
-              🏛️ CSE Professional (90.96%)
+              <FiShield className="text-dx0-orange text-xs" /> CSE Professional (90.96%)
             </span>
             <span className="flex items-center gap-1.5">
-              🛡️ DOST JLSS Scholar
+              <FiShield className="text-dx0-orange text-xs" /> DOST JLSS Scholar
             </span>
           </div>
 
@@ -73,12 +73,12 @@ function ProfileSection({ copiedField, onCopy }: ProfileSectionProps) {
               className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-300 transition-colors border border-neutral-700 hover:border-dx0-orange/40 group cursor-pointer"
               title="Click to copy email"
             >
-              <FaEnvelope className="text-dx0-orange group-hover:scale-110 transition-transform" />
+              <FiMail className="text-dx0-orange group-hover:scale-110 transition-transform" />
               <span>{PERSONAL_INFO.email}</span>
               {copiedField === 'email' ? (
-                <FaCheck className="text-dx0-orange ml-1" />
+                <FiCheck className="text-dx0-orange ml-1" />
               ) : (
-                <FaCopy className="text-neutral-500 group-hover:text-dx0-orange ml-1 text-[10px]" />
+                <FiCopy className="text-dx0-orange ml-1 text-[10px]" />
               )}
             </button>
 
@@ -87,12 +87,12 @@ function ProfileSection({ copiedField, onCopy }: ProfileSectionProps) {
               className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-300 transition-colors border border-neutral-700 hover:border-dx0-orange/40 group cursor-pointer"
               title="Click to copy phone"
             >
-              <FaPhone className="text-dx0-orange group-hover:scale-110 transition-transform" />
+              <FiPhone className="text-dx0-orange group-hover:scale-110 transition-transform" />
               <span>{PERSONAL_INFO.phone}</span>
               {copiedField === 'phone' ? (
-                <FaCheck className="text-dx0-orange ml-1" />
+                <FiCheck className="text-dx0-orange ml-1" />
               ) : (
-                <FaCopy className="text-neutral-500 group-hover:text-dx0-orange ml-1 text-[10px]" />
+                <FiCopy className="text-dx0-orange ml-1 text-[10px]" />
               )}
             </button>
 
@@ -102,9 +102,9 @@ function ProfileSection({ copiedField, onCopy }: ProfileSectionProps) {
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-300 transition-colors border border-neutral-700 hover:border-dx0-orange/40"
             >
-              <FaGithub className="text-dx0-orange" />
+              <FiGithub className="text-dx0-orange" />
               <span>GitHub</span>
-              <FaExternalLinkAlt className="text-[10px] text-neutral-500" />
+              <FiExternalLink className="text-[10px] text-dx0-orange" />
             </a>
 
             <a
@@ -113,9 +113,9 @@ function ProfileSection({ copiedField, onCopy }: ProfileSectionProps) {
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-300 transition-colors border border-neutral-700 hover:border-dx0-orange/40"
             >
-              <FaLinkedin className="text-dx0-orange" />
+              <FiLinkedin className="text-dx0-orange" />
               <span>LinkedIn</span>
-              <FaExternalLinkAlt className="text-[10px] text-neutral-500" />
+              <FiExternalLink className="text-[10px] text-dx0-orange" />
             </a>
 
             <a
@@ -124,9 +124,9 @@ function ProfileSection({ copiedField, onCopy }: ProfileSectionProps) {
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-300 transition-colors border border-neutral-700 hover:border-dx0-orange/40"
             >
-              <FaCode className="text-dx0-orange" />
+              <FiCode className="text-dx0-orange" />
               <span>LeetCode</span>
-              <FaExternalLinkAlt className="text-[10px] text-neutral-500" />
+              <FiExternalLink className="text-[10px] text-dx0-orange" />
             </a>
 
             <a
@@ -135,9 +135,9 @@ function ProfileSection({ copiedField, onCopy }: ProfileSectionProps) {
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-300 transition-colors border border-neutral-700 hover:border-dx0-orange/40"
             >
-              <FaFlag className="text-dx0-orange" />
+              <FiFlag className="text-dx0-orange" />
               <span>CTFtime</span>
-              <FaExternalLinkAlt className="text-[10px] text-neutral-500" />
+              <FiExternalLink className="text-[10px] text-dx0-orange" />
             </a>
           </div>
         </div>
@@ -148,7 +148,7 @@ function ProfileSection({ copiedField, onCopy }: ProfileSectionProps) {
         id="education"
       >
         <h2 className="text-xs font-bold uppercase tracking-wider text-dx0-orange flex items-center gap-2">
-          <FaGraduationCap /> Education & Academic Distinction
+          <FiAward className="text-dx0-orange" /> Education & Academic Distinction
         </h2>
         {EDUCATION_DATA.map((edu) => (
           <div
@@ -175,7 +175,7 @@ function ProfileSection({ copiedField, onCopy }: ProfileSectionProps) {
                   key={i}
                   className="text-xs px-2.5 py-1 rounded bg-dx0-orange/10 text-dx0-orange border border-dx0-orange/30 font-medium flex items-center gap-1"
                 >
-                  <FaAward className="text-dx0-orange" /> {honor}
+                  <FiAward className="text-dx0-orange" /> {honor}
                 </span>
               ))}
             </div>
@@ -196,7 +196,7 @@ function ProfileSection({ copiedField, onCopy }: ProfileSectionProps) {
         id="biography"
       >
         <h2 className="text-xs font-bold uppercase tracking-wider text-dx0-orange flex items-center gap-2">
-          <FaTerminal className="text-xs" /> Biography & Profile Summary
+          <FiTerminal className="text-xs text-dx0-orange" /> Biography & Profile Summary
         </h2>
         <p className="text-xs leading-relaxed text-neutral-300">
           {PERSONAL_INFO.summary}

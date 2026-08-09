@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { EXPERIENCE_DATA } from '../../data/aboutData';
-import { FaBriefcase, FaBuilding, FaCalendarAlt } from 'react-icons/fa';
+import { FiBriefcase, FiGlobe, FiCalendar } from 'react-icons/fi';
 
 function ExperienceSection() {
   return (
@@ -10,7 +10,7 @@ function ExperienceSection() {
     >
       <div className="border-b border-neutral-800 pb-3">
         <h2 className="text-xs font-bold uppercase tracking-wider text-dx0-orange flex items-center gap-2">
-          <FaBriefcase /> Work Experience
+          <FiBriefcase className="text-dx0-orange" /> Work Experience
         </h2>
         <p className="text-xs text-neutral-400 mt-0.5">
           Software Engineering, Game Development, Independent Contracting & Web
@@ -33,12 +33,12 @@ function ExperienceSection() {
                     </span>
                   </h3>
                   <p className="text-xs text-neutral-400 font-medium flex items-center gap-1.5 mt-0.5">
-                    <FaBuilding className="text-neutral-500" />
+                    <FiGlobe className="text-dx0-orange" />
                     {exp.company}
                   </p>
                 </div>
                 <span className="text-xs px-2.5 py-1 rounded bg-neutral-900 text-dx0-orange font-semibold border border-neutral-800 flex items-center gap-1.5 w-fit">
-                  <FaCalendarAlt className="text-neutral-400" />
+                  <FiCalendar className="text-dx0-orange" />
                   {exp.period}
                 </span>
               </div>

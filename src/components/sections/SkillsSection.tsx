@@ -1,6 +1,6 @@
 import { useState, useMemo, memo } from 'react';
 import { SKILL_CATEGORIES_DATA } from '../../data/aboutData';
-import { FaCode, FaSearch, FaTerminal } from 'react-icons/fa';
+import { FiCode, FiSearch, FiTerminal } from 'react-icons/fi';
 
 function SkillsSection() {
   const [skillsSearchQuery, setSkillsSearchQuery] = useState<string>('');
@@ -24,11 +24,11 @@ function SkillsSection() {
     >
       <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-2 border-b border-neutral-800 pb-3">
         <h2 className="text-xs font-bold uppercase tracking-wider text-dx0-orange flex items-center gap-2">
-          <FaCode /> Technical Skills & Knowledge Matrix
+          <FiCode className="text-dx0-orange" /> Technical Skills & Knowledge Matrix
         </h2>
 
         <div className="relative w-full sm:w-56">
-          <FaSearch className="absolute left-2.5 top-2 text-neutral-500 text-[10px]" />
+          <FiSearch className="absolute left-2.5 top-2 text-dx0-orange text-[10px]" />
           <input
             type="text"
             value={skillsSearchQuery}
@@ -47,7 +47,7 @@ function SkillsSection() {
           >
             <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-2 flex items-center">
               <span className="text-dx0-orange flex items-center gap-1.5">
-                <FaTerminal className="text-[10px]" /> {cat.category}
+                <FiTerminal className="text-[10px] text-dx0-orange" /> {cat.category}
               </span>
             </h3>
 

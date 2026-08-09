@@ -1,12 +1,12 @@
 import { useState, useMemo, memo } from 'react';
 import { PROJECTS_DATA } from '../../data/projectsData';
 import {
-  FaFolderOpen,
-  FaGithub,
-  FaExternalLinkAlt,
-  FaCode,
-  FaSearch,
-} from 'react-icons/fa';
+  FiFolder,
+  FiGithub,
+  FiExternalLink,
+  FiCode,
+  FiSearch,
+} from 'react-icons/fi';
 
 function ProjectsSection() {
   const [selectedTech, setSelectedTech] = useState<string>('All');
@@ -44,7 +44,7 @@ function ProjectsSection() {
       <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-3 border-b border-neutral-800 pb-3">
         <div>
           <h2 className="text-xs font-bold uppercase tracking-wider text-dx0-orange flex items-center gap-2">
-            <FaFolderOpen /> Key Development Projects
+            <FiFolder className="text-dx0-orange" /> Key Development Projects
           </h2>
           <p className="text-xs text-neutral-400 mt-0.5">
             Hybrid AI models, 2D mobile games, desktop applications, and Android
@@ -58,16 +58,16 @@ function ProjectsSection() {
           rel="noopener noreferrer"
           className="flex items-center gap-2 px-3 py-1.5 rounded bg-dx0-orange text-black font-bold text-xs hover:bg-dx0-orange/90 transition-colors w-fit"
         >
-          <FaGithub className="text-sm" />
+          <FiGithub className="text-sm text-black" />
           <span>GitHub Profile</span>
-          <FaExternalLinkAlt className="text-[10px]" />
+          <FiExternalLink className="text-[10px] text-black" />
         </a>
       </div>
 
       <div className="flex flex-col sm:flex-row justify-between items-center gap-3 bg-neutral-950 p-3 rounded-lg border border-neutral-800">
         <div className="flex flex-wrap gap-1.5 w-full sm:w-auto">
           <span className="text-xs text-neutral-400 flex items-center gap-1 mr-1">
-            <FaCode className="text-dx0-orange text-xs" /> Filter Tech:
+            <FiCode className="text-dx0-orange text-xs" /> Filter Tech:
           </span>
           {allTechnologies.slice(0, 7).map((tech) => (
             <button
@@ -85,7 +85,7 @@ function ProjectsSection() {
         </div>
 
         <div className="relative w-full sm:w-56">
-          <FaSearch className="absolute left-3 top-2.5 text-neutral-500 text-xs" />
+          <FiSearch className="absolute left-3 top-2.5 text-dx0-orange text-xs" />
           <input
             type="text"
             value={projectSearchQuery}
@@ -136,8 +136,8 @@ function ProjectsSection() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-1.5 text-xs text-dx0-orange hover:underline font-semibold"
                   >
-                    <FaGithub /> View Source Code{' '}
-                    <FaExternalLinkAlt className="text-[10px]" />
+                    <FiGithub className="text-dx0-orange" /> View Source Code{' '}
+                    <FiExternalLink className="text-[10px] text-dx0-orange" />
                   </a>
                 </div>
               )}

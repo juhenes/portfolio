@@ -7,7 +7,7 @@ import MainContent from './MainContent';
 import { SHORTCUTS } from '../data/shortcuts';
 import { COMMANDS } from '../data/commands';
 import TopBar from './TopBar';
-import { FiTerminal } from 'react-icons/fi';
+import { FiTerminal, FiX } from 'react-icons/fi';
 import {
   renderFastfetch,
   renderWhoami,
@@ -687,30 +687,34 @@ export default function MainInterface() {
             <div className="text-white font-semibold">Shortcuts</div>
             <button
               onClick={() => setMobileShortcutsOpen(false)}
-              className="text-white text-xl"
+              className="text-neutral-400 hover:text-dx0-orange p-1 transition-colors cursor-pointer"
+              aria-label="Close shortcuts menu"
             >
-              ×
+              <FiX className="text-lg text-dx0-orange" />
             </button>
           </div>
 
           <div className="flex flex-col items-start gap-3">
-            {SHORTCUTS.map((s) => (
-              <button
-                key={s.id}
-                onClick={() => {
-                  executeCommand(s.cmd);
-                  setMobileShortcutsOpen(false);
-                }}
-                className={`flex items-center gap-3 rounded px-2.5 py-2 w-full text-sm font-semibold transition-colors ${
-                  activeSection === s.label
-                    ? 'bg-dx0-orange text-black font-bold'
-                    : 'text-white hover:bg-neutral-800'
-                }`}
-              >
-                <div className="text-lg">{s.icon ?? s.label[0]}</div>
-                <div>{s.label}</div>
-              </button>
-            ))}
+            {SHORTCUTS.map((s) => {
+              const isActive = activeSection === s.label;
+              return (
+                <button
+                  key={s.id}
+                  onClick={() => {
+                    executeCommand(s.cmd);
+                    setMobileShortcutsOpen(false);
+                  }}
+                  className={`flex items-center gap-3 rounded px-2.5 py-2 w-full text-sm font-semibold transition-colors cursor-pointer ${
+                    isActive
+                      ? 'bg-dx0-orange text-black font-bold'
+                      : 'text-white hover:bg-neutral-800'
+                  }`}
+                >
+                  <s.Icon className={`text-base ${isActive ? 'text-black' : 'text-dx0-orange'}`} />
+                  <div>{s.label}</div>
+                </button>
+              );
+            })}
           </div>
         </aside>
       </div>
@@ -737,7 +741,7 @@ export default function MainInterface() {
                         : 'text-neutral-400 hover:text-neutral-200 border-transparent'
                     }`}
                   >
-                    <span className="text-sm md:hidden">{s.icon}</span>
+                    <s.Icon className="text-sm md:hidden text-dx0-orange" />
                     <span className="hidden md:inline truncate">{s.label}</span>
                   </button>
                 );
@@ -796,7 +800,7 @@ export default function MainInterface() {
               aria-label="Open Terminal Console"
               className="fixed bottom-5 right-5 z-40 flex items-center gap-2 px-3 py-2 rounded-lg bg-neutral-900/95 text-dx0-orange border border-dx0-orange/50 hover:bg-dx0-orange hover:text-black font-semibold text-xs transition-all shadow-[0_0_20px_rgba(244,117,34,0.4)] backdrop-blur-md cursor-pointer animate-in fade-in zoom-in-95 duration-200"
             >
-              <FiTerminal className="text-sm" />
+              <FiTerminal className="text-sm text-dx0-orange" />
               <span>Terminal</span>
             </button>
           )}
