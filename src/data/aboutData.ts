@@ -280,7 +280,7 @@ export const LEADERSHIP_DATA: LeadershipItem[] = [
     id: 'lead-lgtm-cofounder',
     role: 'Co-Founder',
     organization: 'Looks Good To Me (LGTM) Community',
-    period: '2025 – Present',
+    period: '2026 – Present',
     description:
       'Co-founded an independent tech community for BatStateU CS/IT students & alumni, organizing technical workshops, projects, and recreational events.',
   },
