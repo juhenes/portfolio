@@ -4,26 +4,18 @@ import {
   FiTerminal,
   FiMapPin,
   FiAward,
-  FiMail,
-  FiPhone,
-  FiGithub,
-  FiLinkedin,
-  FiCode,
-  FiFlag,
-  FiCopy,
-  FiCheck,
-  FiExternalLink,
   FiShield,
   FiStar,
+  FiExternalLink,
 } from 'react-icons/fi';
 import { PiSparkle } from 'react-icons/pi';
 
 interface ProfileSectionProps {
-  copiedField: string | null;
-  onCopy: (text: string, label: string) => void;
+  copiedField?: string | null;
+  onCopy?: (text: string, label: string) => void;
 }
 
-function ProfileSection({ copiedField, onCopy }: ProfileSectionProps) {
+function ProfileSection({}: ProfileSectionProps) {
   return (
     <div
       id="profile"
@@ -69,77 +61,16 @@ function ProfileSection({ copiedField, onCopy }: ProfileSectionProps) {
             </span>
           </div>
 
-          <div className="flex flex-wrap gap-2 pt-2 text-xs">
-            <button
-              onClick={() => onCopy(PERSONAL_INFO.email, 'email')}
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-300 transition-colors border border-neutral-700 hover:border-dx0-orange/40 group cursor-pointer"
-              title="Click to copy email"
-            >
-              <FiMail className="text-dx0-orange group-hover:scale-110 transition-transform" />
-              <span>{PERSONAL_INFO.email}</span>
-              {copiedField === 'email' ? (
-                <FiCheck className="text-dx0-orange ml-1" />
-              ) : (
-                <FiCopy className="text-dx0-orange ml-1 text-[10px]" />
-              )}
-            </button>
-
-            <button
-              onClick={() => onCopy(PERSONAL_INFO.phone, 'phone')}
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-300 transition-colors border border-neutral-700 hover:border-dx0-orange/40 group cursor-pointer"
-              title="Click to copy phone"
-            >
-              <FiPhone className="text-dx0-orange group-hover:scale-110 transition-transform" />
-              <span>{PERSONAL_INFO.phone}</span>
-              {copiedField === 'phone' ? (
-                <FiCheck className="text-dx0-orange ml-1" />
-              ) : (
-                <FiCopy className="text-dx0-orange ml-1 text-[10px]" />
-              )}
-            </button>
-
+          <div className="pt-2 text-xs">
             <a
-              href={`https://${PERSONAL_INFO.github}`}
+              href="/Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-300 transition-colors border border-neutral-700 hover:border-dx0-orange/40"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-200 hover:text-white transition-colors border border-neutral-700 hover:border-dx0-orange/60 group font-semibold cursor-pointer shadow-sm"
             >
-              <FiGithub className="text-dx0-orange" />
-              <span>GitHub</span>
-              <FiExternalLink className="text-[10px] text-dx0-orange" />
-            </a>
-
-            <a
-              href={`https://${PERSONAL_INFO.linkedin}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-300 transition-colors border border-neutral-700 hover:border-dx0-orange/40"
-            >
-              <FiLinkedin className="text-dx0-orange" />
-              <span>LinkedIn</span>
-              <FiExternalLink className="text-[10px] text-dx0-orange" />
-            </a>
-
-            <a
-              href={`https://${PERSONAL_INFO.leetcode}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-300 transition-colors border border-neutral-700 hover:border-dx0-orange/40"
-            >
-              <FiCode className="text-dx0-orange" />
-              <span>LeetCode</span>
-              <FiExternalLink className="text-[10px] text-dx0-orange" />
-            </a>
-
-            <a
-              href={`https://${PERSONAL_INFO.ctftime}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-300 transition-colors border border-neutral-700 hover:border-dx0-orange/40"
-            >
-              <FiFlag className="text-dx0-orange" />
-              <span>CTFtime</span>
-              <FiExternalLink className="text-[10px] text-dx0-orange" />
+              
+              <span>Resume / Curriculum Vitae</span>
+              <FiExternalLink className="text-[10px] text-dx0-orange ml-0.5" />
             </a>
           </div>
         </div>
