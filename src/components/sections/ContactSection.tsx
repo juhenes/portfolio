@@ -18,10 +18,7 @@ interface ContactSectionProps {
   onCopy: (text: string, label: string) => void;
 }
 
-function ContactSection({
-  copiedField,
-  onCopy,
-}: ContactSectionProps) {
+function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -50,7 +47,8 @@ function ContactSection({
           <FaEnvelope /> Contact & Communication Channel
         </h2>
         <p className="text-xs text-neutral-400 mt-0.5">
-          Get in touch for software engineering, game development, web development, cybersecurity, or collaboration opportunities.
+          Get in touch for software engineering, game development, web
+          development, cybersecurity, or collaboration opportunities.
         </p>
       </div>
 
@@ -141,7 +139,9 @@ function ContactSection({
                 <FaGithub className="text-dx0-orange text-base flex-shrink-0" />
                 <div className="min-w-0">
                   <p className="font-bold truncate">GitHub</p>
-                  <p className="text-[10px] text-neutral-500 truncate">github.com/juhenes</p>
+                  <p className="text-[10px] text-neutral-500 truncate">
+                    github.com/juhenes
+                  </p>
                 </div>
               </a>
 
@@ -154,7 +154,9 @@ function ContactSection({
                 <FaLinkedin className="text-dx0-orange text-base flex-shrink-0" />
                 <div className="min-w-0">
                   <p className="font-bold truncate">LinkedIn</p>
-                  <p className="text-[10px] text-neutral-500 truncate">deogenesmaranan</p>
+                  <p className="text-[10px] text-neutral-500 truncate">
+                    deogenesmaranan
+                  </p>
                 </div>
               </a>
 
@@ -167,7 +169,9 @@ function ContactSection({
                 <FaCode className="text-dx0-orange text-base flex-shrink-0" />
                 <div className="min-w-0">
                   <p className="font-bold truncate">LeetCode</p>
-                  <p className="text-[10px] text-neutral-500 truncate">leetcode.com/Juhenes</p>
+                  <p className="text-[10px] text-neutral-500 truncate">
+                    leetcode.com/Juhenes
+                  </p>
                 </div>
               </a>
 
@@ -180,7 +184,9 @@ function ContactSection({
                 <FaFlag className="text-dx0-orange text-base flex-shrink-0" />
                 <div className="min-w-0">
                   <p className="font-bold truncate">CTFtime</p>
-                  <p className="text-[10px] text-neutral-500 truncate">ctftime.org/user/194539</p>
+                  <p className="text-[10px] text-neutral-500 truncate">
+                    ctftime.org/user/194539
+                  </p>
                 </div>
               </a>
             </div>
@@ -197,7 +203,8 @@ function ContactSection({
               <div className="p-4 rounded bg-dx0-orange/10 border border-dx0-orange/30 text-dx0-orange text-xs text-center space-y-1">
                 <p className="font-bold">Message Transmitted!</p>
                 <p className="text-[11px] text-neutral-300">
-                  Thank you for reaching out. Deogenes will get back to you shortly.
+                  Thank you for reaching out. Deogenes will get back to you
+                  shortly.
                 </p>
               </div>
             ) : (
@@ -281,4 +288,3 @@ function ContactSection({
 }
 
 export default memo(ContactSection);
-

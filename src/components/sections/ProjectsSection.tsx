@@ -1,6 +1,12 @@
 import { useState, useMemo, memo } from 'react';
 import { PROJECTS_DATA } from '../../data/projectsData';
-import { FaFolderOpen, FaGithub, FaExternalLinkAlt, FaCode, FaSearch } from 'react-icons/fa';
+import {
+  FaFolderOpen,
+  FaGithub,
+  FaExternalLinkAlt,
+  FaCode,
+  FaSearch,
+} from 'react-icons/fa';
 
 function ProjectsSection() {
   const [selectedTech, setSelectedTech] = useState<string>('All');
@@ -41,7 +47,8 @@ function ProjectsSection() {
             <FaFolderOpen /> Key Development Projects
           </h2>
           <p className="text-xs text-neutral-400 mt-0.5">
-            Hybrid AI models, 2D mobile games, desktop applications, and Android software
+            Hybrid AI models, 2D mobile games, desktop applications, and Android
+            software
           </p>
         </div>
 
@@ -143,4 +150,3 @@ function ProjectsSection() {
 }
 
 export default memo(ProjectsSection);
-

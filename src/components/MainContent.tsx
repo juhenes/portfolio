@@ -80,7 +80,7 @@ export default function MainContent({ onSectionVisible }: MainContentProps) {
   return (
     <div
       ref={containerRef}
-      className="flex flex-col h-full overflow-y-auto text-neutral-200 font-mono space-y-8 pr-1 scroll-smooth gpu-accelerated"
+      className="flex flex-col h-full overflow-y-auto text-neutral-200 font-mono space-y-8 p-4 scroll-smooth gpu-accelerated"
     >
       <ProfileSection copiedField={copiedField} onCopy={handleCopy} />
       <div className="content-visibility-auto">
@@ -107,4 +107,3 @@ export default function MainContent({ onSectionVisible }: MainContentProps) {
     </div>
   );
 }
-

@@ -2,68 +2,149 @@ export interface CommandDef {
   id: string;
   cmd: string;
   terminalOnly?: boolean;
-  description?: string;
+  description: string;
+  category: 'navigation' | 'system' | 'display' | 'utility';
+  aliases?: string[];
 }
 
 export const COMMANDS: CommandDef[] = [
   {
-    id: 'open_profile',
-    cmd: 'open Profile',
-    terminalOnly: false,
-    description: 'Scroll to Profile top section',
+    id: 'help',
+    cmd: 'help',
+    description: 'Display available terminal commands & navigation guide',
+    category: 'utility',
+    aliases: ['?', 'commands', 'man'],
   },
   {
-    id: 'open_experience',
-    cmd: 'open Experience',
-    terminalOnly: false,
-    description: 'Scroll to Experience section',
-  },
-  {
-    id: 'open_leadership',
-    cmd: 'open Leadership',
-    terminalOnly: false,
-    description: 'Scroll to Leadership section',
-  },
-  {
-    id: 'open_projects',
-    cmd: 'open Projects',
-    terminalOnly: false,
-    description: 'Scroll to Projects section',
-  },
-  {
-    id: 'open_awards',
-    cmd: 'open Awards',
-    terminalOnly: false,
-    description: 'Scroll to Awards section',
-  },
-  {
-    id: 'open_certs',
-    cmd: 'open Certifications',
-    terminalOnly: false,
-    description: 'Scroll to Certifications section',
-  },
-  {
-    id: 'open_skills',
-    cmd: 'open Skills',
-    terminalOnly: false,
-    description: 'Scroll to Skills section',
-  },
-  {
-    id: 'open_contact',
-    cmd: 'open Contact',
-    terminalOnly: false,
-    description: 'Scroll to Contact section',
+    id: 'whoami',
+    cmd: 'whoami',
+    description: 'Display user identity, role & summary credentials',
+    category: 'system',
+    aliases: ['user', 'bio', 'about-me'],
   },
   {
     id: 'fastfetch',
     cmd: 'fastfetch',
     terminalOnly: true,
-    description: 'Quick system info (terminal-only)',
+    description: 'Display system specs & portfolio stats with logo',
+    category: 'system',
+    aliases: ['neofetch', 'fetch', 'sysinfo'],
+  },
+  {
+    id: 'no-ui',
+    cmd: 'no-ui',
+    terminalOnly: true,
+    description: 'Switch to full-screen terminal-only pure text mode',
+    category: 'display',
+    aliases: ['noui', 'cli', 'terminal-only', 'text-mode'],
+  },
+  {
+    id: 'ui',
+    cmd: 'ui',
+    description: 'Return to original graphical user interface mode',
+    category: 'display',
+    aliases: ['gui', 'exit-terminal', 'exit', 'normal-mode'],
+  },
+  {
+    id: 'cd',
+    cmd: 'cd <section>',
+    description: 'Navigate to a section (e.g. cd projects, cd skills)',
+    category: 'navigation',
+    aliases: ['goto', 'jump'],
+  },
+  {
+    id: 'ls',
+    cmd: 'ls',
+    description: 'List portfolio virtual directories and section files',
+    category: 'navigation',
+    aliases: ['dir', 'list'],
+  },
+  {
+    id: 'cat',
+    cmd: 'cat <file>',
+    description: 'Read and output section contents in pure text format',
+    category: 'navigation',
+    aliases: ['read', 'view', 'show'],
+  },
+  {
+    id: 'open',
+    cmd: 'open <section>',
+    description: 'Scroll to section in UI mode or view details',
+    category: 'navigation',
+  },
+  {
+    id: 'pwd',
+    cmd: 'pwd',
+    description: 'Print current section location path',
+    category: 'navigation',
   },
   {
     id: 'clear',
     cmd: 'clear',
     terminalOnly: true,
-    description: 'Clear terminal history',
+    description: 'Clear terminal screen history',
+    category: 'utility',
+    aliases: ['cls'],
+  },
+  {
+    id: 'history',
+    cmd: 'history',
+    description: 'List recently executed command history',
+    category: 'utility',
+  },
+  {
+    id: 'contact',
+    cmd: 'contact',
+    description: 'Display email, phone, GitHub & LinkedIn links',
+    category: 'system',
+    aliases: ['mail', 'socials'],
+  },
+  {
+    id: 'open_profile',
+    cmd: 'open Profile',
+    description: 'Scroll to Profile section',
+    category: 'navigation',
+  },
+  {
+    id: 'open_experience',
+    cmd: 'open Experience',
+    description: 'Scroll to Experience section',
+    category: 'navigation',
+  },
+  {
+    id: 'open_leadership',
+    cmd: 'open Leadership',
+    description: 'Scroll to Leadership section',
+    category: 'navigation',
+  },
+  {
+    id: 'open_projects',
+    cmd: 'open Projects',
+    description: 'Scroll to Projects section',
+    category: 'navigation',
+  },
+  {
+    id: 'open_awards',
+    cmd: 'open Awards',
+    description: 'Scroll to Awards section',
+    category: 'navigation',
+  },
+  {
+    id: 'open_certs',
+    cmd: 'open Certifications',
+    description: 'Scroll to Certifications section',
+    category: 'navigation',
+  },
+  {
+    id: 'open_skills',
+    cmd: 'open Skills',
+    description: 'Scroll to Skills section',
+    category: 'navigation',
+  },
+  {
+    id: 'open_contact',
+    cmd: 'open Contact',
+    description: 'Scroll to Contact section',
+    category: 'navigation',
   },
 ];

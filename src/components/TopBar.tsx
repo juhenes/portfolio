@@ -142,10 +142,12 @@ export default function TopBar({
     return getFullCalendarGrid(viewDate, time);
   }, [calendarOpen, viewDate, time]);
 
-  const weekDays = useMemo(() => ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'], []);
+  const weekDays = useMemo(
+    () => ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+    []
+  );
 
   return (
-
     <header className="sticky top-0 z-30 w-full h-11 bg-neutral-950 border-b border-neutral-800/80 px-3 md:px-5 flex items-center justify-between select-none text-xs font-mono relative">
       <div className="flex items-center gap-2">
         <button
@@ -169,7 +171,6 @@ export default function TopBar({
       </div>
 
       <div className="flex items-center gap-3 sm:gap-4" ref={calendarRef}>
-
         <div className="hidden sm:flex items-center gap-2.5 sm:gap-3 text-neutral-400">
           {CONTACT_DATA.email && (
             <a
@@ -320,4 +321,3 @@ export default function TopBar({
     </header>
   );
 }
-

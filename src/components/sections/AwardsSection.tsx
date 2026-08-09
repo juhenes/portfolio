@@ -42,7 +42,8 @@ function AwardsSection() {
             <FaAward /> Honors & Competition Achievements
           </h2>
           <p className="text-xs text-neutral-400 mt-0.5">
-            Cybersecurity CTF championships, national scholarships & competitive programming honors
+            Cybersecurity CTF championships, national scholarships & competitive
+            programming honors
           </p>
         </div>
       </div>
@@ -105,4 +106,3 @@ function AwardsSection() {
 }
 
 export default memo(AwardsSection);
-

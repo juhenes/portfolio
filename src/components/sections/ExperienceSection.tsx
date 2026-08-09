@@ -13,7 +13,8 @@ function ExperienceSection() {
           <FaBriefcase /> Work Experience
         </h2>
         <p className="text-xs text-neutral-400 mt-0.5">
-          Software Engineering, Game Development, Independent Contracting & Web Systems Architecture
+          Software Engineering, Game Development, Independent Contracting & Web
+          Systems Architecture
         </p>
       </div>
 
@@ -67,4 +68,3 @@ function ExperienceSection() {
 }
 
 export default memo(ExperienceSection);
-

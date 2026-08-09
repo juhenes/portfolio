@@ -1,6 +1,11 @@
 import { memo } from 'react';
 import { CERTIFICATIONS_DATA } from '../../data/certificationsData';
-import { FaCertificate, FaAward, FaShieldAlt, FaCheckCircle } from 'react-icons/fa';
+import {
+  FaCertificate,
+  FaAward,
+  FaShieldAlt,
+  FaCheckCircle,
+} from 'react-icons/fa';
 
 function CertificationsSection() {
   return (
@@ -13,7 +18,8 @@ function CertificationsSection() {
           <FaCertificate /> Licenses & Official Certifications
         </h2>
         <p className="text-xs text-neutral-400 mt-0.5">
-          Government eligibility credentials and official Cisco Networking Academy certifications
+          Government eligibility credentials and official Cisco Networking
+          Academy certifications
         </p>
       </div>
 
@@ -38,13 +44,16 @@ function CertificationsSection() {
           </span>
         </div>
         <p className="text-xs text-neutral-300 pt-2 border-t border-neutral-900">
-          First-level and second-level government eligibility for technical and professional positions. Passed CSE Professional Examination with 90.96% rating.
+          First-level and second-level government eligibility for technical and
+          professional positions. Passed CSE Professional Examination with
+          90.96% rating.
         </p>
       </div>
 
       <div>
         <h3 className="text-xs font-bold uppercase tracking-wider text-neutral-400 mb-2 flex items-center gap-2">
-          <FaShieldAlt className="text-dx0-orange" /> Cisco Networking Academy Certifications
+          <FaShieldAlt className="text-dx0-orange" /> Cisco Networking Academy
+          Certifications
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -79,4 +88,3 @@ function CertificationsSection() {
 }
 
 export default memo(CertificationsSection);
-

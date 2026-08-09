@@ -78,4 +78,3 @@ function SkillsSection() {
 }
 
 export default memo(SkillsSection);
-

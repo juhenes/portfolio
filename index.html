@@ -10,10 +10,14 @@
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#000000" />
     <script>
-      (function() {
+      (function () {
         try {
           var theme = localStorage.getItem('dxo_theme');
-          if (theme === 'light' || (!theme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+          if (
+            theme === 'light' ||
+            (!theme &&
+              window.matchMedia('(prefers-color-scheme: light)').matches)
+          ) {
             document.documentElement.classList.add('light');
             document.documentElement.style.colorScheme = 'light';
           }

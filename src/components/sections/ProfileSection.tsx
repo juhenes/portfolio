@@ -21,10 +21,7 @@ interface ProfileSectionProps {
   onCopy: (text: string, label: string) => void;
 }
 
-function ProfileSection({
-  copiedField,
-  onCopy,
-}: ProfileSectionProps) {
+function ProfileSection({ copiedField, onCopy }: ProfileSectionProps) {
   return (
     <div
       id="profile"
@@ -59,13 +56,13 @@ function ProfileSection({
               <FaGraduationCap className="text-dx0-orange/80" />
               BatStateU BS Computer Science
             </span>
-            <span className="flex items-center gap-1.5 text-dx0-orange font-medium">
+            <span className="flex items-center gap-1.5">
               ★ Cum Laude (GWA: {PERSONAL_INFO.gwa})
             </span>
-            <span className="flex items-center gap-1.5 text-dx0-orange font-medium">
+            <span className="flex items-center gap-1.5">
               🏛️ CSE Professional (90.96%)
             </span>
-            <span className="flex items-center gap-1.5 text-dx0-orange font-medium">
+            <span className="flex items-center gap-1.5">
               🛡️ DOST JLSS Scholar
             </span>
           </div>
@@ -146,7 +143,10 @@ function ProfileSection({
         </div>
       </div>
 
-      <div className="border-t border-neutral-800/80 pt-5 space-y-3" id="education">
+      <div
+        className="border-t border-neutral-800/80 pt-5 space-y-3"
+        id="education"
+      >
         <h2 className="text-xs font-bold uppercase tracking-wider text-dx0-orange flex items-center gap-2">
           <FaGraduationCap /> Education & Academic Distinction
         </h2>
@@ -191,7 +191,10 @@ function ProfileSection({
         ))}
       </div>
 
-      <div className="border-t border-neutral-800/80 pt-5 space-y-2" id="biography">
+      <div
+        className="border-t border-neutral-800/80 pt-5 space-y-2"
+        id="biography"
+      >
         <h2 className="text-xs font-bold uppercase tracking-wider text-dx0-orange flex items-center gap-2">
           <FaTerminal className="text-xs" /> Biography & Profile Summary
         </h2>
@@ -204,4 +207,3 @@ function ProfileSection({
 }
 
 export default memo(ProfileSection);
-

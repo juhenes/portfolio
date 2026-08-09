@@ -13,7 +13,8 @@ function LeadershipSection() {
           <FaUserShield /> Leadership & Community Experience
         </h2>
         <p className="text-xs text-neutral-400 mt-0.5">
-          CTF Competition Orchestration, Cyber Security Mentorship & Technical Workshops
+          CTF Competition Orchestration, Cyber Security Mentorship & Technical
+          Workshops
         </p>
       </div>
 
@@ -54,4 +55,3 @@ function LeadershipSection() {
 }
 
 export default memo(LeadershipSection);
-
