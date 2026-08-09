@@ -1,7 +1,8 @@
+import { memo } from 'react';
 import { LEADERSHIP_DATA } from '../../data/aboutData';
 import { FaUserShield, FaChalkboardTeacher } from 'react-icons/fa';
 
-export default function LeadershipSection() {
+function LeadershipSection() {
   return (
     <div
       id="leadership"
@@ -51,3 +52,6 @@ export default function LeadershipSection() {
     </div>
   );
 }
+
+export default memo(LeadershipSection);
+

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { PERSONAL_INFO, EDUCATION_DATA } from '../../data/aboutData';
 import {
   FaTerminal,
@@ -20,7 +21,7 @@ interface ProfileSectionProps {
   onCopy: (text: string, label: string) => void;
 }
 
-export default function ProfileSection({
+function ProfileSection({
   copiedField,
   onCopy,
 }: ProfileSectionProps) {
@@ -201,3 +202,6 @@ export default function ProfileSection({
     </div>
   );
 }
+
+export default memo(ProfileSection);
+

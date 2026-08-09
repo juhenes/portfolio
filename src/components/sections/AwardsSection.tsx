@@ -1,8 +1,8 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, memo } from 'react';
 import { AWARDS_DATA } from '../../data/awardsData';
 import { FaAward, FaSearch } from 'react-icons/fa';
 
-export default function AwardsSection() {
+function AwardsSection() {
   const [awardCategory, setAwardCategory] = useState<string>('All');
   const [awardSearchQuery, setAwardSearchQuery] = useState<string>('');
 
@@ -103,3 +103,6 @@ export default function AwardsSection() {
     </div>
   );
 }
+
+export default memo(AwardsSection);
+

@@ -1,7 +1,8 @@
+import { memo } from 'react';
 import { CERTIFICATIONS_DATA } from '../../data/certificationsData';
 import { FaCertificate, FaAward, FaShieldAlt, FaCheckCircle } from 'react-icons/fa';
 
-export default function CertificationsSection() {
+function CertificationsSection() {
   return (
     <div
       id="certifications"
@@ -76,3 +77,6 @@ export default function CertificationsSection() {
     </div>
   );
 }
+
+export default memo(CertificationsSection);
+

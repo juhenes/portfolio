@@ -13,21 +13,19 @@ import { TIMING } from './config';
  * counter that can drift out of sync with what's actually on screen.
  */
 export function useTypewriter(text: string, delayMs: number) {
+  const [prevText, setPrevText] = useState(text);
   const [typed, setTyped] = useState('');
-  const [done, setDone] = useState(false);
 
-  // Reset whenever the target text changes.
-  useEffect(() => {
+  if (text !== prevText) {
+    setPrevText(text);
     setTyped('');
-    setDone(false);
-  }, [text]);
+  }
+
+  const done = text.length > 0 && typed.length >= text.length;
 
   // Advance one character at a time, always based on current `typed`.
   useEffect(() => {
-    if (typed.length >= text.length) {
-      if (text.length > 0) setDone(true);
-      return;
-    }
+    if (typed.length >= text.length) return;
 
     const timer = setTimeout(() => {
       setTyped(text.slice(0, typed.length + 1));
@@ -53,24 +51,20 @@ export function useSequentialReveal<T>(
   delayMs: number,
   active: boolean = true
 ) {
+  const [prevConfig, setPrevConfig] = useState({ active, items });
   const [visible, setVisible] = useState<T[]>([]);
-  const [done, setDone] = useState(false);
 
-  // Reset whenever (re)activated or the source list changes.
-  useEffect(() => {
-    if (!active) return;
+  if (prevConfig.active !== active || prevConfig.items !== items) {
+    setPrevConfig({ active, items });
     setVisible([]);
-    setDone(false);
-  }, [active, items]);
+  }
+
+  const done = items.length > 0 && visible.length >= items.length;
 
   // Advance one item at a time, always based on current `visible`.
   useEffect(() => {
     if (!active) return;
-
-    if (visible.length >= items.length) {
-      if (items.length > 0) setDone(true);
-      return;
-    }
+    if (visible.length >= items.length) return;
 
     const timer = setTimeout(() => {
       setVisible((prev) => [...prev, items[prev.length]]);

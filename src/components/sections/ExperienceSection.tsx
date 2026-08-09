@@ -1,7 +1,8 @@
+import { memo } from 'react';
 import { EXPERIENCE_DATA } from '../../data/aboutData';
 import { FaBriefcase, FaBuilding, FaCalendarAlt } from 'react-icons/fa';
 
-export default function ExperienceSection() {
+function ExperienceSection() {
   return (
     <div
       id="experience"
@@ -64,3 +65,6 @@ export default function ExperienceSection() {
     </div>
   );
 }
+
+export default memo(ExperienceSection);
+

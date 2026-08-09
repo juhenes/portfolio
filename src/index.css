@@ -37,3 +37,14 @@
   scrollbar-color: #262626 #0a0a0a;
 }
 
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto none auto 400px;
+}
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+

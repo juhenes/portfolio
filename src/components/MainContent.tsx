@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import ProfileSection from './sections/ProfileSection';
 import ExperienceSection from './sections/ExperienceSection';
 import LeadershipSection from './sections/LeadershipSection';
@@ -12,65 +12,99 @@ interface MainContentProps {
   onSectionVisible?: (sectionLabel: string) => void;
 }
 
+const SECTION_IDS = [
+  { id: 'profile', label: 'Profile' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'leadership', label: 'Leadership' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'awards', label: 'Awards' },
+  { id: 'certifications', label: 'Certs' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'contact', label: 'Contact' },
+];
+
 export default function MainContent({ onSectionVisible }: MainContentProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [copiedField, setCopiedField] = useState<string | null>(null);
+  const activeLabelRef = useRef<string>('Profile');
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container || !onSectionVisible) return;
 
-    const sectionIds = [
-      { id: 'profile', label: 'Profile' },
-      { id: 'experience', label: 'Experience' },
-      { id: 'leadership', label: 'Leadership' },
-      { id: 'projects', label: 'Projects' },
-      { id: 'awards', label: 'Awards' },
-      { id: 'certifications', label: 'Certs' },
-      { id: 'skills', label: 'Skills' },
-      { id: 'contact', label: 'Contact' },
-    ];
+    const visibleMap = new Map<string, number>();
 
-    const handleScroll = () => {
-      const containerTop = container.getBoundingClientRect().top;
-      let currentLabel = 'Profile';
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          visibleMap.set(entry.target.id, entry.intersectionRatio);
+        });
 
-      for (const sec of sectionIds) {
-        const el = document.getElementById(sec.id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top - containerTop <= 140) {
-            currentLabel = sec.label;
+        let maxRatio = -1;
+        let bestLabel = 'Profile';
+
+        for (const sec of SECTION_IDS) {
+          const ratio = visibleMap.get(sec.id) || 0;
+          if (ratio > maxRatio && ratio > 0.05) {
+            maxRatio = ratio;
+            bestLabel = sec.label;
           }
         }
+
+        if (bestLabel !== activeLabelRef.current) {
+          activeLabelRef.current = bestLabel;
+          onSectionVisible(bestLabel);
+        }
+      },
+      {
+        root: container,
+        rootMargin: '-5% 0px -40% 0px',
+        threshold: [0, 0.1, 0.25, 0.5, 0.75, 1.0],
       }
+    );
 
-      onSectionVisible(currentLabel);
-    };
+    SECTION_IDS.forEach((sec) => {
+      const el = document.getElementById(sec.id);
+      if (el) observer.observe(el);
+    });
 
-    container.addEventListener('scroll', handleScroll, { passive: true });
-    return () => container.removeEventListener('scroll', handleScroll);
+    return () => observer.disconnect();
   }, [onSectionVisible]);
 
-  const handleCopy = (text: string, label: string) => {
+  const handleCopy = useCallback((text: string, label: string) => {
     navigator.clipboard.writeText(text);
     setCopiedField(label);
     setTimeout(() => setCopiedField(null), 2000);
-  };
+  }, []);
 
   return (
     <div
       ref={containerRef}
-      className="flex flex-col h-full overflow-y-auto text-neutral-200 font-mono space-y-8 pr-1 scroll-smooth"
+      className="flex flex-col h-full overflow-y-auto text-neutral-200 font-mono space-y-8 pr-1 scroll-smooth gpu-accelerated"
     >
       <ProfileSection copiedField={copiedField} onCopy={handleCopy} />
-      <ExperienceSection />
-      <LeadershipSection />
-      <ProjectsSection />
-      <AwardsSection />
-      <CertificationsSection />
-      <SkillsSection />
-      <ContactSection copiedField={copiedField} onCopy={handleCopy} />
+      <div className="content-visibility-auto">
+        <ExperienceSection />
+      </div>
+      <div className="content-visibility-auto">
+        <LeadershipSection />
+      </div>
+      <div className="content-visibility-auto">
+        <ProjectsSection />
+      </div>
+      <div className="content-visibility-auto">
+        <AwardsSection />
+      </div>
+      <div className="content-visibility-auto">
+        <CertificationsSection />
+      </div>
+      <div className="content-visibility-auto">
+        <SkillsSection />
+      </div>
+      <div className="content-visibility-auto">
+        <ContactSection copiedField={copiedField} onCopy={handleCopy} />
+      </div>
     </div>
   );
 }
+

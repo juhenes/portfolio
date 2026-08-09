@@ -1,8 +1,8 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, memo } from 'react';
 import { SKILL_CATEGORIES_DATA } from '../../data/aboutData';
 import { FaCode, FaSearch, FaTerminal } from 'react-icons/fa';
 
-export default function SkillsSection() {
+function SkillsSection() {
   const [skillsSearchQuery, setSkillsSearchQuery] = useState<string>('');
 
   const filteredSkills = useMemo(() => {
@@ -76,3 +76,6 @@ export default function SkillsSection() {
     </div>
   );
 }
+
+export default memo(SkillsSection);
+

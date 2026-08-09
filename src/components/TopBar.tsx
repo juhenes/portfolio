@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import {
   FiSun,
@@ -135,10 +135,15 @@ export default function TopBar({
     };
   };
 
-  const grid = getFullCalendarGrid(viewDate, time);
-  const weekDays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+  const grid = useMemo(() => {
+    if (!calendarOpen) return null;
+    return getFullCalendarGrid(viewDate, time);
+  }, [calendarOpen, viewDate, time]);
+
+  const weekDays = useMemo(() => ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'], []);
 
   return (
+
     <header className="sticky top-0 z-30 w-full h-11 bg-neutral-950 border-b border-neutral-800/80 px-3 md:px-5 flex items-center justify-between select-none text-xs font-mono relative">
       <div className="flex items-center gap-2">
         <button
@@ -237,8 +242,8 @@ export default function TopBar({
           </span>
         </button>
 
-        {calendarOpen && (
-          <div className="absolute right-3 sm:right-12 top-12 z-50 w-64 bg-neutral-900/40 backdrop-blur-2xl border border-neutral-600/50 rounded-lg shadow-[0_12px_40px_rgba(0,0,0,0.85)] p-3 text-neutral-200 select-none animate-in fade-in zoom-in-95 duration-150">
+        {calendarOpen && grid && (
+          <div className="absolute right-3 sm:right-12 top-12 z-50 w-64 bg-neutral-900/90 backdrop-blur-md border border-neutral-600/50 rounded-lg shadow-[0_12px_40px_rgba(0,0,0,0.85)] p-3 text-neutral-200 select-none animate-in fade-in zoom-in-95 duration-150">
             <div className="flex items-center justify-between border-b border-neutral-800/80 pb-2 mb-2">
               <button
                 onClick={handlePrevMonth}

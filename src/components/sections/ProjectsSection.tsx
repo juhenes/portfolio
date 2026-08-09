@@ -1,8 +1,8 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, memo } from 'react';
 import { PROJECTS_DATA } from '../../data/projectsData';
 import { FaFolderOpen, FaGithub, FaExternalLinkAlt, FaCode, FaSearch } from 'react-icons/fa';
 
-export default function ProjectsSection() {
+function ProjectsSection() {
   const [selectedTech, setSelectedTech] = useState<string>('All');
   const [projectSearchQuery, setProjectSearchQuery] = useState<string>('');
 
@@ -141,3 +141,6 @@ export default function ProjectsSection() {
     </div>
   );
 }
+
+export default memo(ProjectsSection);
+

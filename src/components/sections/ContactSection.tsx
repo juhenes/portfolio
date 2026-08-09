@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { CONTACT_DATA } from '../../data/contactData';
 import {
   FaEnvelope,
@@ -18,7 +18,7 @@ interface ContactSectionProps {
   onCopy: (text: string, label: string) => void;
 }
 
-export default function ContactSection({
+function ContactSection({
   copiedField,
   onCopy,
 }: ContactSectionProps) {
@@ -279,3 +279,6 @@ export default function ContactSection({
     </div>
   );
 }
+
+export default memo(ContactSection);
+

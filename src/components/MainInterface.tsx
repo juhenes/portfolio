@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import ScreenContainer from './ScreenContainer';
 import Console from './Console';
 import MainContent from './MainContent';
@@ -33,12 +33,12 @@ export default function MainInterface() {
   const [mobileShortcutsOpen, setMobileShortcutsOpen] =
     useState<boolean>(false);
 
-  function handleTerminalToggle(open: boolean) {
+  const handleTerminalToggle = useCallback((open: boolean) => {
     setIsTerminalOpen(open);
     setTerminalCookie(open);
-  }
+  }, []);
 
-  function scrollToSectionId(sectionName: string) {
+  const scrollToSectionId = useCallback((sectionName: string) => {
     const targetMap: Record<string, { id: string; label: string }> = {
       Profile: { id: 'profile', label: 'Profile' },
       Overview: { id: 'profile', label: 'Profile' },
@@ -68,31 +68,42 @@ export default function MainInterface() {
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  }
+  }, []);
 
-  function executeCommand(cmd: string) {
-    const def = COMMANDS.find((c) => c.cmd === cmd);
+  const executeCommand = useCallback(
+    (cmd: string) => {
+      const def = COMMANDS.find((c) => c.cmd === cmd);
 
-    if (def && def.cmd === 'clear') {
-      setCommands([]);
-      return;
-    }
+      if (def && def.cmd === 'clear') {
+        setCommands([]);
+        return;
+      }
 
-    setCommands((s) => [...s, cmd]);
+      setCommands((s) => [...s, cmd]);
 
-    if (def && def.terminalOnly) {
-      setConsoleFullscreen(true);
-      setIsTerminalOpen(true);
-      return;
-    }
+      if (def && def.terminalOnly) {
+        setConsoleFullscreen(true);
+        setIsTerminalOpen(true);
+        return;
+      }
 
-    setConsoleFullscreen(false);
+      setConsoleFullscreen(false);
 
-    if (cmd.startsWith('open ')) {
-      const sectionName = cmd.replace('open ', '');
-      scrollToSectionId(sectionName);
-    }
-  }
+      if (cmd.startsWith('open ')) {
+        const sectionName = cmd.replace('open ', '');
+        scrollToSectionId(sectionName);
+      }
+    },
+    [scrollToSectionId]
+  );
+
+  const handleSectionVisible = useCallback((secLabel: string) => {
+    setActiveSection((prev) => (prev === secLabel ? prev : secLabel));
+  }, []);
+
+  const handleOpenMobileMenu = useCallback(() => {
+    setMobileShortcutsOpen(true);
+  }, []);
 
   return (
     <ScreenContainer
@@ -101,7 +112,7 @@ export default function MainInterface() {
     >
       <TopBar
         currentModule={activeSection}
-        onOpenMobileMenu={() => setMobileShortcutsOpen(true)}
+        onOpenMobileMenu={handleOpenMobileMenu}
       />
 
       <div
@@ -184,9 +195,7 @@ export default function MainInterface() {
                 expanded={true}
               />
             ) : (
-              <MainContent
-                onSectionVisible={(secLabel: string) => setActiveSection(secLabel)}
-              />
+              <MainContent onSectionVisible={handleSectionVisible} />
             )}
           </div>
 
