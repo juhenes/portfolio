@@ -80,30 +80,16 @@ export default function MainContent({ onSectionVisible }: MainContentProps) {
   return (
     <div
       ref={containerRef}
-      className="flex flex-col h-full overflow-y-auto text-neutral-200 font-mono space-y-8 p-4 scroll-smooth gpu-accelerated"
+      className="flex flex-col h-full overflow-y-auto text-neutral-200 font-mono space-y-8 p-4 scroll-smooth [scrollbar-gutter:stable] pr-2"
     >
       <ProfileSection copiedField={copiedField} onCopy={handleCopy} />
-      <div className="content-visibility-auto">
-        <ExperienceSection />
-      </div>
-      <div className="content-visibility-auto">
-        <LeadershipSection />
-      </div>
-      <div className="content-visibility-auto">
-        <ProjectsSection />
-      </div>
-      <div className="content-visibility-auto">
-        <AwardsSection />
-      </div>
-      <div className="content-visibility-auto">
-        <CertificationsSection />
-      </div>
-      <div className="content-visibility-auto">
-        <SkillsSection />
-      </div>
-      <div className="content-visibility-auto">
-        <ContactSection copiedField={copiedField} onCopy={handleCopy} />
-      </div>
+      <ExperienceSection />
+      <LeadershipSection />
+      <ProjectsSection />
+      <AwardsSection />
+      <CertificationsSection />
+      <SkillsSection />
+      <ContactSection copiedField={copiedField} onCopy={handleCopy} />
     </div>
   );
 }

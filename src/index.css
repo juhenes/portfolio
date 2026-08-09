@@ -39,6 +39,10 @@
   border-color: #f47522;
 }
 
+::-webkit-scrollbar-corner {
+  background: #0a0a0a;
+}
+
 * {
   scrollbar-width: thin;
   scrollbar-color: #262626 #0a0a0a;
@@ -56,6 +60,10 @@ html.light ::-webkit-scrollbar-thumb {
 html.light ::-webkit-scrollbar-thumb:hover {
   background: #f47522;
   border-color: #f47522;
+}
+
+html.light ::-webkit-scrollbar-corner {
+  background: #f0f0f0;
 }
 
 html.light * {
@@ -181,12 +189,4 @@ html.light aside {
   border-right-color: #e5e5e5;
 }
 
-.content-visibility-auto {
-  content-visibility: auto;
-  contain-intrinsic-size: auto none auto 400px;
-}
 
-.gpu-accelerated {
-  transform: translateZ(0);
-  will-change: transform;
-}
