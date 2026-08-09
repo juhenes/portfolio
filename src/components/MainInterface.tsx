@@ -27,12 +27,12 @@ import {
 import type { AliasMap } from '../utils/aliasStorage';
 
 function getTerminalCookie(): boolean {
-  if (typeof document === 'undefined') return true;
+  if (typeof document === 'undefined') return false;
   const match = document.cookie.match(/(?:^|; )dxo_terminal_open=([^;]*)/);
   if (match) {
     return match[1] === 'true';
   }
-  return true;
+  return false;
 }
 
 function setTerminalCookie(isOpen: boolean) {
@@ -800,7 +800,7 @@ export default function MainInterface() {
               aria-label="Open Terminal Console"
               className="fixed bottom-5 right-5 z-40 flex items-center gap-2 px-3 py-2 rounded-lg bg-neutral-900/95 text-dx0-orange border border-dx0-orange/50 hover:bg-dx0-orange hover:text-black font-semibold text-xs transition-all shadow-[0_0_20px_rgba(244,117,34,0.4)] backdrop-blur-md cursor-pointer animate-in fade-in zoom-in-95 duration-200"
             >
-              <FiTerminal className="text-sm text-dx0-orange" />
+              <FiTerminal className="text-sm text-current" />
               <span>Terminal</span>
             </button>
           )}
