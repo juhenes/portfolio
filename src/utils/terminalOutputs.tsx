@@ -461,7 +461,7 @@ export function renderCat(target: string) {
     return (
       <div className="font-mono text-xs my-2 space-y-2 p-2 rounded bg-neutral-900/40 border border-neutral-800">
         <div className="text-dx0-orange font-bold text-sm border-b border-dx0-orange/30 pb-1">
-          === TECHNICAL SKILLS MATRIX ===
+          === TECHNICAL SKILLS ===
         </div>
         {SKILL_CATEGORIES_DATA.map((cat) => (
           <div key={cat.id} className="space-y-0.5">

@@ -24,7 +24,7 @@ function SkillsSection() {
     >
       <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-2 border-b border-neutral-800 pb-3">
         <h2 className="text-xs font-bold uppercase tracking-wider text-dx0-orange flex items-center gap-2">
-          <FiCode className="text-dx0-orange" /> Technical Skills & Knowledge Matrix
+          <FiCode className="text-dx0-orange" /> Technical Skills & Knowledge
         </h2>
 
         <div className="relative w-full sm:w-56">
