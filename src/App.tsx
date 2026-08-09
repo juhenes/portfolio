@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BootScreen from './components/BootScreen';
 import AuthScreen from './components/AuthScreen';
 import MainInterface from './components/MainInterface';
@@ -7,6 +7,22 @@ export default function App() {
   const [booted, setBooted] = useState(false);
   const [authenticated, setAuthenticated] = useState(false);
   const [skipping, setSkipping] = useState(false);
+
+  useEffect(() => {
+    const isBot =
+      typeof navigator !== 'undefined' &&
+      /bot|googlebot|crawler|spider|robot|crawling|lighthouse/i.test(
+        navigator.userAgent
+      );
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (isBot || prefersReducedMotion) {
+      setBooted(true);
+      setAuthenticated(true);
+    }
+  }, []);
 
   const handleSkip = () => {
     if (skipping || (booted && authenticated)) return;
@@ -18,6 +34,8 @@ export default function App() {
     }, 500);
   };
 
+  const showIntro = !booted || !authenticated;
+
   return (
     <>
       <a
@@ -27,11 +45,11 @@ export default function App() {
         Skip to main content
       </a>
 
-      {authenticated && <MainInterface />}
+      <MainInterface />
 
-      {(!booted || !authenticated) && (
+      {showIntro && (
         <div
-          className={`fixed inset-0 z-50 cursor-pointer select-none transition-opacity duration-500 ${
+          className={`fixed inset-0 z-50 bg-black cursor-pointer select-none transition-opacity duration-500 ${
             skipping ? 'opacity-0 pointer-events-none' : 'opacity-100'
           }`}
           onDoubleClick={handleSkip}
