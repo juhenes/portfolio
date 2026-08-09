@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
-import BootScreen from './components/BootScreen';
-import AuthScreen from './components/AuthScreen';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import MainInterface from './components/MainInterface';
+
+const BootScreen = lazy(() => import('./components/BootScreen'));
+const AuthScreen = lazy(() => import('./components/AuthScreen'));
 
 export default function App() {
   const [booted, setBooted] = useState(false);
@@ -51,11 +52,13 @@ export default function App() {
           }`}
           onDoubleClick={handleSkip}
         >
-          {!booted && <BootScreen onComplete={() => setBooted(true)} />}
+          <Suspense fallback={<div className="fixed inset-0 bg-black" />}>
+            {!booted && <BootScreen onComplete={() => setBooted(true)} />}
 
-          {booted && !authenticated && (
-            <AuthScreen onComplete={() => setAuthenticated(true)} />
-          )}
+            {booted && !authenticated && (
+              <AuthScreen onComplete={() => setAuthenticated(true)} />
+            )}
+          </Suspense>
 
           <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[60] text-[11px] font-mono text-neutral-500/80 pointer-events-none select-none animate-pulse">
             [ Double-click anywhere to skip intro ]

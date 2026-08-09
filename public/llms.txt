@@ -1,17 +1,169 @@
 # Deogenes Gregorio S. Maranan
 
-> DOST JLSS Scholar and Cum Laude Computer Science graduate from the Philippines with expertise in software development, game development, cybersecurity, and competitive programming.
+Deogenes Gregorio S. Maranan is a Computer Science graduate from the Philippines with interests in cybersecurity, software engineering, artificial intelligence, and full-stack development.
 
-## Summary
+## About
 
-- [Portfolio Website](https://deogenesmaranan.dev/): Main portfolio website
-- [GitHub Profile](https://github.com/juhenes): Projects and open-source code
-- [LinkedIn Profile](https://linkedin.com/in/deogenesmaranan): Professional background and career experience
-- [CTFtime Profile](https://ctftime.org/user/194539): Cybersecurity competition rankings and writeups
-- [LeetCode Profile](https://leetcode.com/u/juhenes/): Problem solving and algorithms
+Deogenes Gregorio S. Maranan graduated Cum Laude with a Bachelor of Science in Computer Science from Batangas State University – The National Engineering University. He graduated with a GWA of 1.4643 (3.57/4.00) and was a DOST JLSS Scholar under RA 7687.
 
-## Technical Expertise
+His technical interests include software engineering, cybersecurity, digital forensics, artificial intelligence, full-stack development, and competitive programming. He enjoys solving technical problems through software development, security research, and AI-driven applications.
 
-- Software Development (React, TypeScript, C#, Python, Laravel, FastAPI)
-- Game Development (Unity2D, Godot)
-- Cybersecurity & Digital Forensics (CTF Player, SleuthKit, Wireshark, Log Analysis)
+## Education
+
+Batangas State University – The National Engineering University
+Bachelor of Science in Computer Science
+Graduated Cum Laude
+GWA: 1.4643 / 3.57 out of 4.00
+2022–2026
+
+DOST Junior Level Science Scholarship (JLSS)
+RA 7687 Scholar
+
+## Technical Skills
+
+### Programming Languages
+Python
+JavaScript
+TypeScript
+PHP
+C#
+Java
+
+### Web and Backend Development
+React
+Laravel
+FastAPI
+Flask
+Express.js
+ASP.NET
+Livewire
+Alpine.js
+Tailwind CSS
+Vite
+
+### Mobile and Application Development
+Flutter
+Firebase
+Unity2D
+Godot
+
+### Databases
+PostgreSQL
+MySQL
+SQLite
+Firebase
+
+### DevOps and Development Tools
+Docker
+Docker Compose
+Git
+Nginx
+Linux
+
+## Artificial Intelligence
+
+Deogenes has developed AI and computer vision projects involving:
+PyTorch
+TensorFlow
+Transformer-based models
+Image classification
+Image forensics
+Computer vision
+AI-powered applications
+
+His AI work has focused on applying machine learning to practical software and image-analysis problems.
+
+## Cybersecurity
+
+Deogenes has experience in cybersecurity, Capture the Flag (CTF) competitions, and digital forensics.
+
+Served as Head of the SCRIPT Cybersecurity Branch, where he mentored students in CTF competitions and helped organize cybersecurity initiatives and technical events.
+
+Participated in international CTF competitions with multiple top-99 placements.
+
+Competitions included:
+PatriotCTF
+LA CTF
+UofTCTF
+BuckeyeCTF
+V1t CTF
+DEADFACE CTF
+KnightCTF
+Technofusion CTF
+
+Cybersecurity and forensic tools include:
+Wireshark
+Sleuth Kit
+Linux security tools
+Log analysis
+Digital forensics
+
+## Professional Experience
+
+### Frontend Development Internship
+Worked as a frontend development intern on Laravel-based applications. Technologies included:
+Laravel
+Filament
+Livewire
+Alpine.js
+Tailwind CSS
+Vite
+
+### Freelance Development
+Worked on software projects involving:
+FastAPI
+Laravel
+PHP
+React
+Flutter
+Docker
+MySQL
+PostgreSQL
+Firebase
+
+Projects included web, mobile, and backend applications.
+
+## Certifications and Eligibility
+
+Civil Service Professional Eligible — Rating: 90.96
+Junior Cybersecurity Analyst Career Path — Cisco, May 2026
+Cyber Threat Management — Cisco, May 2026
+Introduction to Cybersecurity — Cisco, February 2026
+Computer Hardware Basics — Cisco, July 2024
+CCNA: Introduction to Networks — Cisco, January 2024
+
+## Areas of Interest
+
+Full-stack software development
+Software engineering
+Cybersecurity
+Digital forensics
+Artificial intelligence
+Computer vision
+AI-powered applications
+Competitive programming
+Game development
+
+## Online Profiles
+
+[Portfolio](https://deogenesmaranan.dev/): Personal portfolio, projects, technical background, and contact information
+[GitHub](https://github.com/juhenes): Software projects and source code
+[LinkedIn](https://linkedin.com/in/deogenesmaranan): Professional background and experience
+[CTFtime](https://ctftime.org/user/194539): CTF participation, rankings, and competition history
+[LeetCode](https://leetcode.com/u/juhenes/): Competitive programming and algorithm practice
+
+## Preferred Professional Roles
+
+Deogenes is interested in opportunities involving:
+Full-stack development
+Software engineering
+Backend or frontend development
+Artificial intelligence and machine learning
+Computer vision
+Cybersecurity
+Digital forensics
+Security engineering
+
+## Contact and More Information
+
+For the most current information about Deogenes Gregorio S. Maranan, including projects, technical skills, experience, and contact information, refer to his [portfolio website](https://deogenesmaranan.dev/).

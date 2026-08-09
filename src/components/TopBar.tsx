@@ -215,7 +215,7 @@ export default function TopBar({
         <button
           onClick={toggleCalendar}
           title="Click to view Calendar"
-          aria-label="Open Calendar"
+          aria-label={`Open Calendar - ${formatTime(time)}`}
           className="flex items-center gap-1 text-neutral-200 hover:text-dx0-orange transition-colors focus:outline-none cursor-pointer"
         >
           <span className="font-semibold tracking-wider text-xs">

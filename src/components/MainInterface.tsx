@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, lazy, Suspense } from 'react';
 import type { MouseEvent as ReactMouseEvent } from 'react';
 import ScreenContainer from './ScreenContainer';
 import Console from './Console';
@@ -16,8 +16,9 @@ import {
   renderCat,
   renderNoUiOverview,
 } from '../utils/terminalOutputs';
-import MatrixEffect from './MatrixEffect';
-import HtopEffect from './HtopEffect';
+
+const MatrixEffect = lazy(() => import('./MatrixEffect'));
+const HtopEffect = lazy(() => import('./HtopEffect'));
 import {
   loadAliases,
   setAlias,
@@ -654,12 +655,14 @@ export default function MainInterface() {
       fadeOut={false}
       className="flex flex-col h-screen w-screen overflow-hidden bg-black"
     >
-      {showMatrix && (
-        <MatrixEffect onExit={() => setShowMatrix(false)} />
-      )}
-      {showHtop && (
-        <HtopEffect onExit={() => setShowHtop(false)} />
-      )}
+      <Suspense fallback={null}>
+        {showMatrix && (
+          <MatrixEffect onExit={() => setShowMatrix(false)} />
+        )}
+        {showHtop && (
+          <HtopEffect onExit={() => setShowHtop(false)} />
+        )}
+      </Suspense>
       {!isNoUi && (
         <TopBar
           currentModule={activeSection}

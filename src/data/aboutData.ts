@@ -62,12 +62,12 @@ export const PERSONAL_INFO: PersonalInfo = {
   ctftime: 'ctftime.org/user/194539',
   summary:
     'DOST JLSS Scholar and Cum Laude Computer Science graduate with expertise in web application development, game development (Unity2D, Godot), AI frameworks, cybersecurity, and competitive programming. Skilled in building responsive software systems, interactive game mechanics, and investigating digital forensics.',
-  gwa: '1.46',
+  gwa: '1.4643',
   cseRating: '90.96%',
   honors: [
     'Civil Service Professional Eligible (90.96% Rating)',
     'DOST JLSS Scholar',
-    'Cum Laude (GWA: 1.46)',
+    'Cum Laude (GWA: 1.4643 / 3.57 out of 4.00)',
   ],
 };
 
@@ -81,11 +81,11 @@ export const EDUCATION_DATA: EducationItem[] = [
     honors: [
       'ABET Accredited Program (CAC of ABET)',
       'DOST JLSS Scholar (Junior Level Science Scholarship)',
-      'Cum Laude (GWA: 1.46)',
+      'Cum Laude (GWA: 1.4643 / 3.57 out of 4.00)',
     ],
     details: [
       'BS Computer Science program accredited by the Computing Accreditation Commission (CAC) of ABET',
-      'Maintained high academic standard with GWA of 1.46 (Cum Laude honors)',
+      'Maintained high academic standard with GWA of 1.4643 (3.57/4.00) (Cum Laude honors)',
       'Awarded prestigious DOST JLSS Scholarship for STEM excellence',
     ],
   },
