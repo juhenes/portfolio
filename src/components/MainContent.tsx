@@ -83,27 +83,13 @@ export default function MainContent({ onSectionVisible }: MainContentProps) {
       className="flex flex-col h-full overflow-y-auto text-neutral-200 font-mono space-y-8 p-4 scroll-smooth [scrollbar-gutter:stable] pr-2"
     >
       <ProfileSection copiedField={copiedField} onCopy={handleCopy} />
-      <div className="section-content-visibility">
-        <ExperienceSection />
-      </div>
-      <div className="section-content-visibility">
-        <LeadershipSection />
-      </div>
-      <div className="section-content-visibility">
-        <ProjectsSection />
-      </div>
-      <div className="section-content-visibility">
-        <AwardsSection />
-      </div>
-      <div className="section-content-visibility">
-        <CertificationsSection />
-      </div>
-      <div className="section-content-visibility">
-        <SkillsSection />
-      </div>
-      <div className="section-content-visibility">
-        <ContactSection copiedField={copiedField} onCopy={handleCopy} />
-      </div>
+      <ExperienceSection />
+      <LeadershipSection />
+      <ProjectsSection />
+      <AwardsSection />
+      <CertificationsSection />
+      <SkillsSection />
+      <ContactSection copiedField={copiedField} onCopy={handleCopy} />
     </div>
   );
 }

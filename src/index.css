@@ -199,8 +199,3 @@ html.light aside {
     scroll-behavior: auto !important;
   }
 }
-
-.section-content-visibility {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 400px;
-}
