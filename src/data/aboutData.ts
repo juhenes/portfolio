@@ -132,6 +132,41 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
       'TailwindCSS',
     ],
   },
+  {
+    id: 'exp-gocreate',
+    role: 'Multimedia Specialist',
+    company: 'GoCreate – Multimedia Ministry of The Avenue Village',
+    period: '2022',
+    type: 'Part-time',
+    description: [
+      'Edited promotional and event videos, designed publicity materials (pubmats), and created presentation decks (PPTs).',
+      'Operated and managed live projection software (ProPresenter) and media displays for live services and events.',
+    ],
+    technologies: [
+      'ProPresenter',
+      'Video Editing',
+      'Graphic Design (Pubmats)',
+      'Presentation Design',
+      'Live Production',
+    ],
+  },
+  {
+    id: 'exp-portrait-artist',
+    role: 'Portrait Artist',
+    company: 'Self-Employed / Independent Commissions',
+    period: '2020 – 2022',
+    type: 'Freelance',
+    description: [
+      'Created custom traditional and digital portraits for clients based on commissioned requests.',
+      'Delivered detailed, high-quality artwork with attention to composition, shading, and likeness while handling client orders.',
+    ],
+    technologies: [
+      'Digital Art',
+      'Traditional Media',
+      'Portraiture',
+      'Graphic Art',
+    ],
+  },
 ];
 
 export const SKILL_CATEGORIES_DATA: SkillCategory[] = [
