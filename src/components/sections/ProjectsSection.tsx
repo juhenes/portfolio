@@ -48,8 +48,7 @@ function ProjectsSection() {
             <FiFolder className="text-dx0-orange" /> Key Development Projects
           </h2>
           <p className="text-xs text-neutral-400 mt-0.5">
-            Hybrid AI models, 2D mobile games, desktop applications, and Android
-            software
+            Hybrid AI models, real-time web applications, cross-platform mobile apps, and interactive games
           </p>
         </div>
 
@@ -104,17 +103,33 @@ function ProjectsSection() {
             className="p-4 rounded-lg bg-neutral-950 border border-neutral-800 hover:border-dx0-orange/40 transition-colors space-y-3 flex flex-col justify-between"
           >
             <div className="space-y-2">
-              <div className="flex justify-between items-start">
+              <div className="flex justify-between items-start gap-2">
                 <h3 className="text-xs font-bold text-white flex items-center gap-2">
                   {p.title}
                 </h3>
-                <span className="text-[10px] px-2 py-0.5 rounded bg-dx0-orange/10 text-dx0-orange border border-dx0-orange/30 font-semibold whitespace-nowrap ml-2">
-                  {p.role}
-                </span>
+                <div className="flex items-center gap-1.5 shrink-0">
+                  {p.date && (
+                    <span className="text-[10px] px-2 py-0.5 rounded bg-neutral-900 text-neutral-400 border border-neutral-800 font-mono">
+                      {p.date}
+                    </span>
+                  )}
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-dx0-orange/10 text-dx0-orange border border-dx0-orange/30 font-semibold whitespace-nowrap">
+                    {p.role}
+                  </span>
+                </div>
               </div>
               <p className="text-xs text-neutral-300 leading-relaxed">
                 {p.description}
               </p>
+              {p.details && p.details.length > 0 && (
+                <ul className="list-disc list-inside text-xs text-neutral-400 space-y-1 pt-1">
+                  {p.details.map((detail, idx) => (
+                    <li key={idx} className="leading-relaxed">
+                      {detail}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
 
             <div className="space-y-2.5 pt-2 border-t border-neutral-900">

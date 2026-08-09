@@ -4,6 +4,7 @@ import {
   FiAward,
   FiShield,
   FiCheckCircle,
+  FiExternalLink,
 } from 'react-icons/fi';
 
 function CertificationsSection() {
@@ -19,8 +20,7 @@ function CertificationsSection() {
           <FiAward className="text-dx0-orange" /> Licenses & Official Certifications
         </h2>
         <p className="text-xs text-neutral-400 mt-0.5">
-          Government eligibility credentials and official Cisco Networking
-          Academy certifications
+          Government eligibility credentials, SAP ASEAN Data Science training, and Cisco Networking Academy certifications
         </p>
       </div>
 
@@ -56,8 +56,7 @@ function CertificationsSection() {
 
       <div>
         <h3 className="text-xs font-bold uppercase tracking-wider text-neutral-400 mb-2 flex items-center gap-2">
-          <FiShield className="text-dx0-orange" /> Cisco Networking Academy
-          Certifications
+          <FiShield className="text-dx0-orange" /> Professional & Technical Certifications
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -67,7 +66,7 @@ function CertificationsSection() {
                 key={cert.id}
                 className="p-3.5 rounded bg-neutral-950 border border-neutral-800 flex justify-between items-center hover:border-dx0-orange/30 transition-colors"
               >
-                <div className="space-y-0.5">
+                <div className="space-y-1">
                   <div className="flex items-center gap-2">
                     <FiCheckCircle className="text-dx0-orange text-xs flex-shrink-0" />
                     <h4 className="text-xs font-bold text-white">
@@ -77,9 +76,22 @@ function CertificationsSection() {
                   <p className="text-[11px] text-neutral-400 pl-5">
                     {cert.issuer}
                   </p>
+                  {cert.credlyUrl && (
+                    <div className="pl-5 pt-0.5">
+                      <a
+                        href={cert.credlyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-[10px] text-dx0-orange hover:underline font-semibold"
+                      >
+                        <span>Verify Credly</span>
+                        <FiExternalLink className="text-[9px]" />
+                      </a>
+                    </div>
+                  )}
                 </div>
 
-                <span className="text-[10px] px-2 py-0.5 rounded bg-neutral-900 text-dx0-orange font-semibold border border-neutral-800 whitespace-nowrap ml-2">
+                <span className="text-[10px] px-2 py-0.5 rounded bg-neutral-900 text-dx0-orange font-semibold border border-neutral-800 whitespace-nowrap ml-2 self-start mt-0.5">
                   {cert.date}
                 </span>
               </div>

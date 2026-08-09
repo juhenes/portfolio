@@ -1,6 +1,6 @@
 import { useState, useMemo, memo } from 'react';
 import { AWARDS_DATA } from '../../data/awardsData';
-import { FiAward, FiSearch } from 'react-icons/fi';
+import { FiAward, FiSearch, FiFlag } from 'react-icons/fi';
 
 function AwardsSection() {
   const [awardCategory, setAwardCategory] = useState<string>('All');
@@ -42,10 +42,28 @@ function AwardsSection() {
             <FiAward className="text-dx0-orange" /> Honors & Competition Achievements
           </h2>
           <p className="text-xs text-neutral-400 mt-0.5">
-            Cybersecurity CTF championships, national scholarships & competitive
-            programming honors
+            Cybersecurity CTF national rankings, scholarships & competitive programming honors
           </p>
         </div>
+      </div>
+
+      <div className="p-4 rounded-lg bg-neutral-950 border-2 border-dx0-orange/60 shadow-[0_0_15px_rgba(244,117,34,0.2)] flex flex-col sm:flex-row justify-between sm:items-center gap-3">
+        <div className="flex items-center gap-3">
+          <div className="p-2.5 rounded bg-dx0-orange/10 text-dx0-orange border border-dx0-orange/30">
+            <FiFlag className="w-6 h-6 text-dx0-orange" />
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-dx0-orange">CTFtime 2025 Official Country Standings</span>
+            </div>
+            <h3 className="text-sm font-bold text-white tracking-wide mt-0.5">
+              Top 3 Philippines National Team Ranking (Team 400BadRequest)
+            </h3>
+          </div>
+        </div>
+        <span className="text-xs px-3 py-1.5 rounded bg-dx0-orange text-black font-extrabold tracking-wide w-fit whitespace-nowrap">
+          #3 IN PHILIPPINES
+        </span>
       </div>
 
       <div className="flex flex-col sm:flex-row justify-between items-center gap-3 bg-neutral-950 p-3 rounded-lg border border-neutral-800">

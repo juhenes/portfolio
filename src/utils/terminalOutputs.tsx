@@ -391,9 +391,23 @@ export function renderCat(target: string) {
             key={proj.id}
             className="space-y-1 pb-2 border-b border-neutral-800/60 last:border-0"
           >
-            <div className="text-white font-bold">{proj.title}</div>
+            <div className="text-white font-bold flex items-center gap-2">
+              <span>{proj.title}</span>
+              {proj.date && (
+                <span className="text-neutral-500 font-mono text-[11px]">
+                  ({proj.date})
+                </span>
+              )}
+            </div>
             <div className="text-neutral-300">Role: {proj.role}</div>
             <div className="text-neutral-400">{proj.description}</div>
+            {proj.details && (
+              <ul className="list-disc list-inside text-neutral-400 pl-2 space-y-0.5">
+                {proj.details.map((d, idx) => (
+                  <li key={idx}>{d}</li>
+                ))}
+              </ul>
+            )}
             <div className="text-cyan-400 text-[11px]">
               Stack: {proj.technologies.join(', ')}
             </div>

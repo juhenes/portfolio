@@ -117,13 +117,4 @@ export const AWARDS_DATA: AchievementItem[] = [
     date: 'Sept 2024',
     rank: '62nd / 1360',
   },
-  {
-    id: 'ach-palasscpan-2024',
-    title: 'Grand Finalist',
-    event: 'PalaSSCpan Quiz Bee',
-    organizer: 'World Engineering Day, Batangas State University TNEU',
-    category: 'Quiz Bee',
-    date: 'AY 2023-2024',
-    rank: 'Grand Finalist',
-  },
 ];
