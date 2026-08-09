@@ -32,7 +32,7 @@ export default function TopBar({
   useEffect(() => {
     const timer = setInterval(() => {
       setTime(new Date());
-    }, 1000);
+    }, 10000);
     return () => clearInterval(timer);
   }, []);
 

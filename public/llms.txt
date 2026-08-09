@@ -1,0 +1,17 @@
+# Deogenes Gregorio S. Maranan
+
+> DOST JLSS Scholar and Cum Laude Computer Science graduate from the Philippines with expertise in software development, game development, cybersecurity, and competitive programming.
+
+## Summary
+
+- [Portfolio Website](https://deogenesmaranan.dev/): Main portfolio website
+- [GitHub Profile](https://github.com/juhenes): Projects and open-source code
+- [LinkedIn Profile](https://linkedin.com/in/deogenesmaranan): Professional background and career experience
+- [CTFtime Profile](https://ctftime.org/user/194539): Cybersecurity competition rankings and writeups
+- [LeetCode Profile](https://leetcode.com/u/juhenes/): Problem solving and algorithms
+
+## Technical Expertise
+
+- Software Development (React, TypeScript, C#, Python, Laravel, FastAPI)
+- Game Development (Unity2D, Godot)
+- Cybersecurity & Digital Forensics (CTF Player, SleuthKit, Wireshark, Log Analysis)

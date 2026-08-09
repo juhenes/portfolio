@@ -721,6 +721,8 @@ export default function MainInterface() {
 
       <div className="flex flex-1 overflow-hidden">
         <main
+          id="main-content"
+          tabIndex={-1}
           className={`flex-1 flex flex-col min-h-0 overflow-hidden relative ${
             isNoUi ? 'p-0' : 'p-3 md:p-5'
           }`}
