@@ -121,14 +121,14 @@ export const COMMANDS: CommandDef[] = [
   {
     id: 'htop',
     cmd: 'htop',
-    description: '🐣 Easter egg: interactive process monitor',
+    description: 'Interactive process monitor',
     category: 'easter-egg',
     aliases: ['top'],
   },
   {
     id: 'matrix',
     cmd: 'matrix',
-    description: '🐣 Easter egg: enter the Matrix',
+    description: 'Enter the Matrix',
     category: 'easter-egg',
     aliases: ['neo', 'thematrix'],
   },

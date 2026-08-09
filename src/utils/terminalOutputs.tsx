@@ -143,7 +143,7 @@ export function renderHelp() {
       cmds: COMMANDS.filter((c) => c.category === 'utility'),
     },
     {
-      title: '🐣 EASTER EGGS',
+      title: 'EASTER EGGS',
       cmds: COMMANDS.filter((c) => c.category === 'easter-egg'),
     },
   ];
