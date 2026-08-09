@@ -16,6 +16,15 @@ import {
   renderCat,
   renderNoUiOverview,
 } from '../utils/terminalOutputs';
+import MatrixEffect from './MatrixEffect';
+import HtopEffect from './HtopEffect';
+import {
+  loadAliases,
+  setAlias,
+  removeAlias,
+  resolveAlias,
+} from '../utils/aliasStorage';
+import type { AliasMap } from '../utils/aliasStorage';
 
 function getTerminalCookie(): boolean {
   if (typeof document === 'undefined') return true;
@@ -96,6 +105,9 @@ export default function MainInterface() {
   const [terminalHeight, setTerminalHeight] = useState<number>(() =>
     getTerminalHeightCookie()
   );
+  const [showMatrix, setShowMatrix] = useState<boolean>(false);
+  const [showHtop, setShowHtop] = useState<boolean>(false);
+  const [aliases, setAliases] = useState<AliasMap>(() => loadAliases());
   const consoleWrapperRef = useRef<HTMLDivElement | null>(null);
 
   const handleTerminalToggle = useCallback((open: boolean) => {
@@ -140,12 +152,192 @@ export default function MainInterface() {
       const trimmed = rawCmd.trim();
       if (!trimmed) return;
 
-      const lower = trimmed.toLowerCase();
+      const resolved = resolveAlias(trimmed, aliases);
+      const lower = resolved.toLowerCase();
       const itemId =
         Date.now().toString() + Math.random().toString().slice(2, 6);
 
       if (lower === 'clear' || lower === 'cls') {
         setHistory([]);
+        return;
+      }
+
+      if (lower === 'close' || lower === 'minimize' || lower === 'hide') {
+        if (!isNoUi && !consoleFullscreen) {
+          setIsTerminalOpen(false);
+          setTerminalCookie(false);
+        }
+        setHistory((prev) => [
+          ...prev,
+          {
+            id: itemId,
+            command: trimmed,
+            output: (
+              <div className="text-neutral-400 font-mono text-xs my-1">
+                Terminal minimized.
+              </div>
+            ),
+          },
+        ]);
+        return;
+      }
+
+      if (lower === 'matrix' || lower === 'neo' || lower === 'thematrix') {
+        setShowMatrix(true);
+        setHistory((prev) => [
+          ...prev,
+          {
+            id: itemId,
+            command: trimmed,
+            output: (
+              <div className="text-green-400 font-mono text-xs my-1">
+                Wake up, Neo... The Matrix has you.
+              </div>
+            ),
+          },
+        ]);
+        return;
+      }
+
+      if (lower === 'htop' || lower === 'top') {
+        setShowHtop(true);
+        setHistory((prev) => [
+          ...prev,
+          {
+            id: itemId,
+            command: trimmed,
+            output: (
+              <div className="text-green-400 font-mono text-xs my-1">
+                Launching htop...
+              </div>
+            ),
+          },
+        ]);
+        return;
+      }
+
+      if (resolved.toLowerCase().startsWith('alias')) {
+        const rest = resolved.slice(5).trim();
+        if (!rest) {
+          const currentAliases = Object.entries(aliases);
+          setHistory((prev) => [
+            ...prev,
+            {
+              id: itemId,
+              command: trimmed,
+              output: (
+                <div className="font-mono text-xs my-1 space-y-0.5">
+                  {currentAliases.length === 0 ? (
+                    <div className="text-neutral-400">No aliases defined.</div>
+                  ) : (
+                    currentAliases.map(([name, cmd]) => (
+                      <div key={name}>
+                        <span className="text-dx0-orange font-semibold">alias </span>
+                        <span className="text-yellow-300">{name}</span>
+                        <span className="text-neutral-400">=</span>
+                        <span className="text-emerald-400">&apos;{cmd}&apos;</span>
+                      </div>
+                    ))
+                  )}
+                </div>
+              ),
+            },
+          ]);
+          return;
+        }
+        const eqIdx = rest.indexOf('=');
+        if (eqIdx === -1) {
+          const single = aliases[rest.toLowerCase()];
+          setHistory((prev) => [
+            ...prev,
+            {
+              id: itemId,
+              command: trimmed,
+              output: single ? (
+                <div className="font-mono text-xs my-1">
+                  <span className="text-dx0-orange font-semibold">alias </span>
+                  <span className="text-yellow-300">{rest.toLowerCase()}</span>
+                  <span className="text-neutral-400">=</span>
+                  <span className="text-emerald-400">&apos;{single}&apos;</span>
+                </div>
+              ) : (
+                <div className="text-red-400 font-mono text-xs my-1">
+                  alias: {rest}: not found
+                </div>
+              ),
+            },
+          ]);
+          return;
+        }
+        const aliasName = rest.slice(0, eqIdx).trim().toLowerCase();
+        const aliasCmd = rest.slice(eqIdx + 1).trim().replace(/^['"](.*)['"]$/, '$1');
+        if (!aliasName || !aliasCmd) {
+          setHistory((prev) => [
+            ...prev,
+            {
+              id: itemId,
+              command: trimmed,
+              output: (
+                <div className="text-red-400 font-mono text-xs my-1">
+                  Usage: alias name=command
+                </div>
+              ),
+            },
+          ]);
+          return;
+        }
+        const updated = setAlias(aliasName, aliasCmd);
+        setAliases(updated);
+        setHistory((prev) => [
+          ...prev,
+          {
+            id: itemId,
+            command: trimmed,
+            output: (
+              <div className="text-emerald-400 font-mono text-xs my-1">
+                ✓ Alias set: <span className="text-yellow-300">{aliasName}</span> → <span className="text-white">{aliasCmd}</span>
+              </div>
+            ),
+          },
+        ]);
+        return;
+      }
+
+      if (resolved.toLowerCase().startsWith('unalias')) {
+        const name = resolved.slice(7).trim().toLowerCase();
+        if (!name) {
+          setHistory((prev) => [
+            ...prev,
+            {
+              id: itemId,
+              command: trimmed,
+              output: (
+                <div className="text-red-400 font-mono text-xs my-1">
+                  Usage: unalias &lt;name&gt;
+                </div>
+              ),
+            },
+          ]);
+          return;
+        }
+        const { aliases: updated, found } = removeAlias(name);
+        setAliases(updated);
+        setHistory((prev) => [
+          ...prev,
+          {
+            id: itemId,
+            command: trimmed,
+            output: found ? (
+              <div className="text-emerald-400 font-mono text-xs my-1">
+                ✓ Alias &apos;{name}&apos; removed.
+              </div>
+            ) : (
+              <div className="text-red-400 font-mono text-xs my-1">
+                unalias: {name}: not found
+              </div>
+            ),
+          },
+        ]);
         return;
       }
 
@@ -393,7 +585,7 @@ export default function MainInterface() {
         },
       ]);
     },
-    [activeSection, isNoUi, scrollToSectionId]
+    [activeSection, isNoUi, scrollToSectionId, aliases, consoleFullscreen]
   );
 
   const handleSectionVisible = useCallback((secLabel: string) => {
@@ -462,6 +654,12 @@ export default function MainInterface() {
       fadeOut={false}
       className="flex flex-col h-screen w-screen overflow-hidden bg-black"
     >
+      {showMatrix && (
+        <MatrixEffect onExit={() => setShowMatrix(false)} />
+      )}
+      {showHtop && (
+        <HtopEffect onExit={() => setShowHtop(false)} />
+      )}
       {!isNoUi && (
         <TopBar
           currentModule={activeSection}

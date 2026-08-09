@@ -3,7 +3,7 @@ export interface CommandDef {
   cmd: string;
   terminalOnly?: boolean;
   description: string;
-  category: 'navigation' | 'system' | 'display' | 'utility';
+  category: 'navigation' | 'system' | 'display' | 'utility' | 'easter-egg';
   aliases?: string[];
 }
 
@@ -98,6 +98,39 @@ export const COMMANDS: CommandDef[] = [
     description: 'Display email, phone, GitHub & LinkedIn links',
     category: 'system',
     aliases: ['mail', 'socials'],
+  },
+  {
+    id: 'close',
+    cmd: 'close',
+    description: 'Minimize/close the terminal panel',
+    category: 'utility',
+    aliases: ['minimize', 'hide'],
+  },
+  {
+    id: 'alias',
+    cmd: 'alias [name=command]',
+    description: 'Set or list custom command aliases (persisted to localStorage)',
+    category: 'utility',
+  },
+  {
+    id: 'unalias',
+    cmd: 'unalias <name>',
+    description: 'Remove a previously defined alias',
+    category: 'utility',
+  },
+  {
+    id: 'htop',
+    cmd: 'htop',
+    description: '🐣 Easter egg: interactive process monitor',
+    category: 'easter-egg',
+    aliases: ['top'],
+  },
+  {
+    id: 'matrix',
+    cmd: 'matrix',
+    description: '🐣 Easter egg: enter the Matrix',
+    category: 'easter-egg',
+    aliases: ['neo', 'thematrix'],
   },
   {
     id: 'open_profile',

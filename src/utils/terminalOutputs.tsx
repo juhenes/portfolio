@@ -128,6 +128,10 @@ export function renderHelp() {
       title: 'UTILITIES',
       cmds: COMMANDS.filter((c) => c.category === 'utility'),
     },
+    {
+      title: '🐣 EASTER EGGS',
+      cmds: COMMANDS.filter((c) => c.category === 'easter-egg'),
+    },
   ];
 
   return (
