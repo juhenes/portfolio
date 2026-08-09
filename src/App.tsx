@@ -1,26 +1,19 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import MainInterface from './components/MainInterface';
 
 const BootScreen = lazy(() => import('./components/BootScreen'));
 const AuthScreen = lazy(() => import('./components/AuthScreen'));
 
+const checkIsBot = () =>
+  typeof navigator !== 'undefined' &&
+  /googlebot|bingbot|yandexbot|duckduckbot|slurp|baiduspider|lighthouse/i.test(
+    navigator.userAgent
+  );
+
 export default function App() {
-  const [booted, setBooted] = useState(false);
-  const [authenticated, setAuthenticated] = useState(false);
+  const [booted, setBooted] = useState(checkIsBot);
+  const [authenticated, setAuthenticated] = useState(checkIsBot);
   const [skipping, setSkipping] = useState(false);
-
-  useEffect(() => {
-    const isBot =
-      typeof navigator !== 'undefined' &&
-      /googlebot|bingbot|yandexbot|duckduckbot|slurp|baiduspider|lighthouse/i.test(
-        navigator.userAgent
-      );
-
-    if (isBot) {
-      setBooted(true);
-      setAuthenticated(true);
-    }
-  }, []);
 
   const handleSkip = () => {
     if (skipping || (booted && authenticated)) return;
