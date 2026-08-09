@@ -7,7 +7,19 @@
 
     <link rel="canonical" href="https://deogenesmaranan.dev/" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#000000" />
+    <script>
+      (function() {
+        try {
+          var theme = localStorage.getItem('dxo_theme');
+          if (theme === 'light' || (!theme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            document.documentElement.classList.add('light');
+            document.documentElement.style.colorScheme = 'light';
+          }
+        } catch (e) {}
+      })();
+    </script>
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.svg" />

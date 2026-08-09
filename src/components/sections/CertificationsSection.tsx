@@ -33,7 +33,7 @@ function CertificationsSection() {
             </div>
           </div>
 
-          <span className="text-xs px-3 py-1.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 font-bold text-sm">
+          <span className="text-xs px-3 py-1.5 rounded bg-dx0-orange/10 text-dx0-orange border border-dx0-orange/30 font-bold text-sm">
             Rating: 90.96%
           </span>
         </div>
@@ -56,7 +56,7 @@ function CertificationsSection() {
               >
                 <div className="space-y-0.5">
                   <div className="flex items-center gap-2">
-                    <FaCheckCircle className="text-emerald-400 text-xs flex-shrink-0" />
+                    <FaCheckCircle className="text-dx0-orange text-xs flex-shrink-0" />
                     <h4 className="text-xs font-bold text-white">
                       {cert.name}
                     </h4>

@@ -9,6 +9,7 @@ import {
   FiChevronRight,
 } from 'react-icons/fi';
 import { CONTACT_DATA } from '../data/contactData';
+import { useTheme } from '../hooks/useTheme';
 
 interface TopBarProps {
   currentModule: string;
@@ -21,7 +22,8 @@ export default function TopBar({
 }: TopBarProps) {
   const [time, setTime] = useState<Date>(new Date());
   const [viewDate, setViewDate] = useState<Date>(new Date());
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
+  const { theme, toggleTheme } = useTheme();
+  const isDarkMode = theme === 'dark';
   const [calendarOpen, setCalendarOpen] = useState<boolean>(false);
   const calendarRef = useRef<HTMLDivElement>(null);
 
@@ -197,7 +199,7 @@ export default function TopBar({
               target="_blank"
               rel="noopener noreferrer"
               title={`LinkedIn: ${CONTACT_DATA.linkedin}`}
-              className="hover:text-sky-400 transition-colors"
+              className="hover:text-dx0-orange transition-colors"
               aria-label="LinkedIn"
             >
               <FaLinkedin className="text-sm" />
@@ -221,8 +223,8 @@ export default function TopBar({
         <div className="h-3 w-[1px] bg-neutral-800" />
 
         <button
-          onClick={() => setIsDarkMode((prev) => !prev)}
-          title={`Switch to ${isDarkMode ? 'Light' : 'Dark'} Theme (Visual Toggle)`}
+          onClick={toggleTheme}
+          title={`Switch to ${isDarkMode ? 'Light' : 'Dark'} Theme`}
           aria-label="Toggle theme"
           className="relative inline-flex items-center justify-between w-10 h-5 rounded-full bg-neutral-900 border border-neutral-700/70 p-0.5 transition-colors focus:outline-none focus:ring-1 focus:ring-dx0-orange"
         >
@@ -231,7 +233,7 @@ export default function TopBar({
             className={`flex items-center justify-center w-4 h-4 rounded-full text-dx0-orange shadow transform transition-transform duration-300 ${
               isDarkMode
                 ? 'translate-x-0 bg-neutral-800'
-                : 'translate-x-5 bg-neutral-200 text-amber-600'
+                : 'translate-x-5 bg-neutral-200 text-dx0-orange'
             }`}
           >
             {isDarkMode ? (

@@ -50,7 +50,7 @@ function AwardsSection() {
       <div className="flex flex-col sm:flex-row justify-between items-center gap-3 bg-neutral-950 p-3 rounded-lg border border-neutral-800">
         <div className="flex flex-wrap gap-1.5 w-full sm:w-auto">
           <span className="text-xs text-neutral-400 flex items-center gap-1 mr-1">
-            <FaAward className="text-amber-400 text-xs" /> Filter Category:
+            <FaAward className="text-dx0-orange text-xs" /> Filter Category:
           </span>
           {awardCategories.map((cat) => (
             <button
@@ -87,10 +87,10 @@ function AwardsSection() {
           >
             <div className="flex justify-between items-center">
               <h3 className="text-xs font-bold text-white flex items-center gap-1.5">
-                <FaAward className="text-amber-400 text-xs" />
+                <FaAward className="text-dx0-orange text-xs" />
                 {award.title} - {award.event}
               </h3>
-              <span className="text-[10px] px-2 py-0.5 rounded bg-neutral-900 text-amber-400 border border-neutral-800 whitespace-nowrap ml-2">
+              <span className="text-[10px] px-2 py-0.5 rounded bg-neutral-900 text-dx0-orange border border-neutral-800 whitespace-nowrap ml-2">
                 {award.date}
               </span>
             </div>

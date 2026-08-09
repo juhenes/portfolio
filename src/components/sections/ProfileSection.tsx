@@ -59,13 +59,13 @@ function ProfileSection({
               <FaGraduationCap className="text-dx0-orange/80" />
               BatStateU BS Computer Science
             </span>
-            <span className="flex items-center gap-1.5 text-amber-400 font-medium">
+            <span className="flex items-center gap-1.5 text-dx0-orange font-medium">
               ★ Cum Laude (GWA: {PERSONAL_INFO.gwa})
             </span>
-            <span className="flex items-center gap-1.5 text-emerald-400 font-medium">
+            <span className="flex items-center gap-1.5 text-dx0-orange font-medium">
               🏛️ CSE Professional (90.96%)
             </span>
-            <span className="flex items-center gap-1.5 text-purple-400 font-medium">
+            <span className="flex items-center gap-1.5 text-dx0-orange font-medium">
               🛡️ DOST JLSS Scholar
             </span>
           </div>
@@ -79,7 +79,7 @@ function ProfileSection({
               <FaEnvelope className="text-dx0-orange group-hover:scale-110 transition-transform" />
               <span>{PERSONAL_INFO.email}</span>
               {copiedField === 'email' ? (
-                <FaCheck className="text-emerald-400 ml-1" />
+                <FaCheck className="text-dx0-orange ml-1" />
               ) : (
                 <FaCopy className="text-neutral-500 group-hover:text-dx0-orange ml-1 text-[10px]" />
               )}
@@ -93,7 +93,7 @@ function ProfileSection({
               <FaPhone className="text-dx0-orange group-hover:scale-110 transition-transform" />
               <span>{PERSONAL_INFO.phone}</span>
               {copiedField === 'phone' ? (
-                <FaCheck className="text-emerald-400 ml-1" />
+                <FaCheck className="text-dx0-orange ml-1" />
               ) : (
                 <FaCopy className="text-neutral-500 group-hover:text-dx0-orange ml-1 text-[10px]" />
               )}
@@ -173,9 +173,9 @@ function ProfileSection({
               {edu.honors.map((honor, i) => (
                 <span
                   key={i}
-                  className="text-xs px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/30 font-medium flex items-center gap-1"
+                  className="text-xs px-2.5 py-1 rounded bg-dx0-orange/10 text-dx0-orange border border-dx0-orange/30 font-medium flex items-center gap-1"
                 >
-                  <FaAward className="text-amber-400" /> {honor}
+                  <FaAward className="text-dx0-orange" /> {honor}
                 </span>
               ))}
             </div>

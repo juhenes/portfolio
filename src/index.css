@@ -8,7 +8,14 @@
   html,
   body,
   #root {
-    @apply bg-black;
+    @apply bg-black transition-colors duration-200;
+  }
+
+  html.light,
+  html.light body,
+  html.light #root {
+    background-color: #f5f5f7;
+    color: #000000;
   }
 }
 
@@ -37,6 +44,136 @@
   scrollbar-color: #262626 #0a0a0a;
 }
 
+html.light ::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: #cccccc;
+  border-color: #b0b0b0;
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #f47522;
+  border-color: #f47522;
+}
+
+html.light * {
+  scrollbar-color: #cccccc #f0f0f0;
+}
+
+html.light .bg-black {
+  background-color: #f5f5f7;
+}
+
+html.light .bg-neutral-950,
+html.light .bg-neutral-950\/90,
+html.light .bg-neutral-900,
+html.light .bg-neutral-900\/95,
+html.light .bg-neutral-900\/90,
+html.light .bg-neutral-900\/80 {
+  background-color: #ffffff;
+}
+
+html.light .bg-neutral-800 {
+  background-color: #f5f5f7;
+}
+
+html.light .bg-neutral-700 {
+  background-color: #e5e5e5;
+}
+
+html.light .text-white,
+html.light .text-neutral-100,
+html.light .text-neutral-200,
+html.light .text-neutral-300,
+html.light .text-neutral-400,
+html.light .text-neutral-500,
+html.light .text-neutral-600,
+html.light .text-neutral-600\/70,
+html.light .text-neutral-500\/80 {
+  color: #000000;
+}
+
+html.light .border-neutral-800,
+html.light .border-neutral-800\/80,
+html.light .border-neutral-900 {
+  border-color: #e5e5e5;
+}
+
+html.light .border-neutral-700,
+html.light .border-neutral-700\/70 {
+  border-color: #d8d8d8;
+}
+
+html.light .border-neutral-600\/50 {
+  border-color: #d8d8d8;
+}
+
+html.light .text-dx0-orange,
+html.light .text-dx0-orange\/80,
+html.light .text-dx0-orange\/70,
+html.light .text-dx0-orange\/60 {
+  color: #f47522;
+}
+
+html.light .border-dx0-orange {
+  border-color: #f47522;
+}
+
+html.light .border-dx0-orange\/50,
+html.light .border-dx0-orange\/40,
+html.light .border-dx0-orange\/30,
+html.light .border-dx0-orange\/20,
+html.light .border-dx0-orange\/10 {
+  border-color: rgba(244, 117, 34, 0.4);
+}
+
+html.light .bg-dx0-orange {
+  background-color: #f47522;
+  color: #000000;
+}
+
+html.light .bg-dx0-orange\/10 {
+  background-color: rgba(244, 117, 34, 0.12);
+  color: #f47522;
+}
+
+html.light .hover\:bg-neutral-800:hover {
+  background-color: #ebebeb;
+}
+
+html.light .hover\:bg-neutral-700:hover {
+  background-color: #e0e0e0;
+}
+
+html.light .hover\:text-white:hover,
+html.light .hover\:text-neutral-200:hover {
+  color: #000000;
+}
+
+html.light input,
+html.light textarea {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #d8d8d8;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #666666;
+}
+
+html.light header {
+  background-color: #ffffff;
+  border-bottom-color: #e5e5e5;
+}
+
+html.light aside {
+  background-color: #ffffff;
+  border-right-color: #e5e5e5;
+}
+
 .content-visibility-auto {
   content-visibility: auto;
   contain-intrinsic-size: auto none auto 400px;
@@ -46,5 +183,3 @@
   transform: translateZ(0);
   will-change: transform;
 }
-
-

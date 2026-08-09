@@ -32,7 +32,7 @@ function LeadershipSection() {
                   {lead.period}
                 </span>
               </div>
-              <p className="text-xs text-amber-400 font-semibold">
+              <p className="text-xs text-dx0-orange font-semibold">
                 {lead.organization}
               </p>
               {lead.description && (

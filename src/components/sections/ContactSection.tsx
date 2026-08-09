@@ -80,7 +80,7 @@ function ContactSection({
                   title="Copy email"
                 >
                   {copiedField === 'email-contact' ? (
-                    <FaCheck className="text-emerald-400" />
+                    <FaCheck className="text-dx0-orange" />
                   ) : (
                     <FaCopy />
                   )}
@@ -105,7 +105,7 @@ function ContactSection({
                   title="Copy phone number"
                 >
                   {copiedField === 'phone-contact' ? (
-                    <FaCheck className="text-emerald-400" />
+                    <FaCheck className="text-dx0-orange" />
                   ) : (
                     <FaCopy />
                   )}
@@ -194,7 +194,7 @@ function ContactSection({
             </h3>
 
             {sentStatus ? (
-              <div className="p-4 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs text-center space-y-1">
+              <div className="p-4 rounded bg-dx0-orange/10 border border-dx0-orange/30 text-dx0-orange text-xs text-center space-y-1">
                 <p className="font-bold">Message Transmitted!</p>
                 <p className="text-[11px] text-neutral-300">
                   Thank you for reaching out. Deogenes will get back to you shortly.
