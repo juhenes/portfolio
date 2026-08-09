@@ -7,35 +7,52 @@ export interface CommandDef {
 
 export const COMMANDS: CommandDef[] = [
   {
-    id: 'open_about',
-    cmd: 'open About',
+    id: 'open_profile',
+    cmd: 'open Profile',
     terminalOnly: false,
-    description:
-      'Open About module (Personal Info, Education, Experience, Skills)',
+    description: 'Scroll to Profile top section',
+  },
+  {
+    id: 'open_experience',
+    cmd: 'open Experience',
+    terminalOnly: false,
+    description: 'Scroll to Experience section',
+  },
+  {
+    id: 'open_leadership',
+    cmd: 'open Leadership',
+    terminalOnly: false,
+    description: 'Scroll to Leadership section',
   },
   {
     id: 'open_projects',
     cmd: 'open Projects',
     terminalOnly: false,
-    description: 'Open Projects module (Key Development Projects)',
+    description: 'Scroll to Projects section',
   },
   {
     id: 'open_awards',
     cmd: 'open Awards',
     terminalOnly: false,
-    description: 'Open Awards module (CTF & Competitive Programming Honors)',
+    description: 'Scroll to Awards section',
   },
   {
     id: 'open_certs',
     cmd: 'open Certifications',
     terminalOnly: false,
-    description: 'Open Certifications & Licenses module',
+    description: 'Scroll to Certifications section',
+  },
+  {
+    id: 'open_skills',
+    cmd: 'open Skills',
+    terminalOnly: false,
+    description: 'Scroll to Skills section',
   },
   {
     id: 'open_contact',
     cmd: 'open Contact',
     terminalOnly: false,
-    description: 'Open Contact module',
+    description: 'Scroll to Contact section',
   },
   {
     id: 'fastfetch',

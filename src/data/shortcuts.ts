@@ -8,11 +8,25 @@ export interface Shortcut {
 
 export const SHORTCUTS: Shortcut[] = [
   {
-    id: 'about',
-    label: 'About',
+    id: 'profile',
+    label: 'Profile',
     icon: '👤',
-    cmd: 'open About',
-    href: '#about',
+    cmd: 'open Profile',
+    href: '#profile',
+  },
+  {
+    id: 'experience',
+    label: 'Experience',
+    icon: '💼',
+    cmd: 'open Experience',
+    href: '#experience',
+  },
+  {
+    id: 'leadership',
+    label: 'Leadership',
+    icon: '🛡️',
+    cmd: 'open Leadership',
+    href: '#leadership',
   },
   {
     id: 'projects',
@@ -34,6 +48,13 @@ export const SHORTCUTS: Shortcut[] = [
     icon: '📜',
     cmd: 'open Certifications',
     href: '#certifications',
+  },
+  {
+    id: 'skills',
+    label: 'Skills',
+    icon: '💻',
+    cmd: 'open Skills',
+    href: '#skills',
   },
   {
     id: 'contact',

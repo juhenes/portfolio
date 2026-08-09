@@ -162,6 +162,7 @@ export default function TopBar({
       </div>
 
       <div className="flex items-center gap-3 sm:gap-4" ref={calendarRef}>
+
         <div className="hidden sm:flex items-center gap-2.5 sm:gap-3 text-neutral-400">
           {CONTACT_DATA.email && (
             <a
@@ -312,3 +313,4 @@ export default function TopBar({
     </header>
   );
 }
+

@@ -10,6 +10,7 @@ export interface PersonalInfo {
   ctftime: string;
   summary: string;
   gwa: string;
+  cseRating?: string;
   honors: string[];
 }
 
@@ -51,7 +52,7 @@ export interface LeadershipItem {
 
 export const PERSONAL_INFO: PersonalInfo = {
   name: 'Deogenes Gregorio S. Maranan',
-  title: 'Software Developer & Cybersecurity Specialist',
+  title: 'Software Developer, Game Developer & Cybersecurity Specialist',
   location: 'Diliman, Quezon City',
   phone: '+63968-497-0419',
   email: 'maranandeogenes@gmail.com',
@@ -60,9 +61,14 @@ export const PERSONAL_INFO: PersonalInfo = {
   leetcode: 'leetcode.com/Juhenes',
   ctftime: 'ctftime.org/user/194539',
   summary:
-    'DOST JLSS Scholar and Cum Laude Computer Science graduate with expertise in web application development, AI frameworks, cybersecurity, and competitive programming. Skilled in building responsive, scalable software solutions and investigating digital forensics.',
+    'DOST JLSS Scholar and Cum Laude Computer Science graduate with expertise in web application development, game development (Unity2D, Godot), AI frameworks, cybersecurity, and competitive programming. Skilled in building responsive software systems, interactive game mechanics, and investigating digital forensics.',
   gwa: '1.46',
-  honors: ['DOST JLSS Scholar', 'Cum Laude (GWA: 1.46)'],
+  cseRating: '90.96%',
+  honors: [
+    'Civil Service Professional Eligible (90.96% Rating)',
+    'DOST JLSS Scholar',
+    'Cum Laude (GWA: 1.46)',
+  ],
 };
 
 export const EDUCATION_DATA: EducationItem[] = [
@@ -73,10 +79,12 @@ export const EDUCATION_DATA: EducationItem[] = [
     degree: 'Bachelor of Science in Computer Science',
     period: '2022 – 2026',
     honors: [
+      'ABET Accredited Program (CAC of ABET)',
       'DOST JLSS Scholar (Junior Level Science Scholarship)',
       'Cum Laude (GWA: 1.46)',
     ],
     details: [
+      'BS Computer Science program accredited by the Computing Accreditation Commission (CAC) of ABET',
       'Maintained high academic standard with GWA of 1.46 (Cum Laude honors)',
       'Awarded prestigious DOST JLSS Scholarship for STEM excellence',
     ],
@@ -84,26 +92,6 @@ export const EDUCATION_DATA: EducationItem[] = [
 ];
 
 export const EXPERIENCE_DATA: ExperienceItem[] = [
-  {
-    id: 'exp-caist',
-    role: 'Intern',
-    company:
-      'Center for AI and Smart Technologies (CAIST) – Batangas State University',
-    period: '2025',
-    type: 'Internship',
-    description: [
-      'Developed responsive Laravel interfaces using Filament, Livewire, and Alpine.js.',
-      'Built reactive UI components and supported feature development and system maintenance for AI & Smart Tech projects.',
-    ],
-    technologies: [
-      'Laravel',
-      'Filament',
-      'Livewire',
-      'Alpine.js',
-      'PHP',
-      'TailwindCSS',
-    ],
-  },
   {
     id: 'exp-freelance',
     role: 'Freelance Software Developer',
@@ -124,6 +112,26 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
       'Docker',
     ],
   },
+  {
+    id: 'exp-caist',
+    role: 'Intern',
+    company:
+      'Center for AI and Smart Technologies (CAIST) – Batangas State University',
+    period: '2025',
+    type: 'Internship',
+    description: [
+      'Developed responsive Laravel interfaces using Filament, Livewire, and Alpine.js.',
+      'Built reactive UI components and supported feature development and system maintenance for AI & Smart Tech projects.',
+    ],
+    technologies: [
+      'Laravel',
+      'Filament',
+      'Livewire',
+      'Alpine.js',
+      'PHP',
+      'TailwindCSS',
+    ],
+  },
 ];
 
 export const SKILL_CATEGORIES_DATA: SkillCategory[] = [
@@ -132,6 +140,20 @@ export const SKILL_CATEGORIES_DATA: SkillCategory[] = [
     category: 'Languages',
     iconName: 'code',
     skills: ['C#', 'Python', 'Java', 'JavaScript', 'PHP', 'Dart'],
+  },
+  {
+    id: 'skill-gamedev',
+    category: 'Game Development & Engines',
+    iconName: 'gamepad',
+    skills: [
+      'Unity2D',
+      'Godot',
+      'C# (Unity)',
+      '2D Physics & Mechanics',
+      'Sprite Animation',
+      'Tilemaps & Level Design',
+      'Game State Architecture',
+    ],
   },
   {
     id: 'skill-frameworks',
