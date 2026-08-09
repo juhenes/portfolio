@@ -1,5 +1,6 @@
 import { useState, useMemo, memo } from 'react';
 import { PROJECTS_DATA } from '../../data/projectsData';
+import { CONTACT_DATA } from '../../data/contactData';
 import {
   FiFolder,
   FiGithub,
@@ -53,7 +54,7 @@ function ProjectsSection() {
         </div>
 
         <a
-          href="https://github.com/juhenes"
+          href={`https://${CONTACT_DATA.github}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 px-3 py-1.5 rounded bg-dx0-orange text-black font-bold text-xs hover:bg-dx0-orange/90 transition-colors w-fit"

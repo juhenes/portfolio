@@ -140,7 +140,7 @@ function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
                 <div className="min-w-0">
                   <p className="font-bold truncate">GitHub</p>
                   <p className="text-[10px] text-neutral-500 truncate">
-                    github.com/juhenes
+                    {CONTACT_DATA.github}
                   </p>
                 </div>
               </a>
@@ -155,7 +155,7 @@ function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
                 <div className="min-w-0">
                   <p className="font-bold truncate">LinkedIn</p>
                   <p className="text-[10px] text-neutral-500 truncate">
-                    deogenesmaranan
+                    {CONTACT_DATA.linkedin}
                   </p>
                 </div>
               </a>
@@ -170,7 +170,7 @@ function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
                 <div className="min-w-0">
                   <p className="font-bold truncate">LeetCode</p>
                   <p className="text-[10px] text-neutral-500 truncate">
-                    leetcode.com/Juhenes
+                    {CONTACT_DATA.leetcode}
                   </p>
                 </div>
               </a>
@@ -185,7 +185,7 @@ function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
                 <div className="min-w-0">
                   <p className="font-bold truncate">CTFtime</p>
                   <p className="text-[10px] text-neutral-500 truncate">
-                    ctftime.org/user/194539
+                    {CONTACT_DATA.ctftime}
                   </p>
                 </div>
               </a>

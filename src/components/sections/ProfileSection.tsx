@@ -60,7 +60,7 @@ function ProfileSection({ copiedField, onCopy }: ProfileSectionProps) {
               <FiAward className="text-dx0-orange text-xs" /> Cum Laude (GWA: {PERSONAL_INFO.gwa})
             </span>
             <span className="flex items-center gap-1.5">
-              <FiShield className="text-dx0-orange text-xs" /> CSE Professional (90.96%)
+              <FiShield className="text-dx0-orange text-xs" /> CSE Professional ({PERSONAL_INFO.cseRating})
             </span>
             <span className="flex items-center gap-1.5">
               <FiShield className="text-dx0-orange text-xs" /> DOST JLSS Scholar

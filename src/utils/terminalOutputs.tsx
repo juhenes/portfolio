@@ -33,14 +33,23 @@ export function renderFastfetch() {
     '                      ############',
   ];
 
+  const primarySkills = SKILL_CATEGORIES_DATA.flatMap((cat) => cat.skills)
+    .slice(0, 7)
+    .join(', ');
+
+  const mainEducation = EDUCATION_DATA[0];
+
   const stats = [
     { key: 'User', val: `${PERSONAL_INFO.name} (juhenes/dx0)` },
     { key: 'Role', val: PERSONAL_INFO.title },
     { key: 'OS', val: 'DX0-Portfolio Linux / WebOS x86_64' },
-    { key: 'School', val: 'Batangas State University TNEU' },
+    {
+      key: 'School',
+      val: mainEducation?.institution || 'Batangas State University TNEU',
+    },
     {
       key: 'Program',
-      val: `BS Computer Science (Cum Laude, GWA ${PERSONAL_INFO.gwa})`,
+      val: `${mainEducation?.degree || 'BS Computer Science'} (Cum Laude, GWA ${PERSONAL_INFO.gwa})`,
     },
     {
       key: 'Eligibility',
@@ -48,13 +57,18 @@ export function renderFastfetch() {
         ? `Civil Service Prof (${PERSONAL_INFO.cseRating})`
         : 'Civil Service Prof',
     },
-    { key: 'Scholarship', val: 'DOST JLSS Scholar' },
+    {
+      key: 'Scholarship',
+      val:
+        PERSONAL_INFO.honors.find((h) => h.includes('DOST')) ||
+        'DOST JLSS Scholar',
+    },
     { key: 'Shell', val: 'dx0-terminal v1.0' },
     {
       key: 'Primary Stack',
-      val: 'C#, Unity2D, Python, React, Laravel, FastAPI, Godot',
+      val: primarySkills,
     },
-    { key: 'Contact', val: PERSONAL_INFO.email },
+    { key: 'Contact', val: CONTACT_DATA.email },
   ];
 
   return (
@@ -106,7 +120,7 @@ export function renderWhoami() {
       </div>
       <div className="text-neutral-300 mt-2">{PERSONAL_INFO.summary}</div>
       <div className="text-cyan-400 pt-1">
-        GitHub: {PERSONAL_INFO.github} | LinkedIn: {PERSONAL_INFO.linkedin}
+        GitHub: {CONTACT_DATA.github} | LinkedIn: {CONTACT_DATA.linkedin}
       </div>
     </div>
   );
@@ -506,7 +520,8 @@ export function renderNoUiOverview() {
       <div className="text-dx0-orange font-bold text-base border-b-2 border-dx0-orange pb-2 text-center select-none">
         ================================================================================
         <br />
-        DEOGENES GREGORIO S. MARANAN - TERMINAL PORTFOLIO (NO-UI PURE TEXT MODE)
+        {PERSONAL_INFO.name.toUpperCase()} - TERMINAL PORTFOLIO (NO-UI PURE TEXT
+        MODE)
         <br />
         ================================================================================
       </div>

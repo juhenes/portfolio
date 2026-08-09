@@ -1,3 +1,5 @@
+import { PERSONAL_INFO } from './aboutData';
+
 export interface ContactInfo {
   email: string;
   phone: string;
@@ -9,11 +11,11 @@ export interface ContactInfo {
 }
 
 export const CONTACT_DATA: ContactInfo = {
-  email: 'maranandeogenes@gmail.com',
-  phone: '+63968-497-0419',
-  location: 'Diliman, Quezon City',
-  linkedin: 'linkedin.com/in/deogenesmaranan',
-  github: 'github.com/juhenes',
-  leetcode: 'leetcode.com/Juhenes',
-  ctftime: 'ctftime.org/user/194539',
+  email: PERSONAL_INFO.email,
+  phone: PERSONAL_INFO.phone,
+  location: PERSONAL_INFO.location,
+  linkedin: PERSONAL_INFO.linkedin,
+  github: PERSONAL_INFO.github,
+  leetcode: PERSONAL_INFO.leetcode,
+  ctftime: PERSONAL_INFO.ctftime,
 };

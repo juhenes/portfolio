@@ -7,6 +7,8 @@ import {
 } from 'react-icons/fi';
 
 function CertificationsSection() {
+  const cscCert = CERTIFICATIONS_DATA.find((c) => c.id === 'cert-csc');
+
   return (
     <div
       id="certifications"
@@ -22,32 +24,35 @@ function CertificationsSection() {
         </p>
       </div>
 
-      <div className="p-4 rounded-lg bg-neutral-950 border-2 border-dx0-orange/50 shadow-[0_0_15px_rgba(244,117,34,0.15)] space-y-2">
-        <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
-          <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded bg-dx0-orange/10 text-dx0-orange border border-dx0-orange/30">
-              <FiAward className="w-6 h-6 text-dx0-orange" />
+      {cscCert && (
+        <div className="p-4 rounded-lg bg-neutral-950 border-2 border-dx0-orange/50 shadow-[0_0_15px_rgba(244,117,34,0.15)] space-y-2">
+          <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+            <div className="flex items-center gap-3">
+              <div className="p-2.5 rounded bg-dx0-orange/10 text-dx0-orange border border-dx0-orange/30">
+                <FiAward className="w-6 h-6 text-dx0-orange" />
+              </div>
+              <div>
+                <h3 className="text-sm font-bold text-white uppercase tracking-wider">
+                  {cscCert.name}
+                </h3>
+                <p className="text-xs text-neutral-400">
+                  {cscCert.issuer}
+                </p>
+              </div>
             </div>
-            <div>
-              <h3 className="text-sm font-bold text-white uppercase tracking-wider">
-                Civil Service Eligibility (Professional)
-              </h3>
-              <p className="text-xs text-neutral-400">
-                Civil Service Commission (CSC)
-              </p>
-            </div>
-          </div>
 
-          <span className="text-xs px-3 py-1.5 rounded bg-dx0-orange/10 text-dx0-orange border border-dx0-orange/30 font-bold text-sm">
-            Rating: 90.96%
-          </span>
+            {cscCert.rating && (
+              <span className="text-xs px-3 py-1.5 rounded bg-dx0-orange/10 text-dx0-orange border border-dx0-orange/30 font-bold text-sm">
+                {cscCert.rating}
+              </span>
+            )}
+          </div>
+          <p className="text-xs text-neutral-300 pt-2 border-t border-neutral-900">
+            First-level and second-level government eligibility for technical and
+            professional positions.
+          </p>
         </div>
-        <p className="text-xs text-neutral-300 pt-2 border-t border-neutral-900">
-          First-level and second-level government eligibility for technical and
-          professional positions. Passed CSE Professional Examination with
-          90.96% rating.
-        </p>
-      </div>
+      )}
 
       <div>
         <h3 className="text-xs font-bold uppercase tracking-wider text-neutral-400 mb-2 flex items-center gap-2">
