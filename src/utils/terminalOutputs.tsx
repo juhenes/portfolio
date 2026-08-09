@@ -288,17 +288,19 @@ export function renderCat(target: string) {
     cleanTarget === 'resume'
   ) {
     return (
-      <div className="font-mono text-xs my-2 space-y-2 p-2 rounded bg-neutral-900/40 border border-neutral-800">
+      <div className="font-mono text-xs my-2 space-y-2 p-3 rounded bg-neutral-900/60 border border-neutral-800">
         <div className="text-dx0-orange font-bold text-sm border-b border-dx0-orange/30 pb-1">
           === PROFILE & EDUCATION ===
         </div>
         <div>
-          <div className="text-white font-bold">{PERSONAL_INFO.name}</div>
-          <div className="text-neutral-300">{PERSONAL_INFO.title}</div>
-          <div className="text-neutral-400">{PERSONAL_INFO.summary}</div>
+          <div className="text-white font-bold text-sm">{PERSONAL_INFO.name}</div>
+          <div className="text-dx0-orange font-semibold">{PERSONAL_INFO.title}</div>
+          <div className="text-neutral-400 text-[11px] mt-0.5">Location: {PERSONAL_INFO.location}</div>
+          <div className="text-neutral-300 mt-1">{PERSONAL_INFO.summary}</div>
         </div>
+
         <div className="pt-1">
-          <div className="text-yellow-400 font-semibold">
+          <div className="text-yellow-400 font-semibold mb-1">
             Honors & Qualifications:
           </div>
           {PERSONAL_INFO.honors.map((h, i) => (
@@ -307,21 +309,39 @@ export function renderCat(target: string) {
             </div>
           ))}
         </div>
-        <div className="pt-1">
-          <div className="text-yellow-400 font-semibold">Education:</div>
+
+        <div className="pt-1 space-y-2">
+          <div className="text-yellow-400 font-semibold">Education & Academic Distinction:</div>
           {EDUCATION_DATA.map((edu) => (
-            <div key={edu.id} className="pl-2 space-y-0.5">
-              <div className="text-white">{edu.institution}</div>
-              <div className="text-neutral-300">
+            <div key={edu.id} className="pl-2 space-y-1 p-2 rounded bg-neutral-950/80 border border-neutral-800/80">
+              <div className="text-white font-bold">{edu.institution}</div>
+              <div className="text-dx0-orange font-semibold">
                 {edu.degree} ({edu.period})
+              </div>
+              <div className="flex flex-wrap gap-1 text-[11px]">
+                {edu.honors.map((h, i) => (
+                  <span key={i} className="text-yellow-300 bg-neutral-900 px-2 py-0.5 rounded border border-neutral-800">
+                    {h}
+                  </span>
+                ))}
               </div>
               {edu.details?.map((d, i) => (
                 <div key={i} className="text-neutral-400 text-[11px] pl-2">
-                  - {d}
+                  • {d}
                 </div>
               ))}
             </div>
           ))}
+        </div>
+
+        <div className="pt-1 space-y-0.5 border-t border-neutral-800/80">
+          <div className="text-yellow-400 font-semibold">Quick Links:</div>
+          <div className="text-cyan-400 text-[11px] pl-2">
+            GitHub: {CONTACT_DATA.github} | LinkedIn: {CONTACT_DATA.linkedin}
+          </div>
+          <div className="text-cyan-400 text-[11px] pl-2">
+            LeetCode: {CONTACT_DATA.leetcode} | CTFtime: {CONTACT_DATA.ctftime}
+          </div>
         </div>
       </div>
     );
@@ -329,29 +349,29 @@ export function renderCat(target: string) {
 
   if (cleanTarget === 'experience' || cleanTarget === 'work') {
     return (
-      <div className="font-mono text-xs my-2 space-y-2 p-2 rounded bg-neutral-900/40 border border-neutral-800">
+      <div className="font-mono text-xs my-2 space-y-2 p-3 rounded bg-neutral-900/60 border border-neutral-800">
         <div className="text-dx0-orange font-bold text-sm border-b border-dx0-orange/30 pb-1">
-          === EXPERIENCE ===
+          === WORK EXPERIENCE ===
         </div>
         {EXPERIENCE_DATA.map((exp) => (
           <div
             key={exp.id}
-            className="space-y-1 pb-2 border-b border-neutral-800/60 last:border-0"
+            className="space-y-1.5 p-2.5 rounded bg-neutral-950/80 border border-neutral-800/80"
           >
-            <div className="flex justify-between text-white font-semibold">
-              <span>
-                {exp.role} @ {exp.company}
+            <div className="flex flex-col sm:flex-row justify-between text-white font-semibold gap-1">
+              <span className="text-white font-bold">
+                {exp.role} @ <span className="text-dx0-orange">{exp.company}</span>
               </span>
-              <span className="text-neutral-400">{exp.period}</span>
+              <span className="text-neutral-400 text-[11px]">{exp.period}</span>
             </div>
-            <div className="text-neutral-300">{exp.type}</div>
+            <div className="text-yellow-400 text-[11px] font-semibold">{exp.type}</div>
             {exp.description.map((desc, i) => (
-              <div key={i} className="text-neutral-400 pl-2">
+              <div key={i} className="text-neutral-300 pl-2 text-[11px]">
                 • {desc}
               </div>
             ))}
-            <div className="text-cyan-400 text-[11px] pl-2">
-              Tech: {exp.technologies.join(', ')}
+            <div className="text-cyan-400 text-[11px] pt-1">
+              Tech Stack: {exp.technologies.join(', ')}
             </div>
           </div>
         ))}
@@ -361,18 +381,19 @@ export function renderCat(target: string) {
 
   if (cleanTarget === 'leadership') {
     return (
-      <div className="font-mono text-xs my-2 space-y-2 p-2 rounded bg-neutral-900/40 border border-neutral-800">
+      <div className="font-mono text-xs my-2 space-y-2 p-3 rounded bg-neutral-900/60 border border-neutral-800">
         <div className="text-dx0-orange font-bold text-sm border-b border-dx0-orange/30 pb-1">
-          === LEADERSHIP & ORGANIZATIONS ===
+          === LEADERSHIP & COMMUNITY EXPERIENCE ===
         </div>
         {LEADERSHIP_DATA.map((lead) => (
-          <div key={lead.id} className="space-y-0.5">
-            <div className="text-white font-semibold">{lead.role}</div>
-            <div className="text-neutral-300">
-              {lead.organization} ({lead.period})
+          <div key={lead.id} className="space-y-1 p-2.5 rounded bg-neutral-950/80 border border-neutral-800/80">
+            <div className="flex flex-col sm:flex-row justify-between text-white font-bold gap-1">
+              <span>{lead.role}</span>
+              <span className="text-neutral-400 text-[11px] font-normal">{lead.period}</span>
             </div>
+            <div className="text-dx0-orange font-semibold">{lead.organization}</div>
             {lead.description && (
-              <div className="text-neutral-400 pl-2">• {lead.description}</div>
+              <div className="text-neutral-300 pl-2 text-[11px]">• {lead.description}</div>
             )}
           </div>
         ))}
@@ -382,38 +403,40 @@ export function renderCat(target: string) {
 
   if (cleanTarget === 'projects' || cleanTarget === 'proj') {
     return (
-      <div className="font-mono text-xs my-2 space-y-2 p-2 rounded bg-neutral-900/40 border border-neutral-800">
+      <div className="font-mono text-xs my-2 space-y-2.5 p-3 rounded bg-neutral-900/60 border border-neutral-800">
         <div className="text-dx0-orange font-bold text-sm border-b border-dx0-orange/30 pb-1">
           === FEATURED PROJECTS ===
         </div>
         {PROJECTS_DATA.map((proj) => (
           <div
             key={proj.id}
-            className="space-y-1 pb-2 border-b border-neutral-800/60 last:border-0"
+            className="space-y-1.5 p-2.5 rounded bg-neutral-950/80 border border-neutral-800/80"
           >
-            <div className="text-white font-bold flex items-center gap-2">
-              <span>{proj.title}</span>
-              {proj.date && (
-                <span className="text-neutral-500 font-mono text-[11px]">
-                  ({proj.date})
+            <div className="flex flex-col sm:flex-row justify-between sm:items-center text-white font-bold gap-1">
+              <span className="text-white text-sm">{proj.title}</span>
+              <div className="flex items-center gap-2 text-[11px]">
+                {proj.date && <span className="text-neutral-400 font-mono">({proj.date})</span>}
+                <span className="text-dx0-orange bg-dx0-orange/10 px-2 py-0.5 rounded border border-dx0-orange/30">
+                  {proj.role}
                 </span>
-              )}
+              </div>
             </div>
-            <div className="text-neutral-300">Role: {proj.role}</div>
-            <div className="text-neutral-400">{proj.description}</div>
+            <div className="text-neutral-300">{proj.description}</div>
             {proj.details && (
-              <ul className="list-disc list-inside text-neutral-400 pl-2 space-y-0.5">
+              <div className="space-y-0.5 pt-0.5">
                 {proj.details.map((d, idx) => (
-                  <li key={idx}>{d}</li>
+                  <div key={idx} className="text-neutral-400 pl-2 text-[11px]">
+                    • {d}
+                  </div>
                 ))}
-              </ul>
+              </div>
             )}
             <div className="text-cyan-400 text-[11px]">
-              Stack: {proj.technologies.join(', ')}
+              Technologies: {proj.technologies.join(', ')}
             </div>
             {proj.githubUrl && (
-              <div className="text-neutral-500 text-[11px]">
-                Repo: {proj.githubUrl}
+              <div className="text-yellow-400 text-[11px]">
+                Repository: {proj.githubUrl}
               </div>
             )}
           </div>
@@ -424,21 +447,35 @@ export function renderCat(target: string) {
 
   if (cleanTarget === 'awards' || cleanTarget === 'achievements') {
     return (
-      <div className="font-mono text-xs my-2 space-y-2 p-2 rounded bg-neutral-900/40 border border-neutral-800">
+      <div className="font-mono text-xs my-2 space-y-2.5 p-3 rounded bg-neutral-900/60 border border-neutral-800">
         <div className="text-dx0-orange font-bold text-sm border-b border-dx0-orange/30 pb-1">
           === AWARDS & COMPETITION RANKINGS ===
         </div>
-        <div className="space-y-1">
+
+        <div className="p-2.5 rounded bg-black border border-dx0-orange/60 space-y-1">
+          <div className="text-dx0-orange font-bold text-xs uppercase tracking-wider">
+            ★ CTFtime 2025 Official Country Standings
+          </div>
+          <div className="text-white font-bold text-sm">
+            Top 3 Philippines National Team Ranking (Team 400BadRequest)
+          </div>
+          <div className="text-yellow-400 font-bold text-xs">
+            #3 IN PHILIPPINES NATIONAL RANKING
+          </div>
+        </div>
+
+        <div className="space-y-1.5">
           {AWARDS_DATA.map((award) => (
-            <div key={award.id} className="flex justify-between items-start">
+            <div key={award.id} className="p-2 rounded bg-neutral-950/80 border border-neutral-800/80 flex flex-col sm:flex-row justify-between sm:items-center gap-1">
               <div>
                 <span className="text-yellow-400 font-semibold">
                   {award.title}
                 </span>
-                <span className="text-neutral-300"> - {award.event}</span>
-                <span className="text-neutral-500"> ({award.organizer})</span>
+                <span className="text-neutral-200"> - {award.event}</span>
+                <span className="text-neutral-400 text-[11px]"> ({award.organizer})</span>
+                <div className="text-neutral-500 text-[10px] uppercase">{award.category}</div>
               </div>
-              <span className="text-neutral-400 text-[11px] shrink-0">
+              <span className="text-dx0-orange text-[11px] font-semibold shrink-0">
                 {award.date}
               </span>
             </div>
@@ -450,21 +487,32 @@ export function renderCat(target: string) {
 
   if (cleanTarget === 'certifications' || cleanTarget === 'certs') {
     return (
-      <div className="font-mono text-xs my-2 space-y-2 p-2 rounded bg-neutral-900/40 border border-neutral-800">
+      <div className="font-mono text-xs my-2 space-y-2.5 p-3 rounded bg-neutral-900/60 border border-neutral-800">
         <div className="text-dx0-orange font-bold text-sm border-b border-dx0-orange/30 pb-1">
-          === CERTIFICATIONS & ELIGIBILITY ===
+          === LICENSES & CERTIFICATIONS ===
         </div>
+
         {CERTIFICATIONS_DATA.map((cert) => (
-          <div key={cert.id} className="flex justify-between items-start">
-            <div>
-              <div className="text-white font-semibold">{cert.name}</div>
+          <div key={cert.id} className={`p-2.5 rounded bg-neutral-950/80 border ${cert.rating ? 'border-dx0-orange/50' : 'border-neutral-800/80'} space-y-1`}>
+            <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-1">
+              <div className="text-white font-bold">{cert.name}</div>
+              <span className="text-dx0-orange text-[11px] font-semibold shrink-0">
+                {cert.date}
+              </span>
+            </div>
+            <div className="text-neutral-300 text-[11px]">
+              Issuer: {cert.issuer} {cert.rating ? `| Rating: ${cert.rating}` : ''}
+            </div>
+            {cert.rating && (
               <div className="text-neutral-400 text-[11px]">
-                {cert.issuer} {cert.rating ? `| ${cert.rating}` : ''}
+                First-level and second-level government eligibility for technical and professional positions.
               </div>
-            </div>
-            <div className="text-neutral-400 text-[11px] shrink-0">
-              {cert.date}
-            </div>
+            )}
+            {cert.credlyUrl && (
+              <div className="text-cyan-400 text-[11px]">
+                Verify Credly: {cert.credlyUrl}
+              </div>
+            )}
           </div>
         ))}
       </div>
@@ -473,14 +521,14 @@ export function renderCat(target: string) {
 
   if (cleanTarget === 'skills') {
     return (
-      <div className="font-mono text-xs my-2 space-y-2 p-2 rounded bg-neutral-900/40 border border-neutral-800">
+      <div className="font-mono text-xs my-2 space-y-2 p-3 rounded bg-neutral-900/60 border border-neutral-800">
         <div className="text-dx0-orange font-bold text-sm border-b border-dx0-orange/30 pb-1">
           === TECHNICAL SKILLS ===
         </div>
         {SKILL_CATEGORIES_DATA.map((cat) => (
-          <div key={cat.id} className="space-y-0.5">
+          <div key={cat.id} className="space-y-0.5 p-2 rounded bg-neutral-950/80 border border-neutral-800/80">
             <div className="text-yellow-400 font-semibold">{cat.category}:</div>
-            <div className="text-neutral-300 pl-2">{cat.skills.join(', ')}</div>
+            <div className="text-neutral-200 pl-2">{cat.skills.join(', ')}</div>
           </div>
         ))}
       </div>
@@ -489,32 +537,35 @@ export function renderCat(target: string) {
 
   if (cleanTarget === 'contact') {
     return (
-      <div className="font-mono text-xs my-2 space-y-1.5 p-2 rounded bg-neutral-900/40 border border-neutral-800">
+      <div className="font-mono text-xs my-2 space-y-2 p-3 rounded bg-neutral-900/60 border border-neutral-800">
         <div className="text-dx0-orange font-bold text-sm border-b border-dx0-orange/30 pb-1">
           === CONTACT & LINKS ===
         </div>
-        <div className="text-neutral-300">
-          Email: <span className="text-cyan-400">{CONTACT_DATA.email}</span>
+        <div className="space-y-1 p-2 rounded bg-neutral-950/80 border border-neutral-800/80">
+          <div className="text-neutral-300">
+            Email: <span className="text-cyan-400 font-semibold">{CONTACT_DATA.email}</span>
+          </div>
+          <div className="text-neutral-300">
+            Phone: <span className="text-white font-semibold">{CONTACT_DATA.phone}</span>
+          </div>
+          <div className="text-neutral-300">
+            Location: <span className="text-white font-semibold">{CONTACT_DATA.location}</span>
+          </div>
         </div>
-        <div className="text-neutral-300">
-          Phone: <span className="text-white">{CONTACT_DATA.phone}</span>
-        </div>
-        <div className="text-neutral-300">
-          Location: <span className="text-white">{CONTACT_DATA.location}</span>
-        </div>
-        <div className="text-neutral-300">
-          LinkedIn:{' '}
-          <span className="text-cyan-400">{CONTACT_DATA.linkedin}</span>
-        </div>
-        <div className="text-neutral-300">
-          GitHub: <span className="text-cyan-400">{CONTACT_DATA.github}</span>
-        </div>
-        <div className="text-neutral-300">
-          LeetCode:{' '}
-          <span className="text-cyan-400">{CONTACT_DATA.leetcode}</span>
-        </div>
-        <div className="text-neutral-300">
-          CTFtime: <span className="text-cyan-400">{CONTACT_DATA.ctftime}</span>
+        <div className="space-y-1 p-2 rounded bg-neutral-950/80 border border-neutral-800/80">
+          <div className="text-yellow-400 font-semibold mb-1">Social & Developer Profiles:</div>
+          <div className="text-neutral-300">
+            LinkedIn: <span className="text-cyan-400">{CONTACT_DATA.linkedin}</span>
+          </div>
+          <div className="text-neutral-300">
+            GitHub: <span className="text-cyan-400">{CONTACT_DATA.github}</span>
+          </div>
+          <div className="text-neutral-300">
+            LeetCode: <span className="text-cyan-400">{CONTACT_DATA.leetcode}</span>
+          </div>
+          <div className="text-neutral-300">
+            CTFtime: <span className="text-cyan-400">{CONTACT_DATA.ctftime}</span>
+          </div>
         </div>
       </div>
     );
@@ -530,7 +581,7 @@ export function renderCat(target: string) {
 
 export function renderNoUiOverview() {
   return (
-    <div className="font-mono text-xs my-3 space-y-4 p-4 rounded bg-black border border-dx0-orange/40 text-neutral-200">
+    <div className="font-mono text-xs my-3 space-y-5 p-4 rounded bg-black border border-dx0-orange/40 text-neutral-200">
       <div className="text-dx0-orange font-bold text-base border-b-2 border-dx0-orange pb-2 text-center select-none">
         ================================================================================
         <br />
@@ -551,8 +602,9 @@ export function renderNoUiOverview() {
           [1] PROFILE & SUMMARY
         </div>
         <div className="text-white font-semibold">{PERSONAL_INFO.name}</div>
-        <div className="text-neutral-300">{PERSONAL_INFO.title}</div>
-        <div className="text-neutral-400">{PERSONAL_INFO.summary}</div>
+        <div className="text-dx0-orange font-semibold">{PERSONAL_INFO.title}</div>
+        <div className="text-neutral-400 text-[11px]">Location: {PERSONAL_INFO.location}</div>
+        <div className="text-neutral-300">{PERSONAL_INFO.summary}</div>
         <div className="text-neutral-300 pt-1">
           Honors: {PERSONAL_INFO.honors.join(' | ')}
         </div>
@@ -560,14 +612,18 @@ export function renderNoUiOverview() {
 
       <div className="space-y-2">
         <div className="text-yellow-400 font-bold text-sm border-b border-neutral-800 pb-1">
-          [2] WORK EXPERIENCE
+          [2] EDUCATION & ACADEMIC DISTINCTION
         </div>
-        {EXPERIENCE_DATA.map((exp) => (
-          <div key={exp.id} className="space-y-0.5">
-            <div className="text-white font-semibold">
-              {exp.role} @ {exp.company} ({exp.period})
+        {EDUCATION_DATA.map((edu) => (
+          <div key={edu.id} className="space-y-1 pl-3">
+            <div className="text-white font-bold">{edu.institution}</div>
+            <div className="text-dx0-orange font-semibold">
+              {edu.degree} ({edu.period})
             </div>
-            {exp.description.map((d, i) => (
+            <div className="text-yellow-300 text-[11px]">
+              {edu.honors.join(' | ')}
+            </div>
+            {edu.details?.map((d, i) => (
               <div key={i} className="text-neutral-400 pl-3">
                 • {d}
               </div>
@@ -578,37 +634,112 @@ export function renderNoUiOverview() {
 
       <div className="space-y-2">
         <div className="text-yellow-400 font-bold text-sm border-b border-neutral-800 pb-1">
-          [3] FEATURED PROJECTS
+          [3] LICENSES & CERTIFICATIONS
+        </div>
+        {CERTIFICATIONS_DATA.map((cert) => (
+          <div key={cert.id} className="space-y-0.5 pl-3">
+            <div className="text-white font-semibold">
+              {cert.name} ({cert.date})
+            </div>
+            <div className="text-neutral-400 text-[11px] pl-3">
+              Issuer: {cert.issuer} {cert.rating ? `| Rating: ${cert.rating}` : ''}
+            </div>
+            {cert.credlyUrl && (
+              <div className="text-cyan-400 text-[11px] pl-3">
+                Verify Credly: {cert.credlyUrl}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <div className="space-y-2">
+        <div className="text-yellow-400 font-bold text-sm border-b border-neutral-800 pb-1">
+          [4] WORK EXPERIENCE
+        </div>
+        {EXPERIENCE_DATA.map((exp) => (
+          <div key={exp.id} className="space-y-1 pl-3">
+            <div className="text-white font-semibold">
+              {exp.role} @ <span className="text-dx0-orange">{exp.company}</span> ({exp.period}) - <span className="text-yellow-400 text-[11px]">{exp.type}</span>
+            </div>
+            {exp.description.map((d, i) => (
+              <div key={i} className="text-neutral-400 pl-3">
+                • {d}
+              </div>
+            ))}
+            <div className="text-cyan-400 text-[11px] pl-3">
+              Technologies: {exp.technologies.join(', ')}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="space-y-2">
+        <div className="text-yellow-400 font-bold text-sm border-b border-neutral-800 pb-1">
+          [5] LEADERSHIP & COMMUNITY EXPERIENCE
+        </div>
+        {LEADERSHIP_DATA.map((lead) => (
+          <div key={lead.id} className="space-y-0.5 pl-3">
+            <div className="text-white font-semibold">
+              {lead.role} - <span className="text-dx0-orange">{lead.organization}</span> ({lead.period})
+            </div>
+            {lead.description && (
+              <div className="text-neutral-400 pl-3">• {lead.description}</div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <div className="space-y-2">
+        <div className="text-yellow-400 font-bold text-sm border-b border-neutral-800 pb-1">
+          [6] FEATURED PROJECTS
         </div>
         {PROJECTS_DATA.map((proj) => (
-          <div key={proj.id} className="space-y-0.5">
+          <div key={proj.id} className="space-y-1 pl-3">
             <div className="text-white font-semibold">
-              {proj.title} ({proj.role})
+              {proj.title} ({proj.role}) {proj.date && <span className="text-neutral-500 font-mono text-[11px]">({proj.date})</span>}
             </div>
             <div className="text-neutral-400 pl-3">{proj.description}</div>
+            {proj.details && proj.details.map((d, i) => (
+              <div key={i} className="text-neutral-400 pl-6 text-[11px]">
+                - {d}
+              </div>
+            ))}
             <div className="text-cyan-400 text-[11px] pl-3">
               Technologies: {proj.technologies.join(', ')}
             </div>
+            {proj.githubUrl && (
+              <div className="text-yellow-400 text-[11px] pl-3">
+                Repository: {proj.githubUrl}
+              </div>
+            )}
           </div>
         ))}
       </div>
 
       <div className="space-y-2">
         <div className="text-yellow-400 font-bold text-sm border-b border-neutral-800 pb-1">
-          [4] TOP COMPETITION AWARDS
+          [7] HONORS & COMPETITION ACHIEVEMENTS
         </div>
-        {AWARDS_DATA.slice(0, 6).map((award) => (
+
+        <div className="pl-3 p-2 rounded bg-neutral-950 border border-dx0-orange/40 mb-2">
+          <div className="text-dx0-orange font-bold">★ CTFtime 2025 Official Country Standings</div>
+          <div className="text-white font-semibold">Top 3 Philippines National Team Ranking (Team 400BadRequest)</div>
+          <div className="text-yellow-400 text-[11px] font-bold">#3 IN PHILIPPINES</div>
+        </div>
+
+        {AWARDS_DATA.map((award) => (
           <div key={award.id} className="text-neutral-300 pl-3">
             •{' '}
             <span className="text-yellow-400 font-semibold">{award.title}</span>{' '}
-            - {award.event} ({award.date})
+            - {award.event} ({award.organizer}, {award.date})
           </div>
         ))}
       </div>
 
       <div className="space-y-2">
         <div className="text-yellow-400 font-bold text-sm border-b border-neutral-800 pb-1">
-          [5] TECHNICAL SKILLS
+          [8] TECHNICAL SKILLS
         </div>
         {SKILL_CATEGORIES_DATA.map((cat) => (
           <div key={cat.id} className="text-neutral-300 pl-3">
@@ -622,13 +753,13 @@ export function renderNoUiOverview() {
 
       <div className="space-y-1">
         <div className="text-yellow-400 font-bold text-sm border-b border-neutral-800 pb-1">
-          [6] CONTACT
+          [9] CONTACT & COMMUNICATION
         </div>
         <div className="text-neutral-300 pl-3">
-          Email: {CONTACT_DATA.email} | Phone: {CONTACT_DATA.phone}
+          Email: {CONTACT_DATA.email} | Phone: {CONTACT_DATA.phone} | Location: {CONTACT_DATA.location}
         </div>
         <div className="text-cyan-400 pl-3">
-          GitHub: {CONTACT_DATA.github} | LinkedIn: {CONTACT_DATA.linkedin}
+          GitHub: {CONTACT_DATA.github} | LinkedIn: {CONTACT_DATA.linkedin} | LeetCode: {CONTACT_DATA.leetcode} | CTFtime: {CONTACT_DATA.ctftime}
         </div>
       </div>
 
@@ -639,3 +770,4 @@ export function renderNoUiOverview() {
     </div>
   );
 }
+
