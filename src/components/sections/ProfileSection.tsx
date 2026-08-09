@@ -14,7 +14,9 @@ import {
   FiCheck,
   FiExternalLink,
   FiShield,
+  FiStar,
 } from 'react-icons/fi';
+import { PiSparkle } from 'react-icons/pi';
 
 interface ProfileSectionProps {
   copiedField: string | null;
@@ -57,13 +59,13 @@ function ProfileSection({ copiedField, onCopy }: ProfileSectionProps) {
               BatStateU BS Computer Science
             </span>
             <span className="flex items-center gap-1.5">
-              <FiAward className="text-dx0-orange text-xs" /> Cum Laude (GWA: {PERSONAL_INFO.gwa})
+              <FiStar className="text-dx0-orange text-xs" /> Cum Laude (GWA: {PERSONAL_INFO.gwa})
             </span>
             <span className="flex items-center gap-1.5">
               <FiShield className="text-dx0-orange text-xs" /> CSE Professional ({PERSONAL_INFO.cseRating})
             </span>
             <span className="flex items-center gap-1.5">
-              <FiShield className="text-dx0-orange text-xs" /> DOST JLSS Scholar
+              <PiSparkle className="text-dx0-orange text-xs" /> DOST JLSS Scholar
             </span>
           </div>
 
@@ -170,14 +172,21 @@ function ProfileSection({ copiedField, onCopy }: ProfileSectionProps) {
             </div>
 
             <div className="flex flex-wrap gap-2">
-              {edu.honors.map((honor, i) => (
-                <span
-                  key={i}
-                  className="text-xs px-2.5 py-1 rounded bg-dx0-orange/10 text-dx0-orange border border-dx0-orange/30 font-medium flex items-center gap-1"
-                >
-                  <FiAward className="text-dx0-orange" /> {honor}
-                </span>
-              ))}
+              {edu.honors.map((honor, i) => {
+                const IconComponent = honor.includes('Cum Laude')
+                  ? FiStar
+                  : honor.includes('DOST')
+                  ? PiSparkle
+                  : FiAward;
+                return (
+                  <span
+                    key={i}
+                    className="text-xs px-2.5 py-1 rounded bg-dx0-orange/10 text-dx0-orange border border-dx0-orange/30 font-medium flex items-center gap-1"
+                  >
+                    <IconComponent className="text-dx0-orange" /> {honor}
+                  </span>
+                );
+              })}
             </div>
 
             {edu.details && (
