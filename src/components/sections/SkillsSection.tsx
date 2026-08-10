@@ -1,5 +1,5 @@
 import { useState, useMemo, memo } from 'react';
-import { SKILL_CATEGORIES_DATA } from '../../data/aboutData';
+import { SKILL_CATEGORIES_DATA } from '../../data/skillsData';
 import { FiCode, FiSearch, FiTerminal } from 'react-icons/fi';
 
 function SkillsSection() {

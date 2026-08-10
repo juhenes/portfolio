@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { EXPERIENCE_DATA } from '../../data/aboutData';
+import { EXPERIENCE_DATA } from '../../data/experienceData';
 import { FiBriefcase, FiGlobe, FiCalendar } from 'react-icons/fi';
 
 function ExperienceSection() {

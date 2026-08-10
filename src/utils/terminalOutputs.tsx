@@ -1,10 +1,10 @@
 import {
   PERSONAL_INFO,
   EDUCATION_DATA,
-  EXPERIENCE_DATA,
-  SKILL_CATEGORIES_DATA,
-  LEADERSHIP_DATA,
 } from '../data/aboutData';
+import { SKILL_CATEGORIES_DATA } from '../data/skillsData';
+import { EXPERIENCE_DATA } from '../data/experienceData';
+import { LEADERSHIP_DATA } from '../data/leadershipData';
 import { PROJECTS_DATA } from '../data/projectsData';
 import { AWARDS_DATA } from '../data/awardsData';
 import { CERTIFICATIONS_DATA } from '../data/certificationsData';

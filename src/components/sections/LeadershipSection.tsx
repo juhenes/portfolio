@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { LEADERSHIP_DATA } from '../../data/aboutData';
+import { LEADERSHIP_DATA } from '../../data/leadershipData';
 import { FiUserCheck } from 'react-icons/fi';
 
 function LeadershipSection() {
