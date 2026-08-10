@@ -100,8 +100,9 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
     period: '2025 – Present',
     type: 'Freelance',
     description: [
-      'Developed and maintained custom web applications tailored to specific client requirements using FastAPI, Laravel, PHP, and JavaScript.',
-      'Implemented core features, resolved critical bugs, optimized performance, and supported cloud deployment.',
+      'Developed and maintained custom software solutions for business modernization, internal tools, and academic capstone projects using FastAPI, Laravel, PHP, and JavaScript.',
+      'Translated client requirements into application features, workflows, and user interfaces across frontend and backend systems.',
+      'Implemented new features, resolved bugs, optimized application performance, and supported deployment and maintenance.',
     ],
     technologies: [
       'FastAPI',
