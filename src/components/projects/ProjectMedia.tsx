@@ -11,7 +11,8 @@ export const ProjectMedia: React.FC<ProjectMediaProps> = ({
   alt,
   className = 'w-full h-full object-cover',
 }) => {
-  const isVideo = src.toLowerCase().endsWith('.mp4') || src.toLowerCase().includes('.mp4');
+  const isVideo =
+    src.toLowerCase().endsWith('.mp4') || src.toLowerCase().includes('.mp4');
 
   if (isVideo) {
     return (

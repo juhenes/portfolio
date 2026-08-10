@@ -5,12 +5,13 @@ interface EventContext {
 
 export async function onRequestPost(context: EventContext): Promise<Response> {
   try {
-    const { name, email, subject, message } = await context.request.json() as {
-      name?: string;
-      email?: string;
-      subject?: string;
-      message?: string;
-    };
+    const { name, email, subject, message } =
+      (await context.request.json()) as {
+        name?: string;
+        email?: string;
+        subject?: string;
+        message?: string;
+      };
 
     if (!name || !email || !message) {
       return new Response(
@@ -25,7 +26,8 @@ export async function onRequestPost(context: EventContext): Promise<Response> {
     if (!apiKey) {
       return new Response(
         JSON.stringify({
-          error: 'RESEND_API_KEY environment variable is missing on Cloudflare Pages.',
+          error:
+            'RESEND_API_KEY environment variable is missing on Cloudflare Pages.',
         }),
         { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
@@ -50,7 +52,7 @@ export async function onRequestPost(context: EventContext): Promise<Response> {
     const resendResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${apiKey}`,
+        Authorization: `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -62,14 +64,21 @@ export async function onRequestPost(context: EventContext): Promise<Response> {
       }),
     });
 
-    const resendResult = await resendResponse.json() as { id?: string; message?: string };
+    const resendResult = (await resendResponse.json()) as {
+      id?: string;
+      message?: string;
+    };
 
     if (!resendResponse.ok) {
       return new Response(
         JSON.stringify({
-          error: resendResult.message || 'Failed to send message via Resend API.',
+          error:
+            resendResult.message || 'Failed to send message via Resend API.',
         }),
-        { status: resendResponse.status, headers: { 'Content-Type': 'application/json' } }
+        {
+          status: resendResponse.status,
+          headers: { 'Content-Type': 'application/json' },
+        }
       );
     }
 
@@ -78,10 +87,11 @@ export async function onRequestPost(context: EventContext): Promise<Response> {
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     );
   } catch (err) {
-    const errorMsg = err instanceof Error ? err.message : 'Unknown server error.';
-    return new Response(
-      JSON.stringify({ error: errorMsg }),
-      { status: 500, headers: { 'Content-Type': 'application/json' } }
-    );
+    const errorMsg =
+      err instanceof Error ? err.message : 'Unknown server error.';
+    return new Response(JSON.stringify({ error: errorMsg }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 }

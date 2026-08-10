@@ -39,10 +39,12 @@ function AwardsSection() {
       <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-3 border-b border-neutral-800 pb-3">
         <div>
           <h2 className="text-xs font-bold uppercase tracking-wider text-dx0-orange flex items-center gap-2">
-            <FiAward className="text-dx0-orange" /> Honors & Competition Achievements
+            <FiAward className="text-dx0-orange" /> Honors & Competition
+            Achievements
           </h2>
           <p className="text-xs text-neutral-400 mt-0.5">
-            Cybersecurity CTF national rankings, scholarships & competitive programming honors
+            Cybersecurity CTF national rankings, scholarships & competitive
+            programming honors
           </p>
         </div>
       </div>
@@ -54,7 +56,9 @@ function AwardsSection() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-dx0-orange">CTFtime 2025 Official Country Standings</span>
+              <span className="text-xs font-bold uppercase tracking-wider text-dx0-orange">
+                CTFtime 2025 Official Country Standings
+              </span>
             </div>
             <h3 className="text-sm font-bold text-white tracking-wide mt-0.5">
               Top 3 Philippines National Team Ranking (Team 400BadRequest)

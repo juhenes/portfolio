@@ -212,7 +212,13 @@ export const SKILL_CATEGORIES_DATA: SkillCategory[] = [
     id: 'skill-gamedev',
     category: 'Game Development & Engines',
     iconName: 'gamepad',
-    skills: ['Unity2D', 'Godot', 'C# (Unity)', 'Sprite Animation', 'Game State Architecture'],
+    skills: [
+      'Unity2D',
+      'Godot',
+      'C# (Unity)',
+      'Sprite Animation',
+      'Game State Architecture',
+    ],
   },
   {
     id: 'skill-hardware',
@@ -257,7 +263,13 @@ export const SKILL_CATEGORIES_DATA: SkillCategory[] = [
     id: 'skill-design',
     category: 'Design & Productivity',
     iconName: 'figma',
-    skills: ['Figma', 'Adobe Creative Suite', 'Canva', 'ProPresenter', 'Microsoft Office'],
+    skills: [
+      'Figma',
+      'Adobe Creative Suite',
+      'Canva',
+      'ProPresenter',
+      'Microsoft Office',
+    ],
   },
   {
     id: 'skill-concepts',

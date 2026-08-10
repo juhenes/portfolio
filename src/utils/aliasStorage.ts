@@ -27,7 +27,10 @@ export function setAlias(name: string, command: string): AliasMap {
   return aliases;
 }
 
-export function removeAlias(name: string): { aliases: AliasMap; found: boolean } {
+export function removeAlias(name: string): {
+  aliases: AliasMap;
+  found: boolean;
+} {
   const aliases = loadAliases();
   const found = name in aliases;
   if (found) {

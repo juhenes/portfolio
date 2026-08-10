@@ -47,7 +47,8 @@ function SkillsSection() {
           >
             <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-2 flex items-center">
               <span className="text-dx0-orange flex items-center gap-1.5">
-                <FiTerminal className="text-[10px] text-dx0-orange" /> {cat.category}
+                <FiTerminal className="text-[10px] text-dx0-orange" />{' '}
+                {cat.category}
               </span>
             </h3>
 

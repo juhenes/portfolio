@@ -233,10 +233,14 @@ export default function MainInterface() {
                   ) : (
                     currentAliases.map(([name, cmd]) => (
                       <div key={name}>
-                        <span className="text-dx0-orange font-semibold">alias </span>
+                        <span className="text-dx0-orange font-semibold">
+                          alias{' '}
+                        </span>
                         <span className="text-yellow-300">{name}</span>
                         <span className="text-neutral-400">=</span>
-                        <span className="text-emerald-400">&apos;{cmd}&apos;</span>
+                        <span className="text-emerald-400">
+                          &apos;{cmd}&apos;
+                        </span>
                       </div>
                     ))
                   )}
@@ -271,7 +275,10 @@ export default function MainInterface() {
           return;
         }
         const aliasName = rest.slice(0, eqIdx).trim().toLowerCase();
-        const aliasCmd = rest.slice(eqIdx + 1).trim().replace(/^['"](.*)['"]$/, '$1');
+        const aliasCmd = rest
+          .slice(eqIdx + 1)
+          .trim()
+          .replace(/^['"](.*)['"]$/, '$1');
         if (!aliasName || !aliasCmd) {
           setHistory((prev) => [
             ...prev,
@@ -296,7 +303,9 @@ export default function MainInterface() {
             command: trimmed,
             output: (
               <div className="text-emerald-400 font-mono text-xs my-1">
-                ✓ Alias set: <span className="text-yellow-300">{aliasName}</span> → <span className="text-white">{aliasCmd}</span>
+                ✓ Alias set:{' '}
+                <span className="text-yellow-300">{aliasName}</span> →{' '}
+                <span className="text-white">{aliasCmd}</span>
               </div>
             ),
           },
@@ -620,7 +629,9 @@ export default function MainInterface() {
           rafId = requestAnimationFrame(() => {
             try {
               const wrapper = consoleWrapperRef.current;
-              const el = wrapper?.querySelector('.dx0-console') as HTMLDivElement | null;
+              const el = wrapper?.querySelector(
+                '.dx0-console'
+              ) as HTMLDivElement | null;
               if (el) {
                 el.style.height = `${latestHeight}px`;
               }
@@ -656,12 +667,8 @@ export default function MainInterface() {
       className="flex flex-col h-screen w-screen overflow-hidden bg-black"
     >
       <Suspense fallback={null}>
-        {showMatrix && (
-          <MatrixEffect onExit={() => setShowMatrix(false)} />
-        )}
-        {showHtop && (
-          <HtopEffect onExit={() => setShowHtop(false)} />
-        )}
+        {showMatrix && <MatrixEffect onExit={() => setShowMatrix(false)} />}
+        {showHtop && <HtopEffect onExit={() => setShowHtop(false)} />}
       </Suspense>
       {!isNoUi && (
         <TopBar
@@ -713,7 +720,9 @@ export default function MainInterface() {
                       : 'text-white hover:bg-neutral-800'
                   }`}
                 >
-                  <s.Icon className={`text-base ${isActive ? 'text-black' : 'text-dx0-orange'}`} />
+                  <s.Icon
+                    className={`text-base ${isActive ? 'text-black' : 'text-dx0-orange'}`}
+                  />
                   <div>{s.label}</div>
                 </button>
               );

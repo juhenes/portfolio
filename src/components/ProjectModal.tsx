@@ -10,7 +10,10 @@ interface ProjectModalProps {
   onClose: () => void;
 }
 
-export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
+export const ProjectModal: React.FC<ProjectModalProps> = ({
+  project,
+  onClose,
+}) => {
   useEffect(() => {
     if (!project) return;
 
@@ -65,12 +68,16 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-sm font-bold text-white">{project.title}</h3>
+                <h3 className="text-sm font-bold text-white">
+                  {project.title}
+                </h3>
                 <span className="text-[10px] px-2 py-0.5 rounded bg-dx0-orange/10 text-dx0-orange border border-dx0-orange/30 font-semibold whitespace-nowrap">
                   {project.role}
                 </span>
               </div>
-              <p className="text-[11px] text-neutral-400 font-mono mt-0.5">{project.date}</p>
+              <p className="text-[11px] text-neutral-400 font-mono mt-0.5">
+                {project.date}
+              </p>
             </div>
           </div>
           <button

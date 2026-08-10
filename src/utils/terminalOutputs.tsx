@@ -293,9 +293,15 @@ export function renderCat(target: string) {
           === PROFILE & EDUCATION ===
         </div>
         <div>
-          <div className="text-white font-bold text-sm">{PERSONAL_INFO.name}</div>
-          <div className="text-dx0-orange font-semibold">{PERSONAL_INFO.title}</div>
-          <div className="text-neutral-400 text-[11px] mt-0.5">Location: {PERSONAL_INFO.location}</div>
+          <div className="text-white font-bold text-sm">
+            {PERSONAL_INFO.name}
+          </div>
+          <div className="text-dx0-orange font-semibold">
+            {PERSONAL_INFO.title}
+          </div>
+          <div className="text-neutral-400 text-[11px] mt-0.5">
+            Location: {PERSONAL_INFO.location}
+          </div>
           <div className="text-neutral-300 mt-1">{PERSONAL_INFO.summary}</div>
         </div>
 
@@ -311,16 +317,24 @@ export function renderCat(target: string) {
         </div>
 
         <div className="pt-1 space-y-2">
-          <div className="text-yellow-400 font-semibold">Education & Academic Distinction:</div>
+          <div className="text-yellow-400 font-semibold">
+            Education & Academic Distinction:
+          </div>
           {EDUCATION_DATA.map((edu) => (
-            <div key={edu.id} className="pl-2 space-y-1 p-2 rounded bg-neutral-950/80 border border-neutral-800/80">
+            <div
+              key={edu.id}
+              className="pl-2 space-y-1 p-2 rounded bg-neutral-950/80 border border-neutral-800/80"
+            >
               <div className="text-white font-bold">{edu.institution}</div>
               <div className="text-dx0-orange font-semibold">
                 {edu.degree} ({edu.period})
               </div>
               <div className="flex flex-wrap gap-1 text-[11px]">
                 {edu.honors.map((h, i) => (
-                  <span key={i} className="text-yellow-300 bg-neutral-900 px-2 py-0.5 rounded border border-neutral-800">
+                  <span
+                    key={i}
+                    className="text-yellow-300 bg-neutral-900 px-2 py-0.5 rounded border border-neutral-800"
+                  >
                     {h}
                   </span>
                 ))}
@@ -360,11 +374,14 @@ export function renderCat(target: string) {
           >
             <div className="flex flex-col sm:flex-row justify-between text-white font-semibold gap-1">
               <span className="text-white font-bold">
-                {exp.role} @ <span className="text-dx0-orange">{exp.company}</span>
+                {exp.role} @{' '}
+                <span className="text-dx0-orange">{exp.company}</span>
               </span>
               <span className="text-neutral-400 text-[11px]">{exp.period}</span>
             </div>
-            <div className="text-yellow-400 text-[11px] font-semibold">{exp.type}</div>
+            <div className="text-yellow-400 text-[11px] font-semibold">
+              {exp.type}
+            </div>
             {exp.description.map((desc, i) => (
               <div key={i} className="text-neutral-300 pl-2 text-[11px]">
                 • {desc}
@@ -386,14 +403,23 @@ export function renderCat(target: string) {
           === LEADERSHIP & COMMUNITY EXPERIENCE ===
         </div>
         {LEADERSHIP_DATA.map((lead) => (
-          <div key={lead.id} className="space-y-1 p-2.5 rounded bg-neutral-950/80 border border-neutral-800/80">
+          <div
+            key={lead.id}
+            className="space-y-1 p-2.5 rounded bg-neutral-950/80 border border-neutral-800/80"
+          >
             <div className="flex flex-col sm:flex-row justify-between text-white font-bold gap-1">
               <span>{lead.role}</span>
-              <span className="text-neutral-400 text-[11px] font-normal">{lead.period}</span>
+              <span className="text-neutral-400 text-[11px] font-normal">
+                {lead.period}
+              </span>
             </div>
-            <div className="text-dx0-orange font-semibold">{lead.organization}</div>
+            <div className="text-dx0-orange font-semibold">
+              {lead.organization}
+            </div>
             {lead.description && (
-              <div className="text-neutral-300 pl-2 text-[11px]">• {lead.description}</div>
+              <div className="text-neutral-300 pl-2 text-[11px]">
+                • {lead.description}
+              </div>
             )}
           </div>
         ))}
@@ -415,7 +441,11 @@ export function renderCat(target: string) {
             <div className="flex flex-col sm:flex-row justify-between sm:items-center text-white font-bold gap-1">
               <span className="text-white text-sm">{proj.title}</span>
               <div className="flex items-center gap-2 text-[11px]">
-                {proj.date && <span className="text-neutral-400 font-mono">({proj.date})</span>}
+                {proj.date && (
+                  <span className="text-neutral-400 font-mono">
+                    ({proj.date})
+                  </span>
+                )}
                 <span className="text-dx0-orange bg-dx0-orange/10 px-2 py-0.5 rounded border border-dx0-orange/30">
                   {proj.role}
                 </span>
@@ -466,14 +496,22 @@ export function renderCat(target: string) {
 
         <div className="space-y-1.5">
           {AWARDS_DATA.map((award) => (
-            <div key={award.id} className="p-2 rounded bg-neutral-950/80 border border-neutral-800/80 flex flex-col sm:flex-row justify-between sm:items-center gap-1">
+            <div
+              key={award.id}
+              className="p-2 rounded bg-neutral-950/80 border border-neutral-800/80 flex flex-col sm:flex-row justify-between sm:items-center gap-1"
+            >
               <div>
                 <span className="text-yellow-400 font-semibold">
                   {award.title}
                 </span>
                 <span className="text-neutral-200"> - {award.event}</span>
-                <span className="text-neutral-400 text-[11px]"> ({award.organizer})</span>
-                <div className="text-neutral-500 text-[10px] uppercase">{award.category}</div>
+                <span className="text-neutral-400 text-[11px]">
+                  {' '}
+                  ({award.organizer})
+                </span>
+                <div className="text-neutral-500 text-[10px] uppercase">
+                  {award.category}
+                </div>
               </div>
               <span className="text-dx0-orange text-[11px] font-semibold shrink-0">
                 {award.date}
@@ -493,7 +531,10 @@ export function renderCat(target: string) {
         </div>
 
         {CERTIFICATIONS_DATA.map((cert) => (
-          <div key={cert.id} className={`p-2.5 rounded bg-neutral-950/80 border ${cert.rating ? 'border-dx0-orange/50' : 'border-neutral-800/80'} space-y-1`}>
+          <div
+            key={cert.id}
+            className={`p-2.5 rounded bg-neutral-950/80 border ${cert.rating ? 'border-dx0-orange/50' : 'border-neutral-800/80'} space-y-1`}
+          >
             <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-1">
               <div className="text-white font-bold">{cert.name}</div>
               <span className="text-dx0-orange text-[11px] font-semibold shrink-0">
@@ -501,11 +542,13 @@ export function renderCat(target: string) {
               </span>
             </div>
             <div className="text-neutral-300 text-[11px]">
-              Issuer: {cert.issuer} {cert.rating ? `| Rating: ${cert.rating}` : ''}
+              Issuer: {cert.issuer}{' '}
+              {cert.rating ? `| Rating: ${cert.rating}` : ''}
             </div>
             {cert.rating && (
               <div className="text-neutral-400 text-[11px]">
-                First-level and second-level government eligibility for technical and professional positions.
+                First-level and second-level government eligibility for
+                technical and professional positions.
               </div>
             )}
             {cert.credlyUrl && (
@@ -526,7 +569,10 @@ export function renderCat(target: string) {
           === TECHNICAL SKILLS ===
         </div>
         {SKILL_CATEGORIES_DATA.map((cat) => (
-          <div key={cat.id} className="space-y-0.5 p-2 rounded bg-neutral-950/80 border border-neutral-800/80">
+          <div
+            key={cat.id}
+            className="space-y-0.5 p-2 rounded bg-neutral-950/80 border border-neutral-800/80"
+          >
             <div className="text-yellow-400 font-semibold">{cat.category}:</div>
             <div className="text-neutral-200 pl-2">{cat.skills.join(', ')}</div>
           </div>
@@ -543,28 +589,42 @@ export function renderCat(target: string) {
         </div>
         <div className="space-y-1 p-2 rounded bg-neutral-950/80 border border-neutral-800/80">
           <div className="text-neutral-300">
-            Email: <span className="text-cyan-400 font-semibold">{CONTACT_DATA.email}</span>
+            Email:{' '}
+            <span className="text-cyan-400 font-semibold">
+              {CONTACT_DATA.email}
+            </span>
           </div>
           <div className="text-neutral-300">
-            Phone: <span className="text-white font-semibold">{CONTACT_DATA.phone}</span>
+            Phone:{' '}
+            <span className="text-white font-semibold">
+              {CONTACT_DATA.phone}
+            </span>
           </div>
           <div className="text-neutral-300">
-            Location: <span className="text-white font-semibold">{CONTACT_DATA.location}</span>
+            Location:{' '}
+            <span className="text-white font-semibold">
+              {CONTACT_DATA.location}
+            </span>
           </div>
         </div>
         <div className="space-y-1 p-2 rounded bg-neutral-950/80 border border-neutral-800/80">
-          <div className="text-yellow-400 font-semibold mb-1">Social & Developer Profiles:</div>
+          <div className="text-yellow-400 font-semibold mb-1">
+            Social & Developer Profiles:
+          </div>
           <div className="text-neutral-300">
-            LinkedIn: <span className="text-cyan-400">{CONTACT_DATA.linkedin}</span>
+            LinkedIn:{' '}
+            <span className="text-cyan-400">{CONTACT_DATA.linkedin}</span>
           </div>
           <div className="text-neutral-300">
             GitHub: <span className="text-cyan-400">{CONTACT_DATA.github}</span>
           </div>
           <div className="text-neutral-300">
-            LeetCode: <span className="text-cyan-400">{CONTACT_DATA.leetcode}</span>
+            LeetCode:{' '}
+            <span className="text-cyan-400">{CONTACT_DATA.leetcode}</span>
           </div>
           <div className="text-neutral-300">
-            CTFtime: <span className="text-cyan-400">{CONTACT_DATA.ctftime}</span>
+            CTFtime:{' '}
+            <span className="text-cyan-400">{CONTACT_DATA.ctftime}</span>
           </div>
         </div>
       </div>
@@ -602,8 +662,12 @@ export function renderNoUiOverview() {
           [1] PROFILE & SUMMARY
         </div>
         <div className="text-white font-semibold">{PERSONAL_INFO.name}</div>
-        <div className="text-dx0-orange font-semibold">{PERSONAL_INFO.title}</div>
-        <div className="text-neutral-400 text-[11px]">Location: {PERSONAL_INFO.location}</div>
+        <div className="text-dx0-orange font-semibold">
+          {PERSONAL_INFO.title}
+        </div>
+        <div className="text-neutral-400 text-[11px]">
+          Location: {PERSONAL_INFO.location}
+        </div>
         <div className="text-neutral-300">{PERSONAL_INFO.summary}</div>
         <div className="text-neutral-300 pt-1">
           Honors: {PERSONAL_INFO.honors.join(' | ')}
@@ -642,7 +706,8 @@ export function renderNoUiOverview() {
               {cert.name} ({cert.date})
             </div>
             <div className="text-neutral-400 text-[11px] pl-3">
-              Issuer: {cert.issuer} {cert.rating ? `| Rating: ${cert.rating}` : ''}
+              Issuer: {cert.issuer}{' '}
+              {cert.rating ? `| Rating: ${cert.rating}` : ''}
             </div>
             {cert.credlyUrl && (
               <div className="text-cyan-400 text-[11px] pl-3">
@@ -660,7 +725,10 @@ export function renderNoUiOverview() {
         {EXPERIENCE_DATA.map((exp) => (
           <div key={exp.id} className="space-y-1 pl-3">
             <div className="text-white font-semibold">
-              {exp.role} @ <span className="text-dx0-orange">{exp.company}</span> ({exp.period}) - <span className="text-yellow-400 text-[11px]">{exp.type}</span>
+              {exp.role} @{' '}
+              <span className="text-dx0-orange">{exp.company}</span> (
+              {exp.period}) -{' '}
+              <span className="text-yellow-400 text-[11px]">{exp.type}</span>
             </div>
             {exp.description.map((d, i) => (
               <div key={i} className="text-neutral-400 pl-3">
@@ -681,7 +749,9 @@ export function renderNoUiOverview() {
         {LEADERSHIP_DATA.map((lead) => (
           <div key={lead.id} className="space-y-0.5 pl-3">
             <div className="text-white font-semibold">
-              {lead.role} - <span className="text-dx0-orange">{lead.organization}</span> ({lead.period})
+              {lead.role} -{' '}
+              <span className="text-dx0-orange">{lead.organization}</span> (
+              {lead.period})
             </div>
             {lead.description && (
               <div className="text-neutral-400 pl-3">• {lead.description}</div>
@@ -697,14 +767,20 @@ export function renderNoUiOverview() {
         {PROJECTS_DATA.map((proj) => (
           <div key={proj.id} className="space-y-1 pl-3">
             <div className="text-white font-semibold">
-              {proj.title} ({proj.role}) {proj.date && <span className="text-neutral-500 font-mono text-[11px]">({proj.date})</span>}
+              {proj.title} ({proj.role}){' '}
+              {proj.date && (
+                <span className="text-neutral-500 font-mono text-[11px]">
+                  ({proj.date})
+                </span>
+              )}
             </div>
             <div className="text-neutral-400 pl-3">{proj.description}</div>
-            {proj.details && proj.details.map((d, i) => (
-              <div key={i} className="text-neutral-400 pl-6 text-[11px]">
-                - {d}
-              </div>
-            ))}
+            {proj.details &&
+              proj.details.map((d, i) => (
+                <div key={i} className="text-neutral-400 pl-6 text-[11px]">
+                  - {d}
+                </div>
+              ))}
             <div className="text-cyan-400 text-[11px] pl-3">
               Technologies: {proj.technologies.join(', ')}
             </div>
@@ -723,9 +799,15 @@ export function renderNoUiOverview() {
         </div>
 
         <div className="pl-3 p-2 rounded bg-neutral-950 border border-dx0-orange/40 mb-2">
-          <div className="text-dx0-orange font-bold">★ CTFtime 2025 Official Country Standings</div>
-          <div className="text-white font-semibold">Top 3 Philippines National Team Ranking (Team 400BadRequest)</div>
-          <div className="text-yellow-400 text-[11px] font-bold">#3 IN PHILIPPINES</div>
+          <div className="text-dx0-orange font-bold">
+            ★ CTFtime 2025 Official Country Standings
+          </div>
+          <div className="text-white font-semibold">
+            Top 3 Philippines National Team Ranking (Team 400BadRequest)
+          </div>
+          <div className="text-yellow-400 text-[11px] font-bold">
+            #3 IN PHILIPPINES
+          </div>
         </div>
 
         {AWARDS_DATA.map((award) => (
@@ -756,10 +838,12 @@ export function renderNoUiOverview() {
           [9] CONTACT & COMMUNICATION
         </div>
         <div className="text-neutral-300 pl-3">
-          Email: {CONTACT_DATA.email} | Phone: {CONTACT_DATA.phone} | Location: {CONTACT_DATA.location}
+          Email: {CONTACT_DATA.email} | Phone: {CONTACT_DATA.phone} | Location:{' '}
+          {CONTACT_DATA.location}
         </div>
         <div className="text-cyan-400 pl-3">
-          GitHub: {CONTACT_DATA.github} | LinkedIn: {CONTACT_DATA.linkedin} | LeetCode: {CONTACT_DATA.leetcode} | CTFtime: {CONTACT_DATA.ctftime}
+          GitHub: {CONTACT_DATA.github} | LinkedIn: {CONTACT_DATA.linkedin} |
+          LeetCode: {CONTACT_DATA.leetcode} | CTFtime: {CONTACT_DATA.ctftime}
         </div>
       </div>
 
@@ -770,4 +854,3 @@ export function renderNoUiOverview() {
     </div>
   );
 }
-

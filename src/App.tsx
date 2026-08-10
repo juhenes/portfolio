@@ -55,7 +55,9 @@ export default function App() {
 
           <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[60] text-[10px] sm:text-[11px] font-mono text-neutral-500/80 pointer-events-none select-none animate-pulse whitespace-nowrap">
             <span className="sm:hidden">[ Double-tap to skip ]</span>
-            <span className="hidden sm:inline">[ Double-click anywhere to skip intro ]</span>
+            <span className="hidden sm:inline">
+              [ Double-click anywhere to skip intro ]
+            </span>
           </div>
         </div>
       )}

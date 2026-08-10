@@ -16,20 +16,80 @@ interface HtopEffectProps {
 
 const PROCESS_POOL: Omit<Process, 'cpu' | 'mem'>[] = [
   { pid: 1, user: 'root', state: 'S', time: '0:00.03', command: 'systemd' },
-  { pid: 42, user: 'juhenes', state: 'S', time: '1:24.11', command: 'portfolio-ui' },
-  { pid: 101, user: 'juhenes', state: 'R', time: '0:45.87', command: 'dx0-terminal' },
+  {
+    pid: 42,
+    user: 'juhenes',
+    state: 'S',
+    time: '1:24.11',
+    command: 'portfolio-ui',
+  },
+  {
+    pid: 101,
+    user: 'juhenes',
+    state: 'R',
+    time: '0:45.87',
+    command: 'dx0-terminal',
+  },
   { pid: 203, user: 'root', state: 'S', time: '0:00.12', command: 'kthreadd' },
-  { pid: 512, user: 'juhenes', state: 'S', time: '3:12.44', command: 'vite dev' },
-  { pid: 611, user: 'juhenes', state: 'R', time: '0:07.21', command: 'typescript-lsp' },
-  { pid: 722, user: 'juhenes', state: 'S', time: '0:02.56', command: 'eslint-daemon' },
-  { pid: 831, user: 'root', state: 'S', time: '0:00.01', command: 'ksoftirqd/0' },
+  {
+    pid: 512,
+    user: 'juhenes',
+    state: 'S',
+    time: '3:12.44',
+    command: 'vite dev',
+  },
+  {
+    pid: 611,
+    user: 'juhenes',
+    state: 'R',
+    time: '0:07.21',
+    command: 'typescript-lsp',
+  },
+  {
+    pid: 722,
+    user: 'juhenes',
+    state: 'S',
+    time: '0:02.56',
+    command: 'eslint-daemon',
+  },
+  {
+    pid: 831,
+    user: 'root',
+    state: 'S',
+    time: '0:00.01',
+    command: 'ksoftirqd/0',
+  },
   { pid: 940, user: 'juhenes', state: 'S', time: '0:11.33', command: 'node' },
-  { pid: 1024, user: 'juhenes', state: 'R', time: '2:08.90', command: 'react-renderer' },
-  { pid: 1337, user: 'dx0', state: 'R', time: '9:41.00', command: 'htop (you)' },
+  {
+    pid: 1024,
+    user: 'juhenes',
+    state: 'R',
+    time: '2:08.90',
+    command: 'react-renderer',
+  },
+  {
+    pid: 1337,
+    user: 'dx0',
+    state: 'R',
+    time: '9:41.00',
+    command: 'htop (you)',
+  },
   { pid: 1500, user: 'root', state: 'S', time: '0:00.45', command: 'journald' },
   { pid: 1612, user: 'juhenes', state: 'S', time: '0:33.22', command: 'bash' },
-  { pid: 2048, user: 'juhenes', state: 'S', time: '0:08.77', command: 'tailwindcss' },
-  { pid: 9999, user: 'dx0', state: 'Z', time: '0:00.00', command: 'easter-egg <zombie>' },
+  {
+    pid: 2048,
+    user: 'juhenes',
+    state: 'S',
+    time: '0:08.77',
+    command: 'tailwindcss',
+  },
+  {
+    pid: 9999,
+    user: 'dx0',
+    state: 'Z',
+    time: '0:00.00',
+    command: 'easter-egg <zombie>',
+  },
 ];
 
 function randomizeCpu(base: number) {
@@ -40,8 +100,13 @@ function randomizeMem(base: number) {
   return Math.min(99.9, Math.max(0, base + (Math.random() - 0.5) * 3));
 }
 
-const BASE_CPU = [0.1, 18.4, 42.3, 0.2, 5.1, 12.7, 0.9, 0.0, 2.3, 31.2, 88.8, 0.1, 0.4, 1.1, 0.0];
-const BASE_MEM = [0.5, 8.2, 6.1, 0.1, 12.4, 9.3, 1.2, 0.0, 4.7, 15.8, 2.1, 0.3, 0.8, 3.4, 0.0];
+const BASE_CPU = [
+  0.1, 18.4, 42.3, 0.2, 5.1, 12.7, 0.9, 0.0, 2.3, 31.2, 88.8, 0.1, 0.4, 1.1,
+  0.0,
+];
+const BASE_MEM = [
+  0.5, 8.2, 6.1, 0.1, 12.4, 9.3, 1.2, 0.0, 4.7, 15.8, 2.1, 0.3, 0.8, 3.4, 0.0,
+];
 
 export default function HtopEffect({ onExit }: HtopEffectProps) {
   const [processes, setProcesses] = useState<Process[]>(() =>
@@ -67,7 +132,9 @@ export default function HtopEffect({ onExit }: HtopEffectProps) {
         }))
       );
       setCpuBars((prev) =>
-        prev.map((v) => Math.min(99, Math.max(5, v + (Math.random() - 0.5) * 20)))
+        prev.map((v) =>
+          Math.min(99, Math.max(5, v + (Math.random() - 0.5) * 20))
+        )
       );
       setTick((t) => t + 1);
     }, 1000);
@@ -88,7 +155,11 @@ export default function HtopEffect({ onExit }: HtopEffectProps) {
   const now = new Date();
   const uptime = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
 
-  function bar(pct: number, width: number = 20, color: string = 'text-green-400') {
+  function bar(
+    pct: number,
+    width: number = 20,
+    color: string = 'text-green-400'
+  ) {
     const filled = Math.round((pct / 100) * width);
     const empty = width - filled;
     return (
@@ -176,20 +247,32 @@ export default function HtopEffect({ onExit }: HtopEffectProps) {
             }`}
           >
             <span className="w-8 text-neutral-500">{p.pid}</span>
-            <span className={`w-12 truncate ${p.user === 'root' ? 'text-red-400' : 'text-cyan-400'}`}>
+            <span
+              className={`w-12 truncate ${p.user === 'root' ? 'text-red-400' : 'text-cyan-400'}`}
+            >
               {p.user}
             </span>
             <span
               className={`w-10 text-right ${
-                p.cpu > 50 ? 'text-red-400' : p.cpu > 20 ? 'text-yellow-400' : 'text-green-400'
+                p.cpu > 50
+                  ? 'text-red-400'
+                  : p.cpu > 20
+                    ? 'text-yellow-400'
+                    : 'text-green-400'
               }`}
             >
               {p.cpu.toFixed(1)}
             </span>
-            <span className="w-10 text-right text-cyan-400">{p.mem.toFixed(1)}</span>
+            <span className="w-10 text-right text-cyan-400">
+              {p.mem.toFixed(1)}
+            </span>
             <span
               className={`w-6 text-center ${
-                p.state === 'R' ? 'text-green-400' : p.state === 'Z' ? 'text-red-500' : 'text-neutral-500'
+                p.state === 'R'
+                  ? 'text-green-400'
+                  : p.state === 'Z'
+                    ? 'text-red-500'
+                    : 'text-neutral-500'
               }`}
             >
               {p.state}
@@ -201,12 +284,14 @@ export default function HtopEffect({ onExit }: HtopEffectProps) {
       </div>
 
       <div className="bg-neutral-900 px-2 py-1 flex gap-2 text-[11px] shrink-0 border-t border-neutral-800">
-        <button onClick={onExit} className="cursor-pointer flex items-center gap-1 hover:text-white transition-colors">
+        <button
+          onClick={onExit}
+          className="cursor-pointer flex items-center gap-1 hover:text-white transition-colors"
+        >
           <span className="bg-neutral-700 text-white px-1 rounded">F10/Q</span>
           <span className="text-neutral-400">Quit</span>
         </button>
       </div>
-
     </div>
   );
 }

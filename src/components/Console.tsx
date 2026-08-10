@@ -40,7 +40,12 @@ const CATEGORY_COLORS: Record<string, string> = {
 const ALL_SUGGESTIONS: Suggestion[] = [
   { value: 'help', label: 'help', category: 'utility', aliases: ['?', 'man'] },
   { value: 'whoami', label: 'whoami', category: 'system', aliases: ['bio'] },
-  { value: 'fastfetch', label: 'fastfetch', category: 'system', aliases: ['neofetch'] },
+  {
+    value: 'fastfetch',
+    label: 'fastfetch',
+    category: 'system',
+    aliases: ['neofetch'],
+  },
   { value: 'no-ui', label: 'no-ui', category: 'display', aliases: ['cli'] },
   { value: 'ui', label: 'ui', category: 'display', aliases: ['gui', 'exit'] },
   { value: 'clear', label: 'clear', category: 'utility', aliases: ['cls'] },
@@ -49,16 +54,30 @@ const ALL_SUGGESTIONS: Suggestion[] = [
   { value: 'pwd', label: 'pwd', category: 'navigation' },
   { value: 'contact', label: 'contact', category: 'system', aliases: ['mail'] },
   { value: 'htop', label: 'htop', category: 'easter-egg', aliases: ['top'] },
-  { value: 'matrix', label: 'matrix', category: 'easter-egg', aliases: ['neo'] },
+  {
+    value: 'matrix',
+    label: 'matrix',
+    category: 'easter-egg',
+    aliases: ['neo'],
+  },
   { value: 'alias', label: 'alias [name=command]', category: 'utility' },
   { value: 'unalias', label: 'unalias <name>', category: 'utility' },
-  { value: 'close', label: 'close', category: 'utility', aliases: ['minimize'] },
+  {
+    value: 'close',
+    label: 'close',
+    category: 'utility',
+    aliases: ['minimize'],
+  },
   { value: 'cd profile', label: 'cd profile', category: 'navigation' },
   { value: 'cd experience', label: 'cd experience', category: 'navigation' },
   { value: 'cd leadership', label: 'cd leadership', category: 'navigation' },
   { value: 'cd projects', label: 'cd projects', category: 'navigation' },
   { value: 'cd awards', label: 'cd awards', category: 'navigation' },
-  { value: 'cd certifications', label: 'cd certifications', category: 'navigation' },
+  {
+    value: 'cd certifications',
+    label: 'cd certifications',
+    category: 'navigation',
+  },
   { value: 'cd skills', label: 'cd skills', category: 'navigation' },
   { value: 'cd contact', label: 'cd contact', category: 'navigation' },
   { value: 'cat profile', label: 'cat profile', category: 'navigation' },
@@ -66,12 +85,32 @@ const ALL_SUGGESTIONS: Suggestion[] = [
   { value: 'cat leadership', label: 'cat leadership', category: 'navigation' },
   { value: 'cat projects', label: 'cat projects', category: 'navigation' },
   { value: 'cat awards', label: 'cat awards', category: 'navigation' },
-  { value: 'cat certifications', label: 'cat certifications', category: 'navigation' },
+  {
+    value: 'cat certifications',
+    label: 'cat certifications',
+    category: 'navigation',
+  },
   { value: 'cat skills', label: 'cat skills', category: 'navigation' },
   { value: 'cat contact', label: 'cat contact', category: 'navigation' },
   ...COMMANDS.filter(
     (c) =>
-      !['help','whoami','fastfetch','no-ui','ui','clear','history','ls','pwd','contact','htop','matrix','alias','unalias','close'].includes(c.cmd) &&
+      ![
+        'help',
+        'whoami',
+        'fastfetch',
+        'no-ui',
+        'ui',
+        'clear',
+        'history',
+        'ls',
+        'pwd',
+        'contact',
+        'htop',
+        'matrix',
+        'alias',
+        'unalias',
+        'close',
+      ].includes(c.cmd) &&
       !c.cmd.startsWith('cd ') &&
       !c.cmd.startsWith('cat ') &&
       !c.cmd.startsWith('open ')
@@ -101,7 +140,9 @@ function HighlightMatch({ text, query }: { text: string; query: string }) {
   return (
     <>
       {text.slice(0, idx)}
-      <span className="text-white font-bold">{text.slice(idx, idx + query.length)}</span>
+      <span className="text-white font-bold">
+        {text.slice(idx, idx + query.length)}
+      </span>
       {text.slice(idx + query.length)}
     </>
   );
@@ -187,7 +228,8 @@ export default function Console({
       }
       if (e.key === 'Tab' || (e.key === 'Enter' && selectedIdx >= 0)) {
         e.preventDefault();
-        const target = selectedIdx >= 0 ? suggestions[selectedIdx] : suggestions[0];
+        const target =
+          selectedIdx >= 0 ? suggestions[selectedIdx] : suggestions[0];
         applySuggestion(target);
         return;
       }
@@ -368,7 +410,8 @@ export default function Console({
               >
                 {suggestions.map((s, i) => {
                   const isActive = i === selectedIdx;
-                  const catColor = CATEGORY_COLORS[s.category] ?? 'text-neutral-400';
+                  const catColor =
+                    CATEGORY_COLORS[s.category] ?? 'text-neutral-400';
                   return (
                     <div
                       key={s.value}
@@ -381,7 +424,9 @@ export default function Console({
                           : 'border-l-2 border-transparent hover:bg-neutral-800/60'
                       }`}
                     >
-                      <span className={`font-mono ${isActive ? 'text-dx0-orange' : 'text-neutral-300'}`}>
+                      <span
+                        className={`font-mono ${isActive ? 'text-dx0-orange' : 'text-neutral-300'}`}
+                      >
                         <HighlightMatch text={s.label} query={inputVal} />
                       </span>
 
@@ -391,7 +436,9 @@ export default function Console({
                             {s.aliases.slice(0, 2).join(', ')}
                           </span>
                         )}
-                        <span className={`text-[10px] font-semibold uppercase tracking-wide ${catColor}`}>
+                        <span
+                          className={`text-[10px] font-semibold uppercase tracking-wide ${catColor}`}
+                        >
                           {s.category}
                         </span>
                       </div>
@@ -400,9 +447,16 @@ export default function Console({
                 })}
 
                 <div className="px-3 py-1 bg-neutral-900/60 border-t border-neutral-800 flex items-center gap-3 text-[10px] text-neutral-600 select-none">
-                  <span><kbd className="font-mono">↑↓</kbd> navigate</span>
-                  <span><kbd className="font-mono">Tab</kbd> / <kbd className="font-mono">↵</kbd> select</span>
-                  <span><kbd className="font-mono">Esc</kbd> dismiss</span>
+                  <span>
+                    <kbd className="font-mono">↑↓</kbd> navigate
+                  </span>
+                  <span>
+                    <kbd className="font-mono">Tab</kbd> /{' '}
+                    <kbd className="font-mono">↵</kbd> select
+                  </span>
+                  <span>
+                    <kbd className="font-mono">Esc</kbd> dismiss
+                  </span>
                 </div>
               </div>
             )}

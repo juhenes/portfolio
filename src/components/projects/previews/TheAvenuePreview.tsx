@@ -1,6 +1,12 @@
 import React from 'react';
 import type { ProjectItem } from '../../../data/projectsData';
-import { FiExternalLink, FiGithub, FiBell, FiCalendar, FiCheckCircle } from 'react-icons/fi';
+import {
+  FiExternalLink,
+  FiGithub,
+  FiBell,
+  FiCalendar,
+  FiCheckCircle,
+} from 'react-icons/fi';
 import { SiFlutter } from 'react-icons/si';
 import ProjectMedia from '../ProjectMedia';
 
@@ -8,7 +14,9 @@ interface TheAvenuePreviewProps {
   project: ProjectItem;
 }
 
-export const TheAvenuePreview: React.FC<TheAvenuePreviewProps> = ({ project }) => {
+export const TheAvenuePreview: React.FC<TheAvenuePreviewProps> = ({
+  project,
+}) => {
   const mediaSrc = '/images/projects/the_avenue.png';
 
   return (
@@ -28,19 +36,25 @@ export const TheAvenuePreview: React.FC<TheAvenuePreviewProps> = ({ project }) =
           <div className="text-[11px] uppercase tracking-wider text-dx0-orange font-bold flex items-center gap-1.5">
             <SiFlutter /> Framework
           </div>
-          <div className="text-xs text-white font-medium">Cross-Platform Flutter & Dart</div>
+          <div className="text-xs text-white font-medium">
+            Cross-Platform Flutter & Dart
+          </div>
         </div>
         <div className="p-3 rounded bg-neutral-900 border border-neutral-800 space-y-1">
           <div className="text-[11px] uppercase tracking-wider text-dx0-orange font-bold flex items-center gap-1.5">
             <FiBell /> Push Reminders
           </div>
-          <div className="text-xs text-white font-medium">Firebase Cloud Messaging (FCM)</div>
+          <div className="text-xs text-white font-medium">
+            Firebase Cloud Messaging (FCM)
+          </div>
         </div>
         <div className="p-3 rounded bg-neutral-900 border border-neutral-800 space-y-1">
           <div className="text-[11px] uppercase tracking-wider text-dx0-orange font-bold flex items-center gap-1.5">
             <FiCalendar /> Management
           </div>
-          <div className="text-xs text-white font-medium">Events & Birthdays Hub</div>
+          <div className="text-xs text-white font-medium">
+            Events & Birthdays Hub
+          </div>
         </div>
       </div>
 

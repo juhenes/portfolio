@@ -1,6 +1,11 @@
 import React from 'react';
 import type { ProjectItem } from '../../../data/projectsData';
-import { FiExternalLink, FiGithub, FiUsers, FiCheckCircle } from 'react-icons/fi';
+import {
+  FiExternalLink,
+  FiGithub,
+  FiUsers,
+  FiCheckCircle,
+} from 'react-icons/fi';
 import { SiAndroid, SiGooglemaps } from 'react-icons/si';
 import ProjectMedia from '../ProjectMedia';
 
@@ -28,19 +33,25 @@ export const SanGawaPreview: React.FC<SanGawaPreviewProps> = ({ project }) => {
           <div className="text-[11px] uppercase tracking-wider text-dx0-orange font-bold flex items-center gap-1.5">
             <SiAndroid /> Platform
           </div>
-          <div className="text-xs text-white font-medium">Native Android & Java</div>
+          <div className="text-xs text-white font-medium">
+            Native Android & Java
+          </div>
         </div>
         <div className="p-3 rounded bg-neutral-900 border border-neutral-800 space-y-1">
           <div className="text-[11px] uppercase tracking-wider text-dx0-orange font-bold flex items-center gap-1.5">
             <SiGooglemaps /> Geolocation
           </div>
-          <div className="text-xs text-white font-medium">Google Maps Real-Time Pins</div>
+          <div className="text-xs text-white font-medium">
+            Google Maps Real-Time Pins
+          </div>
         </div>
         <div className="p-3 rounded bg-neutral-900 border border-neutral-800 space-y-1">
           <div className="text-[11px] uppercase tracking-wider text-dx0-orange font-bold flex items-center gap-1.5">
             <FiUsers /> Collaboration
           </div>
-          <div className="text-xs text-white font-medium">Firebase Chat & Task Sync</div>
+          <div className="text-xs text-white font-medium">
+            Firebase Chat & Task Sync
+          </div>
         </div>
       </div>
 

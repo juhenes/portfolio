@@ -17,10 +17,12 @@ function CertificationsSection() {
     >
       <div className="border-b border-neutral-800 pb-3">
         <h2 className="text-xs font-bold uppercase tracking-wider text-dx0-orange flex items-center gap-2">
-          <FiAward className="text-dx0-orange" /> Licenses & Official Certifications
+          <FiAward className="text-dx0-orange" /> Licenses & Official
+          Certifications
         </h2>
         <p className="text-xs text-neutral-400 mt-0.5">
-          Government eligibility credentials, SAP ASEAN Data Science training, and Cisco Networking Academy certifications
+          Government eligibility credentials, SAP ASEAN Data Science training,
+          and Cisco Networking Academy certifications
         </p>
       </div>
 
@@ -35,9 +37,7 @@ function CertificationsSection() {
                 <h3 className="text-sm font-bold text-white uppercase tracking-wider">
                   {cscCert.name}
                 </h3>
-                <p className="text-xs text-neutral-400">
-                  {cscCert.issuer}
-                </p>
+                <p className="text-xs text-neutral-400">{cscCert.issuer}</p>
               </div>
             </div>
 
@@ -48,15 +48,16 @@ function CertificationsSection() {
             )}
           </div>
           <p className="text-xs text-neutral-300 pt-2 border-t border-neutral-900">
-            First-level and second-level government eligibility for technical and
-            professional positions.
+            First-level and second-level government eligibility for technical
+            and professional positions.
           </p>
         </div>
       )}
 
       <div>
         <h3 className="text-xs font-bold uppercase tracking-wider text-neutral-400 mb-2 flex items-center gap-2">
-          <FiShield className="text-dx0-orange" /> Professional & Technical Certifications
+          <FiShield className="text-dx0-orange" /> Professional & Technical
+          Certifications
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">

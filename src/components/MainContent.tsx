@@ -82,7 +82,7 @@ export default function MainContent({ onSectionVisible }: MainContentProps) {
       ref={containerRef}
       className="flex flex-col h-full overflow-y-auto text-neutral-200 font-mono space-y-8 p-4 scroll-smooth [scrollbar-gutter:stable] pr-2"
     >
-      <ProfileSection copiedField={copiedField} onCopy={handleCopy} />
+      <ProfileSection />
       <ExperienceSection />
       <LeadershipSection />
       <ProjectsSection />

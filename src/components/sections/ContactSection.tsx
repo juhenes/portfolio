@@ -44,14 +44,18 @@ function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
         body: JSON.stringify(formData),
       });
 
-      const data = (await response.json()) as { success?: boolean; error?: string };
+      const data = (await response.json()) as {
+        success?: boolean;
+        error?: string;
+      };
 
       if (response.ok && data.success) {
         setSentStatus(true);
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
         setErrorMessage(
-          data.error || 'Failed to transmit message. Please try again or use direct email.'
+          data.error ||
+            'Failed to transmit message. Please try again or use direct email.'
         );
       }
     } catch {
@@ -316,7 +320,8 @@ function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
                 >
                   {isSubmitting ? (
                     <>
-                      <FiLoader className="animate-spin text-black" /> Transmitting...
+                      <FiLoader className="animate-spin text-black" />{' '}
+                      Transmitting...
                     </>
                   ) : (
                     <>

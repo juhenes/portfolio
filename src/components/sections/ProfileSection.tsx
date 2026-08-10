@@ -10,12 +10,7 @@ import {
 } from 'react-icons/fi';
 import { PiSparkle } from 'react-icons/pi';
 
-interface ProfileSectionProps {
-  copiedField?: string | null;
-  onCopy?: (text: string, label: string) => void;
-}
-
-function ProfileSection({}: ProfileSectionProps) {
+function ProfileSection() {
   return (
     <div
       id="profile"
@@ -51,13 +46,16 @@ function ProfileSection({}: ProfileSectionProps) {
               BatStateU BS Computer Science
             </span>
             <span className="flex items-center gap-1.5">
-              <FiStar className="text-dx0-orange text-xs" /> Cum Laude (GWA: {PERSONAL_INFO.gwa})
+              <FiStar className="text-dx0-orange text-xs" /> Cum Laude (GWA:{' '}
+              {PERSONAL_INFO.gwa})
             </span>
             <span className="flex items-center gap-1.5">
-              <FiShield className="text-dx0-orange text-xs" /> CSE Professional ({PERSONAL_INFO.cseRating})
+              <FiShield className="text-dx0-orange text-xs" /> CSE Professional
+              ({PERSONAL_INFO.cseRating})
             </span>
             <span className="flex items-center gap-1.5">
-              <PiSparkle className="text-dx0-orange text-xs" /> DOST JLSS Scholar
+              <PiSparkle className="text-dx0-orange text-xs" /> DOST JLSS
+              Scholar
             </span>
           </div>
 
@@ -68,7 +66,6 @@ function ProfileSection({}: ProfileSectionProps) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-200 hover:text-white transition-colors border border-neutral-700 hover:border-dx0-orange/60 group font-semibold cursor-pointer shadow-sm"
             >
-              
               <span>Resume / Curriculum Vitae</span>
               <FiExternalLink className="text-[10px] text-dx0-orange ml-0.5" />
             </a>
@@ -81,7 +78,8 @@ function ProfileSection({}: ProfileSectionProps) {
         id="education"
       >
         <h2 className="text-xs font-bold uppercase tracking-wider text-dx0-orange flex items-center gap-2">
-          <FiAward className="text-dx0-orange" /> Education & Academic Distinction
+          <FiAward className="text-dx0-orange" /> Education & Academic
+          Distinction
         </h2>
         {EDUCATION_DATA.map((edu) => (
           <div
@@ -107,8 +105,8 @@ function ProfileSection({}: ProfileSectionProps) {
                 const IconComponent = honor.includes('Cum Laude')
                   ? FiStar
                   : honor.includes('DOST')
-                  ? PiSparkle
-                  : FiAward;
+                    ? PiSparkle
+                    : FiAward;
                 return (
                   <span
                     key={i}
@@ -136,7 +134,8 @@ function ProfileSection({}: ProfileSectionProps) {
         id="biography"
       >
         <h2 className="text-xs font-bold uppercase tracking-wider text-dx0-orange flex items-center gap-2">
-          <FiTerminal className="text-xs text-dx0-orange" /> Biography & Profile Summary
+          <FiTerminal className="text-xs text-dx0-orange" /> Biography & Profile
+          Summary
         </h2>
         <p className="text-xs leading-relaxed text-neutral-300">
           {PERSONAL_INFO.summary}

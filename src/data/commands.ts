@@ -109,7 +109,8 @@ export const COMMANDS: CommandDef[] = [
   {
     id: 'alias',
     cmd: 'alias [name=command]',
-    description: 'Set or list custom command aliases (persisted to localStorage)',
+    description:
+      'Set or list custom command aliases (persisted to localStorage)',
     category: 'utility',
   },
   {

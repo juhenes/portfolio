@@ -1,6 +1,12 @@
 import React from 'react';
 import type { ProjectItem } from '../../../data/projectsData';
-import { FiExternalLink, FiGithub, FiCpu, FiLayers, FiCheckCircle } from 'react-icons/fi';
+import {
+  FiExternalLink,
+  FiGithub,
+  FiCpu,
+  FiLayers,
+  FiCheckCircle,
+} from 'react-icons/fi';
 import { SiGooglecolab, SiPytorch } from 'react-icons/si';
 import ProjectMedia from '../ProjectMedia';
 
@@ -25,13 +31,19 @@ export const NGIMLPreview: React.FC<NGIMLPreviewProps> = ({ project }) => {
 
       <div className="flex flex-wrap gap-3 items-center justify-between p-3.5 rounded-lg bg-neutral-900/90 border border-neutral-800">
         <div className="space-y-0.5">
-          <div className="text-xs font-semibold text-neutral-400">Interactive Inference</div>
+          <div className="text-xs font-semibold text-neutral-400">
+            Interactive Inference
+          </div>
           <div className="text-sm font-bold text-white flex items-center gap-2">
-            <SiGooglecolab className="text-amber-500 text-base" /> Google Colab Notebook
+            <SiGooglecolab className="text-amber-500 text-base" /> Google Colab
+            Notebook
           </div>
         </div>
         <a
-          href={project.tryUrl || 'https://colab.research.google.com/github/juhenes/ngiml-infer/blob/main/infer.ipynb'}
+          href={
+            project.tryUrl ||
+            'https://colab.research.google.com/github/juhenes/ngiml-infer/blob/main/infer.ipynb'
+          }
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 px-4 py-2 rounded bg-amber-500 hover:bg-amber-400 text-black font-bold text-xs transition-colors shadow-lg shadow-amber-500/20"
@@ -47,13 +59,17 @@ export const NGIMLPreview: React.FC<NGIMLPreviewProps> = ({ project }) => {
           <div className="text-[11px] uppercase tracking-wider text-dx0-orange font-bold flex items-center gap-1.5">
             <FiCpu /> Backbone
           </div>
-          <div className="text-xs text-white font-medium">EfficientNet-B0 + Swin</div>
+          <div className="text-xs text-white font-medium">
+            EfficientNet-B0 + Swin
+          </div>
         </div>
         <div className="p-3 rounded bg-neutral-900 border border-neutral-800 space-y-1">
           <div className="text-[11px] uppercase tracking-wider text-dx0-orange font-bold flex items-center gap-1.5">
             <FiLayers /> Noise Filtering
           </div>
-          <div className="text-xs text-white font-medium">Steganalysis Rich Model (SRM)</div>
+          <div className="text-xs text-white font-medium">
+            Steganalysis Rich Model (SRM)
+          </div>
         </div>
         <div className="p-3 rounded bg-neutral-900 border border-neutral-800 space-y-1">
           <div className="text-[11px] uppercase tracking-wider text-dx0-orange font-bold flex items-center gap-1.5">

@@ -8,14 +8,14 @@ import {
   FiExternalLink,
   FiCode,
   FiSearch,
-  FiEye,
 } from 'react-icons/fi';
 import ProjectModal from '../ProjectModal';
 
 function ProjectsSection() {
   const [selectedTech, setSelectedTech] = useState<string>('All');
   const [projectSearchQuery, setProjectSearchQuery] = useState<string>('');
-  const [activeModalProject, setActiveModalProject] = useState<ProjectItem | null>(null);
+  const [activeModalProject, setActiveModalProject] =
+    useState<ProjectItem | null>(null);
 
   const previewableProjectIds = useMemo(
     () => new Set(['proj-the-avenue', 'proj-ngiml', 'proj-sangawa']),
@@ -57,7 +57,8 @@ function ProjectsSection() {
             <FiFolder className="text-dx0-orange" /> Key Development Projects
           </h2>
           <p className="text-xs text-neutral-400 mt-0.5">
-            Hybrid AI models, real-time web applications, cross-platform mobile apps, and interactive games
+            Hybrid AI models, real-time web applications, cross-platform mobile
+            apps, and interactive games
           </p>
         </div>
 

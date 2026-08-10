@@ -10,7 +10,8 @@ function LeadershipSection() {
     >
       <div className="border-b border-neutral-800 pb-3">
         <h2 className="text-xs font-bold uppercase tracking-wider text-dx0-orange flex items-center gap-2">
-          <FiUserCheck className="text-dx0-orange" /> Leadership & Community Experience
+          <FiUserCheck className="text-dx0-orange" /> Leadership & Community
+          Experience
         </h2>
         <p className="text-xs text-neutral-400 mt-0.5">
           CTF Competition Orchestration, Cyber Security Mentorship & Technical
