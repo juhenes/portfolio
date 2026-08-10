@@ -1,5 +1,6 @@
 import { useState, useMemo, memo } from 'react';
 import { PROJECTS_DATA } from '../../data/projectsData';
+import type { ProjectItem } from '../../data/projectsData';
 import { CONTACT_DATA } from '../../data/contactData';
 import {
   FiFolder,
@@ -7,11 +8,19 @@ import {
   FiExternalLink,
   FiCode,
   FiSearch,
+  FiEye,
 } from 'react-icons/fi';
+import ProjectModal from '../ProjectModal';
 
 function ProjectsSection() {
   const [selectedTech, setSelectedTech] = useState<string>('All');
   const [projectSearchQuery, setProjectSearchQuery] = useState<string>('');
+  const [activeModalProject, setActiveModalProject] = useState<ProjectItem | null>(null);
+
+  const previewableProjectIds = useMemo(
+    () => new Set(['proj-the-avenue', 'proj-ngiml', 'proj-sangawa']),
+    []
+  );
 
   const allTechnologies = useMemo(() => {
     const set = new Set<string>();
@@ -132,35 +141,47 @@ function ProjectsSection() {
               )}
             </div>
 
-            <div className="space-y-2.5 pt-2 border-t border-neutral-900">
-              <div className="flex flex-wrap gap-1">
+            <div className="pt-2.5 border-t border-neutral-900 flex flex-wrap items-center justify-between gap-2">
+              <div className="flex flex-wrap gap-1 flex-1 min-w-0">
                 {p.technologies.map((tech, i) => (
                   <span
                     key={i}
-                    className="text-[10px] px-2 py-0.5 rounded bg-neutral-900 text-neutral-300 border border-neutral-800"
+                    className="text-[10px] px-2 py-0.5 rounded bg-neutral-900 text-neutral-300 border border-neutral-800 whitespace-nowrap"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
 
-              {p.githubUrl && (
-                <div className="flex justify-end">
+              <div className="flex items-center gap-2 shrink-0 ml-auto">
+                {previewableProjectIds.has(p.id) ? (
+                  <button
+                    onClick={() => setActiveModalProject(p)}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded border border-dx0-orange text-dx0-orange hover:bg-dx0-orange hover:text-black font-bold text-xs transition-colors cursor-pointer"
+                  >
+                    More
+                  </button>
+                ) : p.githubUrl ? (
                   <a
                     href={p.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-xs text-dx0-orange hover:underline font-semibold"
+                    className="flex items-center gap-1.5 text-xs text-neutral-400 hover:text-dx0-orange transition-colors font-semibold"
                   >
-                    <FiGithub className="text-dx0-orange" /> View Source Code{' '}
-                    <FiExternalLink className="text-[10px] text-dx0-orange" />
+                    <FiGithub /> Source Code{' '}
+                    <FiExternalLink className="text-[10px]" />
                   </a>
-                </div>
-              )}
+                ) : null}
+              </div>
             </div>
           </div>
         ))}
       </div>
+
+      <ProjectModal
+        project={activeModalProject}
+        onClose={() => setActiveModalProject(null)}
+      />
     </div>
   );
 }

@@ -7,6 +7,8 @@ export interface ProjectItem {
   details: string[];
   date: string;
   githubUrl?: string;
+  tryUrl?: string;
+  mediaUrl?: string;
   featured?: boolean;
 }
 
@@ -49,6 +51,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
       'Evaluated model performance using PyTorch and timm frameworks across standard image forensics benchmark datasets.',
     ],
     githubUrl: 'https://github.com/juhenes/ngiml',
+    tryUrl:
+      'https://colab.research.google.com/github/juhenes/ngiml-infer/blob/main/infer.ipynb',
     featured: true,
   },
   {
@@ -105,6 +109,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
       'Implemented collaborative task list sharing, user authentication, and real-time chat messaging.',
     ],
     githubUrl: 'https://github.com/juhenes/SanGawa',
+    mediaUrl: '/videos/san_gawa.mp4',
     featured: true,
   },
   {
