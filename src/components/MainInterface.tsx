@@ -736,11 +736,11 @@ export default function MainInterface() {
           id="main-content"
           tabIndex={-1}
           className={`flex-1 flex flex-col min-h-0 overflow-hidden relative ${
-            isNoUi ? 'p-0' : 'p-3 md:p-5'
+            isNoUi ? 'p-0' : 'p-2 sm:p-4 md:p-5'
           }`}
         >
           {!isNoUi && (
-            <nav className="w-full flex items-center justify-between pb-2 mb-2 flex-shrink-0 text-xs select-none font-mono">
+            <nav className="w-full flex items-center justify-between pb-2 mb-1.5 flex-shrink-0 text-xs select-none font-mono overflow-x-auto scrollbar-none gap-1">
               {SHORTCUTS.map((s) => {
                 const isActive = activeSection === s.label;
                 return (
@@ -749,7 +749,7 @@ export default function MainInterface() {
                     onClick={() => executeCommand(s.cmd)}
                     title={s.label}
                     aria-label={s.label}
-                    className={`flex-1 flex items-center justify-center py-1.5 transition-all text-xs cursor-pointer border-b-2 ${
+                    className={`flex-1 min-w-[36px] sm:min-w-0 flex items-center justify-center py-1.5 px-1 transition-all text-xs cursor-pointer border-b-2 ${
                       isActive
                         ? 'text-dx0-orange font-bold border-dx0-orange'
                         : 'text-neutral-400 hover:text-neutral-200 border-transparent'

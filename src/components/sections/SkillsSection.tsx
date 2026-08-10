@@ -20,7 +20,7 @@ function SkillsSection() {
   return (
     <div
       id="skills"
-      className="p-5 rounded-lg bg-neutral-900/80 border border-neutral-800 space-y-3"
+      className="p-3.5 sm:p-5 rounded-lg bg-neutral-900/80 border border-neutral-800 space-y-3"
     >
       <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-2 border-b border-neutral-800 pb-3">
         <h2 className="text-xs font-bold uppercase tracking-wider text-dx0-orange flex items-center gap-2">

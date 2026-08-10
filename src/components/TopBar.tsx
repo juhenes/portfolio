@@ -160,13 +160,13 @@ export default function TopBar({
           <FiMenu className="text-base text-dx0-orange" />
         </button>
 
-        <div className="flex items-center gap-1.5 text-neutral-200">
-          <FiTerminal className="text-dx0-orange text-xs" />
-          <span className="text-dx0-orange font-bold tracking-tight font-mono">
+        <div className="flex items-center gap-1.5 text-neutral-200 min-w-0">
+          <FiTerminal className="text-dx0-orange text-xs shrink-0" />
+          <span className="text-dx0-orange font-bold tracking-tight font-mono shrink-0">
             ~/dxo
           </span>
-          <span className="text-neutral-600 font-semibold">/</span>
-          <span className="text-neutral-100 font-medium tracking-wide">
+          <span className="text-neutral-600 font-semibold shrink-0">/</span>
+          <span className="text-neutral-100 font-medium tracking-wide truncate max-w-[110px] xs:max-w-[180px] sm:max-w-none">
             {currentModule}
           </span>
         </div>
@@ -248,7 +248,7 @@ export default function TopBar({
         </button>
 
         {calendarOpen && grid && (
-          <div className="absolute right-3 sm:right-12 top-12 z-50 w-64 bg-neutral-900/90 backdrop-blur-md border border-neutral-600/50 rounded-lg shadow-[0_12px_40px_rgba(0,0,0,0.85)] p-3 text-neutral-200 select-none animate-in fade-in zoom-in-95 duration-150">
+          <div className="absolute right-2 sm:right-12 top-12 z-50 w-64 max-w-[calc(100vw-24px)] bg-neutral-900/90 backdrop-blur-md border border-neutral-600/50 rounded-lg shadow-[0_12px_40px_rgba(0,0,0,0.85)] p-3 text-neutral-200 select-none animate-in fade-in zoom-in-95 duration-150">
             <div className="flex items-center justify-between border-b border-neutral-800/80 pb-2 mb-2">
               <button
                 onClick={handlePrevMonth}

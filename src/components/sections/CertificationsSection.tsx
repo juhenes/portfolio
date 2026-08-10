@@ -3,7 +3,6 @@ import { CERTIFICATIONS_DATA } from '../../data/certificationsData';
 import {
   FiAward,
   FiShield,
-  FiCheckCircle,
   FiExternalLink,
 } from 'react-icons/fi';
 
@@ -13,7 +12,7 @@ function CertificationsSection() {
   return (
     <div
       id="certifications"
-      className="p-5 rounded-lg bg-neutral-900/80 border border-neutral-800 space-y-4"
+      className="p-3.5 sm:p-5 rounded-lg bg-neutral-900/80 border border-neutral-800 space-y-4"
     >
       <div className="border-b border-neutral-800 pb-3">
         <h2 className="text-xs font-bold uppercase tracking-wider text-dx0-orange flex items-center gap-2">
@@ -30,7 +29,7 @@ function CertificationsSection() {
         <div className="p-4 rounded-lg bg-neutral-950 border-2 border-dx0-orange/50 shadow-[0_0_15px_rgba(244,117,34,0.15)] space-y-2">
           <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
             <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded bg-dx0-orange/10 text-dx0-orange border border-dx0-orange/30">
+              <div className="p-2.5 rounded bg-dx0-orange/10 text-dx0-orange border border-dx0-orange/30 shrink-0">
                 <FiAward className="w-6 h-6 text-dx0-orange" />
               </div>
               <div>
@@ -42,7 +41,7 @@ function CertificationsSection() {
             </div>
 
             {cscCert.rating && (
-              <span className="text-xs px-3 py-1.5 rounded bg-dx0-orange/10 text-dx0-orange border border-dx0-orange/30 font-bold text-sm">
+              <span className="text-xs px-3 py-1.5 rounded bg-dx0-orange/10 text-dx0-orange border border-dx0-orange/30 font-bold text-sm w-fit">
                 {cscCert.rating}
               </span>
             )}
@@ -67,19 +66,16 @@ function CertificationsSection() {
                 key={cert.id}
                 className="p-3 rounded bg-neutral-950 border border-neutral-800 space-y-1 hover:border-dx0-orange/30 transition-colors flex flex-col justify-between"
               >
-                <div className="flex justify-between items-start gap-2">
-                  <div className="flex items-start gap-1.5 min-w-0">
-                    <FiCheckCircle className="text-dx0-orange text-xs flex-shrink-0 mt-0.5" />
-                    <h4 className="text-xs font-bold text-white leading-snug">
-                      {cert.name}
-                    </h4>
-                  </div>
-                  <span className="text-[10px] px-2 py-0.5 rounded bg-neutral-900 text-dx0-orange font-semibold border border-neutral-800 whitespace-nowrap shrink-0">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+                  <h4 className="text-xs font-bold text-white leading-snug min-w-0">
+                    {cert.name}
+                  </h4>
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-neutral-900 text-dx0-orange font-semibold border border-neutral-800 whitespace-nowrap w-fit">
                     {cert.date}
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between gap-2 pl-5 text-[11px] text-neutral-400 pt-0.5">
+                <div className="flex items-center justify-between gap-2 text-[11px] text-neutral-400 pt-0.5">
                   <span className="truncate">{cert.issuer}</span>
                   {cert.credlyUrl && (
                     <a

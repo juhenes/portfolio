@@ -80,7 +80,7 @@ export default function MainContent({ onSectionVisible }: MainContentProps) {
   return (
     <div
       ref={containerRef}
-      className="flex flex-col h-full overflow-y-auto text-neutral-200 font-mono space-y-8 p-4 scroll-smooth [scrollbar-gutter:stable] pr-2"
+      className="flex flex-col h-full overflow-y-auto text-neutral-200 font-mono space-y-6 sm:space-y-8 p-2.5 sm:p-4 scroll-smooth [scrollbar-gutter:stable] pr-1.5 sm:pr-2"
     >
       <ProfileSection />
       <ExperienceSection />

@@ -70,7 +70,7 @@ function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
   return (
     <div
       id="contact"
-      className="p-5 rounded-lg bg-neutral-900/80 border border-neutral-800 space-y-4"
+      className="p-3.5 sm:p-5 rounded-lg bg-neutral-900/80 border border-neutral-800 space-y-4"
     >
       <div className="border-b border-neutral-800 pb-3">
         <h2 className="text-xs font-bold uppercase tracking-wider text-dx0-orange flex items-center gap-2">
@@ -91,20 +91,20 @@ function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
 
             <div className="space-y-2.5">
               <div className="flex items-center justify-between p-2.5 rounded bg-neutral-900 border border-neutral-800">
-                <div className="flex items-center gap-2.5">
-                  <FiMail className="text-dx0-orange text-sm" />
-                  <div>
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <FiMail className="text-dx0-orange text-sm shrink-0" />
+                  <div className="min-w-0">
                     <p className="text-[10px] text-neutral-500 uppercase font-bold">
                       Email
                     </p>
-                    <p className="text-xs text-white font-medium">
+                    <p className="text-xs text-white font-medium truncate">
                       {CONTACT_DATA.email}
                     </p>
                   </div>
                 </div>
                 <button
                   onClick={() => onCopy(CONTACT_DATA.email, 'email-contact')}
-                  className="p-1.5 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-300 text-xs cursor-pointer"
+                  className="p-1.5 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-300 text-xs cursor-pointer shrink-0 ml-2"
                   title="Copy email"
                 >
                   {copiedField === 'email-contact' ? (
@@ -116,20 +116,20 @@ function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
               </div>
 
               <div className="flex items-center justify-between p-2.5 rounded bg-neutral-900 border border-neutral-800">
-                <div className="flex items-center gap-2.5">
-                  <FiPhone className="text-dx0-orange text-sm" />
-                  <div>
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <FiPhone className="text-dx0-orange text-sm shrink-0" />
+                  <div className="min-w-0">
                     <p className="text-[10px] text-neutral-500 uppercase font-bold">
                       Phone
                     </p>
-                    <p className="text-xs text-white font-medium">
+                    <p className="text-xs text-white font-medium truncate">
                       {CONTACT_DATA.phone}
                     </p>
                   </div>
                 </div>
                 <button
                   onClick={() => onCopy(CONTACT_DATA.phone, 'phone-contact')}
-                  className="p-1.5 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-300 text-xs cursor-pointer"
+                  className="p-1.5 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-300 text-xs cursor-pointer shrink-0 ml-2"
                   title="Copy phone number"
                 >
                   {copiedField === 'phone-contact' ? (
@@ -141,12 +141,12 @@ function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
               </div>
 
               <div className="flex items-center gap-2.5 p-2.5 rounded bg-neutral-900 border border-neutral-800">
-                <FiMapPin className="text-dx0-orange text-sm" />
-                <div>
+                <FiMapPin className="text-dx0-orange text-sm shrink-0" />
+                <div className="min-w-0">
                   <p className="text-[10px] text-neutral-500 uppercase font-bold">
                     Location
                   </p>
-                  <p className="text-xs text-white font-medium">
+                  <p className="text-xs text-white font-medium truncate">
                     {CONTACT_DATA.location}
                   </p>
                 </div>
@@ -159,7 +159,7 @@ function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
               Online Networks & Profiles
             </h3>
 
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <a
                 href={`https://${CONTACT_DATA.github}`}
                 target="_blank"
@@ -259,7 +259,7 @@ function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
                       setFormData({ ...formData, name: e.target.value })
                     }
                     placeholder="Enter your name..."
-                    className="w-full px-3 py-1.5 rounded bg-neutral-900 border border-neutral-700 text-xs text-white placeholder-neutral-600 focus:outline-none focus:border-dx0-orange disabled:opacity-50"
+                    className="w-full px-3 py-2 rounded bg-neutral-900 border border-neutral-700 text-sm sm:text-xs text-white placeholder-neutral-600 focus:outline-none focus:border-dx0-orange disabled:opacity-50"
                   />
                 </div>
 
@@ -276,7 +276,7 @@ function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
                       setFormData({ ...formData, email: e.target.value })
                     }
                     placeholder="your.email@example.com"
-                    className="w-full px-3 py-1.5 rounded bg-neutral-900 border border-neutral-700 text-xs text-white placeholder-neutral-600 focus:outline-none focus:border-dx0-orange disabled:opacity-50"
+                    className="w-full px-3 py-2 rounded bg-neutral-900 border border-neutral-700 text-sm sm:text-xs text-white placeholder-neutral-600 focus:outline-none focus:border-dx0-orange disabled:opacity-50"
                   />
                 </div>
 
@@ -292,7 +292,7 @@ function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
                       setFormData({ ...formData, subject: e.target.value })
                     }
                     placeholder="Inquiry / Job Opportunity / Project"
-                    className="w-full px-3 py-1.5 rounded bg-neutral-900 border border-neutral-700 text-xs text-white placeholder-neutral-600 focus:outline-none focus:border-dx0-orange disabled:opacity-50"
+                    className="w-full px-3 py-2 rounded bg-neutral-900 border border-neutral-700 text-sm sm:text-xs text-white placeholder-neutral-600 focus:outline-none focus:border-dx0-orange disabled:opacity-50"
                   />
                 </div>
 
@@ -309,7 +309,7 @@ function ContactSection({ copiedField, onCopy }: ContactSectionProps) {
                       setFormData({ ...formData, message: e.target.value })
                     }
                     placeholder="Type your message here..."
-                    className="w-full px-3 py-1.5 rounded bg-neutral-900 border border-neutral-700 text-xs text-white placeholder-neutral-600 focus:outline-none focus:border-dx0-orange disabled:opacity-50"
+                    className="w-full px-3 py-2 rounded bg-neutral-900 border border-neutral-700 text-sm sm:text-xs text-white placeholder-neutral-600 focus:outline-none focus:border-dx0-orange disabled:opacity-50"
                   />
                 </div>
 

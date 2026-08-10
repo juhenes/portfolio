@@ -28,7 +28,7 @@ export const SanGawaPreview: React.FC<SanGawaPreviewProps> = ({ project }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
         <div className="p-3 rounded bg-neutral-900 border border-neutral-800 space-y-1">
           <div className="text-[11px] uppercase tracking-wider text-dx0-orange font-bold flex items-center gap-1.5">
             <SiAndroid /> Platform

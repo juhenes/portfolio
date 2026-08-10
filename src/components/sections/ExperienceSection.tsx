@@ -6,7 +6,7 @@ function ExperienceSection() {
   return (
     <div
       id="experience"
-      className="p-5 rounded-lg bg-neutral-900/80 border border-neutral-800 space-y-4"
+      className="p-3.5 sm:p-5 rounded-lg bg-neutral-900/80 border border-neutral-800 space-y-4"
     >
       <div className="border-b border-neutral-800 pb-3">
         <h2 className="text-xs font-bold uppercase tracking-wider text-dx0-orange flex items-center gap-2">
@@ -18,15 +18,15 @@ function ExperienceSection() {
         </p>
       </div>
 
-      <div className="relative border-l-2 border-dx0-orange/40 ml-3 md:ml-4 pl-6 md:pl-8 space-y-6">
+      <div className="relative border-l-2 border-dx0-orange/40 ml-2.5 sm:ml-4 pl-4 sm:pl-8 space-y-5 sm:space-y-6">
         {EXPERIENCE_DATA.map((exp) => (
           <div key={exp.id} className="relative group">
-            <div className="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-neutral-950 border-2 border-dx0-orange group-hover:bg-dx0-orange transition-colors" />
+            <div className="absolute -left-[25px] sm:-left-[41px] top-1.5 w-4 h-4 rounded-full bg-neutral-950 border-2 border-dx0-orange group-hover:bg-dx0-orange transition-colors" />
 
-            <div className="p-4 rounded-lg bg-neutral-950 border border-neutral-800 hover:border-dx0-orange/40 transition-colors space-y-3">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-neutral-900 pb-2.5">
+            <div className="p-3.5 sm:p-4 rounded-lg bg-neutral-950 border border-neutral-800 hover:border-dx0-orange/40 transition-colors space-y-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-neutral-900 pb-2.5">
                 <div>
-                  <h3 className="text-sm font-bold text-white flex items-center gap-2">
+                  <h3 className="text-sm font-bold text-white flex flex-wrap items-center gap-2">
                     {exp.role}
                     <span className="text-[10px] px-2 py-0.5 rounded bg-dx0-orange/10 text-dx0-orange font-semibold border border-dx0-orange/30">
                       {exp.type}

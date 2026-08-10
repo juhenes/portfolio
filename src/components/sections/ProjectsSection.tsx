@@ -6,13 +6,11 @@ import {
   FiFolder,
   FiGithub,
   FiExternalLink,
-  FiCode,
   FiSearch,
 } from 'react-icons/fi';
 import ProjectModal from '../ProjectModal';
 
 function ProjectsSection() {
-  const [selectedTech, setSelectedTech] = useState<string>('All');
   const [projectSearchQuery, setProjectSearchQuery] = useState<string>('');
   const [activeModalProject, setActiveModalProject] =
     useState<ProjectItem | null>(null);
@@ -22,17 +20,8 @@ function ProjectsSection() {
     []
   );
 
-  const allTechnologies = useMemo(() => {
-    const set = new Set<string>();
-    PROJECTS_DATA.forEach((p) => p.technologies.forEach((t) => set.add(t)));
-    return ['All', ...Array.from(set)];
-  }, []);
-
   const filteredProjects = useMemo(() => {
     let result = PROJECTS_DATA;
-    if (selectedTech !== 'All') {
-      result = result.filter((p) => p.technologies.includes(selectedTech));
-    }
     if (projectSearchQuery.trim()) {
       const q = projectSearchQuery.toLowerCase();
       result = result.filter(
@@ -44,12 +33,12 @@ function ProjectsSection() {
       );
     }
     return result;
-  }, [selectedTech, projectSearchQuery]);
+  }, [projectSearchQuery]);
 
   return (
     <div
       id="projects"
-      className="p-5 rounded-lg bg-neutral-900/80 border border-neutral-800 space-y-4"
+      className="p-3.5 sm:p-5 rounded-lg bg-neutral-900/80 border border-neutral-800 space-y-4"
     >
       <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-3 border-b border-neutral-800 pb-3">
         <div>
@@ -74,50 +63,29 @@ function ProjectsSection() {
         </a>
       </div>
 
-      <div className="flex flex-col sm:flex-row justify-between items-center gap-3 bg-neutral-950 p-3 rounded-lg border border-neutral-800">
-        <div className="flex flex-wrap gap-1.5 w-full sm:w-auto">
-          <span className="text-xs text-neutral-400 flex items-center gap-1 mr-1">
-            <FiCode className="text-dx0-orange text-xs" /> Filter Tech:
-          </span>
-          {allTechnologies.slice(0, 7).map((tech) => (
-            <button
-              key={tech}
-              onClick={() => setSelectedTech(tech)}
-              className={`text-xs px-2.5 py-1 rounded transition-colors cursor-pointer ${
-                selectedTech === tech
-                  ? 'bg-dx0-orange text-black font-bold'
-                  : 'bg-neutral-900 text-neutral-300 hover:bg-neutral-800'
-              }`}
-            >
-              {tech}
-            </button>
-          ))}
-        </div>
-
-        <div className="relative w-full sm:w-56">
-          <FiSearch className="absolute left-3 top-2.5 text-dx0-orange text-xs" />
-          <input
-            type="text"
-            value={projectSearchQuery}
-            onChange={(e) => setProjectSearchQuery(e.target.value)}
-            placeholder="Search projects..."
-            className="w-full pl-8 pr-3 py-1.5 rounded bg-neutral-900 border border-neutral-700 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-dx0-orange"
-          />
-        </div>
+      <div className="relative w-full">
+        <FiSearch className="absolute left-3 top-2.5 text-dx0-orange text-xs" />
+        <input
+          type="text"
+          value={projectSearchQuery}
+          onChange={(e) => setProjectSearchQuery(e.target.value)}
+          placeholder="Search projects by title, technology, role..."
+          className="w-full pl-8 pr-3 py-1.5 rounded bg-neutral-950 border border-neutral-800 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-dx0-orange"
+        />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {filteredProjects.map((p) => (
           <div
             key={p.id}
-            className="p-4 rounded-lg bg-neutral-950 border border-neutral-800 hover:border-dx0-orange/40 transition-colors space-y-3 flex flex-col justify-between"
+            className="p-3.5 sm:p-4 rounded-lg bg-neutral-950 border border-neutral-800 hover:border-dx0-orange/40 transition-colors space-y-3 flex flex-col justify-between"
           >
             <div className="space-y-2">
-              <div className="flex justify-between items-start gap-2">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-neutral-900 pb-2">
                 <h3 className="text-xs font-bold text-white flex items-center gap-2">
                   {p.title}
                 </h3>
-                <div className="flex items-center gap-1.5 shrink-0">
+                <div className="flex flex-wrap items-center gap-1.5 shrink-0">
                   {p.date && (
                     <span className="text-[10px] px-2 py-0.5 rounded bg-neutral-900 text-neutral-400 border border-neutral-800 font-mono">
                       {p.date}
@@ -142,7 +110,7 @@ function ProjectsSection() {
               )}
             </div>
 
-            <div className="pt-2.5 border-t border-neutral-900 flex flex-wrap items-center justify-between gap-2">
+            <div className="pt-2.5 border-t border-neutral-900 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
               <div className="flex flex-wrap gap-1 flex-1 min-w-0">
                 {p.technologies.map((tech, i) => (
                   <span
@@ -154,7 +122,7 @@ function ProjectsSection() {
                 ))}
               </div>
 
-              <div className="flex items-center gap-2 shrink-0 ml-auto">
+              <div className="flex items-center gap-2 shrink-0 self-end sm:self-auto">
                 {previewableProjectIds.has(p.id) ? (
                   <button
                     onClick={() => setActiveModalProject(p)}

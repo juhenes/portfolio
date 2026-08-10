@@ -14,9 +14,9 @@ function ProfileSection() {
   return (
     <div
       id="profile"
-      className="relative rounded-lg border border-dx0-orange/30 bg-neutral-900/90 p-5 md:p-6 shadow-lg backdrop-blur-sm space-y-6"
+      className="relative rounded-lg border border-dx0-orange/30 bg-neutral-900/90 p-4 sm:p-5 md:p-6 shadow-lg backdrop-blur-sm space-y-5 sm:space-y-6"
     >
-      <div className="flex flex-col md:flex-row gap-6 items-start md:items-center">
+      <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start sm:items-center">
         <div className="relative flex-shrink-0">
           <div className="w-20 h-20 md:w-24 md:h-24 rounded-lg bg-neutral-950 border-2 border-dx0-orange flex items-center justify-center text-dx0-orange shadow-[0_0_15px_rgba(244,117,34,0.3)]">
             <FiTerminal className="w-10 h-10 md:w-12 md:h-12 text-dx0-orange" />
@@ -26,7 +26,7 @@ function ProfileSection() {
           </div>
         </div>
 
-        <div className="flex-1 space-y-2">
+        <div className="flex-1 space-y-2 w-full">
           <div>
             <h1 className="text-xl md:text-2xl font-bold text-white tracking-wide">
               {PERSONAL_INFO.name}
@@ -36,25 +36,25 @@ function ProfileSection() {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-y-1.5 gap-x-4 text-xs text-neutral-400">
+          <div className="flex flex-wrap gap-y-1.5 gap-x-3 sm:gap-x-4 text-xs text-neutral-400">
             <span className="flex items-center gap-1.5">
-              <FiMapPin className="text-dx0-orange" />
+              <FiMapPin className="text-dx0-orange shrink-0" />
               {PERSONAL_INFO.location}
             </span>
             <span className="flex items-center gap-1.5">
-              <FiAward className="text-dx0-orange" />
+              <FiAward className="text-dx0-orange shrink-0" />
               BatStateU BS Computer Science
             </span>
             <span className="flex items-center gap-1.5">
-              <FiStar className="text-dx0-orange text-xs" /> Cum Laude (GWA:{' '}
+              <FiStar className="text-dx0-orange text-xs shrink-0" /> Cum Laude (GWA:{' '}
               {PERSONAL_INFO.gwa})
             </span>
             <span className="flex items-center gap-1.5">
-              <FiShield className="text-dx0-orange text-xs" /> CSE Professional
+              <FiShield className="text-dx0-orange text-xs shrink-0" /> CSE Professional
               ({PERSONAL_INFO.cseRating})
             </span>
             <span className="flex items-center gap-1.5">
-              <PiSparkle className="text-dx0-orange text-xs" /> DOST JLSS
+              <PiSparkle className="text-dx0-orange text-xs shrink-0" /> DOST JLSS
               Scholar
             </span>
           </div>
@@ -64,7 +64,7 @@ function ProfileSection() {
               href="/Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-200 hover:text-white transition-colors border border-neutral-700 hover:border-dx0-orange/60 group font-semibold cursor-pointer shadow-sm"
+              className="w-full sm:w-auto justify-center inline-flex items-center gap-2 px-3 py-1.5 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-200 hover:text-white transition-colors border border-neutral-700 hover:border-dx0-orange/60 group font-semibold cursor-pointer shadow-sm"
             >
               <span>Resume / Curriculum Vitae</span>
               <FiExternalLink className="text-[10px] text-dx0-orange ml-0.5" />

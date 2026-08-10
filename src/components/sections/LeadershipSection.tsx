@@ -6,7 +6,7 @@ function LeadershipSection() {
   return (
     <div
       id="leadership"
-      className="p-5 rounded-lg bg-neutral-900/80 border border-neutral-800 space-y-4"
+      className="p-3.5 sm:p-5 rounded-lg bg-neutral-900/80 border border-neutral-800 space-y-4"
     >
       <div className="border-b border-neutral-800 pb-3">
         <h2 className="text-xs font-bold uppercase tracking-wider text-dx0-orange flex items-center gap-2">
@@ -23,14 +23,14 @@ function LeadershipSection() {
         {LEADERSHIP_DATA.map((lead) => (
           <div
             key={lead.id}
-            className="p-4 rounded-lg bg-neutral-950 border border-neutral-800 space-y-3 flex flex-col justify-between hover:border-dx0-orange/40 transition-colors"
+            className="p-3.5 sm:p-4 rounded-lg bg-neutral-950 border border-neutral-800 space-y-3 flex flex-col justify-between hover:border-dx0-orange/40 transition-colors"
           >
             <div className="space-y-2">
-              <div className="flex justify-between items-start border-b border-neutral-900 pb-2">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 border-b border-neutral-900 pb-2">
                 <h3 className="text-xs font-bold text-white leading-snug">
                   {lead.role}
                 </h3>
-                <span className="text-[10px] px-2 py-0.5 rounded bg-neutral-900 text-dx0-orange font-semibold border border-neutral-800 whitespace-nowrap ml-2">
+                <span className="text-[10px] px-2 py-0.5 rounded bg-neutral-900 text-dx0-orange font-semibold border border-neutral-800 whitespace-nowrap w-fit">
                   {lead.period}
                 </span>
               </div>
