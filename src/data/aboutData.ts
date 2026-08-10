@@ -123,6 +123,7 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
     description: [
       'Developed responsive Laravel interfaces using Filament, Livewire, and Alpine.js.',
       'Built reactive UI components and supported feature development and system maintenance for AI & Smart Tech projects.',
+      'Collaborated with a cross-functional team of 15 interns, coordinating tasks, communication, and peer mentoring to deliver features on schedule.',
     ],
     technologies: [
       'Laravel',
