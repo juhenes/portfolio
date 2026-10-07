@@ -24,6 +24,7 @@ import {
   setAlias,
   removeAlias,
   resolveAlias,
+  FORBIDDEN_ALIAS_KEYS,
 } from '../utils/aliasStorage';
 import type { AliasMap } from '../utils/aliasStorage';
 
@@ -252,7 +253,12 @@ export default function MainInterface() {
         }
         const eqIdx = rest.indexOf('=');
         if (eqIdx === -1) {
-          const single = aliases[rest.toLowerCase()];
+          const lowerRest = rest.toLowerCase();
+          const single =
+            !FORBIDDEN_ALIAS_KEYS.has(lowerRest) &&
+            Object.prototype.hasOwnProperty.call(aliases, lowerRest)
+              ? aliases[lowerRest]
+              : undefined;
           setHistory((prev) => [
             ...prev,
             {
@@ -261,7 +267,7 @@ export default function MainInterface() {
               output: single ? (
                 <div className="font-mono text-xs my-1">
                   <span className="text-dx0-orange font-semibold">alias </span>
-                  <span className="text-yellow-300">{rest.toLowerCase()}</span>
+                  <span className="text-yellow-300">{lowerRest}</span>
                   <span className="text-neutral-400">=</span>
                   <span className="text-emerald-400">&apos;{single}&apos;</span>
                 </div>
@@ -288,6 +294,21 @@ export default function MainInterface() {
               output: (
                 <div className="text-red-400 font-mono text-xs my-1">
                   Usage: alias name=command
+                </div>
+              ),
+            },
+          ]);
+          return;
+        }
+        if (FORBIDDEN_ALIAS_KEYS.has(aliasName)) {
+          setHistory((prev) => [
+            ...prev,
+            {
+              id: itemId,
+              command: trimmed,
+              output: (
+                <div className="text-red-400 font-mono text-xs my-1">
+                  alias: &apos;{aliasName}&apos; is a reserved identifier and cannot be aliased.
                 </div>
               ),
             },
